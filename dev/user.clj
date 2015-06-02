@@ -38,7 +38,7 @@
   (stop)
   (refresh :after 'user/go))
 
-(defn atst
+(defn autotest
   []
   (println "Starting automatic tests...")
   (midje.repl/autotest))

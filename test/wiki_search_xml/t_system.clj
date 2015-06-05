@@ -6,5 +6,4 @@
 (facts "about `system`"
   (fact "version is matching project.clj"
     (let [system (new-system (make-config))]
-      (pprint system)
       (:sys-version system) => "0.1.0-SNAPSHOT")))

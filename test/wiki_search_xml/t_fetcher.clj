@@ -1,9 +1,10 @@
 (ns wiki-search-xml.t-fetcher
-  (:require [clojure.java.io :as io]
+  (:require [com.stuartsierra.component :as component]
+            [clojure.java.io :as io]
             [environ.core :refer [env]]
-            [wiki-search-xml
-             [fetcher :refer :all]
-             [system :as system]])
+            [wiki-search-xml.fetcher :refer :all]
+            [wiki-search-xml.system :as sys]
+            [midje.sweet :refer :all])
   (:import java.io.InputStream))
 
 (defrecord FileFetcher [http-option-map]
@@ -16,9 +17,10 @@
 
 
 (facts "about `fetcher`"
-  (fact "body is an InputStream"
-    (let [config-map (system/make-config)
-          fetcher (map->FileFetcher (:fetcher config-map))
-          response (fetch fetcher (env :wiki-text-xml))]
-      (:body response) => (partial instance? InputStream)
-      (:status response) => 200)))
+  (let [config-map (sys/make-config)
+        fetcher (map->FileFetcher (:fetcher config-map))]
+
+    (fact "response :body is an InputStream"
+      (let [response (fetch fetcher (env :wsx-test-xml))]
+        (:body response) => (partial instance? InputStream) 
+        (:status response) => 200))))

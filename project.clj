@@ -3,10 +3,12 @@
   :url "https://github.com/arichiardi/wiki-search-xml"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.7.0-RC1"]
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [com.stuartsierra/component "0.2.3"]
+                 [environ "1.0.0"]
                  [clj-http-lite "0.2.1"]
-                 [environ "1.0.0"] 
+                 [cheshire "5.5.0"]
                  [slingshot "0.12.2"]
                  
                  ;; Logging
@@ -22,5 +24,7 @@
                                   [midje-notifier "0.2.0"]]
                    :source-paths ["dev"]
                    :resource-paths ["resources/test"]
-                   :env {:wiki-text-xml "enwiki-20150515-abstract24.xml"}}
-             :test {:env {:wiki-text-xml "enwiki-20150515-abstract24.xml"}}})
+                   :env {:wsx-test-xml "enwiki-20150515-abstract24.xml"
+                         :wsx-logger-name "wiki-search-xml-dev-logger"}}
+             :test {:env {:wsx-test-xml "enwiki-20150515-abstract24.xml"
+                          :wsx-logger-name "wiki-search-xml-test-logger"}}})

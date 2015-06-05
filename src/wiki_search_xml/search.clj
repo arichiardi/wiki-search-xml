@@ -16,7 +16,7 @@
   "Creates a new Searcher."
   [config-map]
   (component/using (map->Searcher (:searcher config-map))
-    {:fetcher :web-fetcher}))
+    {:fetcher :wsx-fetcher}))
 
 (defn search-key
   "Performs the search, needs a Searcher and a key to look for."

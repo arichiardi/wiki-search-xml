@@ -1,15 +1,28 @@
 (ns wiki-search-xml.log
-  (:require [com.stuartsierra.component :as component]
-            [midje.sweet :refer [unfinished]])
-  (:import org.slf4j.bridge.SLF4JBridgeHandler
-           java.util.logging.Logger))
+  (:require [com.stuartsierra.component :as component])
+  (:import org.slf4j.bridge.SLF4JBridgeHandler))
 
 (declare bridge-jul->slf4j set-default-uncaught-exception-handler)
 
-(defrecord Log [;; config
-                name
-                ;; instance
-                logger]
+(defprotocol Log
+  "Logs"
+  (e [this msg] "Logs Error messages")
+  (w [this msg] "Logs Warning messages")
+  (i [this msg] "Logs Information messages")
+  (d [this msg] "Logs Debug messages")
+  (v [this msg] "Logs Verbose messages"))
+
+(defrecord Logger [;; config
+                   name
+                   ;; instance
+                   logger]
+  Log
+  (e [this msg] (.severe logger msg))
+  (w [this msg] (.warning logger msg))
+  (i [this msg] (.info logger msg))
+  (d [this msg] (.fine logger msg))
+  (v [this msg] (.finest logger msg))
+  
   component/Lifecycle
   (stop [this]
     (if logger
@@ -18,14 +31,14 @@
   
   (start [this]
     (if-not logger
-      (let [logger (Logger/getLogger name)]
+      (let [logger (java.util.logging.Logger/getLogger name)]
         (bridge-jul->slf4j)
         (set-default-uncaught-exception-handler logger)
         (assoc this :logger logger))
       this)))
 
 (defn new-logger [config]
-  (map->Log (:logger config)))
+  (map->Logger (:logger config)))
 
 (defn bridge-jul->slf4j
   "Redirects all Java.util.logging logs to sl4fj. Should be called

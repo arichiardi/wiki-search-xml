@@ -3,7 +3,7 @@
             [clojure.core.async :as a]))
 
 (defrecord Bus [;; conf
-                timeout
+                timeout buffer-size
                 ;; deps
                 logger
                 ;; instance
@@ -17,7 +17,7 @@
   
   (start [this]
     (if-not chan
-      (assoc this :chan (a/chan 1))
+      (assoc this :chan (a/chan (or buffer-size 1)))
       this)))
 
 (defn new-bus [config]

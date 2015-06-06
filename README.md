@@ -28,7 +28,7 @@ I was also tempted by [this other template](https://github.com/borkdude/lein-new
 I decided to experiment TDD using ```Midje``` instead of ```clojure.test``` for two reasons: it looks more flexible and interactive (have a look at midje-notifier). 
 
 ## Other libraries (might be useful or not)
-- <del>[XML parsing](http://clojure-doc.org/articles/tutorials/parsing_xml_with_zippers.html) -> Can it handle efficienty huge .xml files (aka, lazily/stream-like and not storing them all in memory) ? </del>
+- [org.clojure/data.xml](https://github.com/clojure/data.xml)-> xml/parse is lazy and can handle efficienty huge .xml files
 - [Cheshire](https://github.com/dakrone/cheshire)
 <br>
 - [Aleph](https://github.com/ztellman/aleph)

@@ -6,4 +6,4 @@
 (facts "about `system`"
   (fact "version is matching project.clj"
     (let [system (new-system (make-config))]
-      (:sys-version system) => "0.1.0-SNAPSHOT")))
+      (:wsx-version system) => "0.1.0-SNAPSHOT")))

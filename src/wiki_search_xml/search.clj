@@ -7,16 +7,32 @@
   "Contract for searching documents")
 
 
-(defrecord Searcher [;; config
-                     
-                     ]
-    )
+(defrecord Searcher [ ;; config?
+
+                     ;; dependecies
+                     logger bus fetcher]
+  ;; component/Lifecycle
+  ;; (stop [this]
+    ;; (if 
+      ;; unsubscribe from bus
+     
+      ;; this)
+  ;; )
+  
+  ;; (start [this]
+    ;; (if-not
+      ;; subscribe to chan
+      ;; )
+;; )
+)
 
 (defn new-searcher
   "Creates a new Searcher."
   [config-map]
   (component/using (map->Searcher (:searcher config-map))
-    {:fetcher :wsx-fetcher}))
+    {:fetcher :wsx-fetcher
+     :logger :wsx-logger
+     :bus :wsx-bus}))
 
 (defn search-key
   "Performs the search, needs a Searcher and a key to look for."

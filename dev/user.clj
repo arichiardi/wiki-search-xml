@@ -1,7 +1,7 @@
 (ns user
   (:require [com.stuartsierra.component :as component]
-            [clojure.tools.namespace.repl :refer (refresh refresh-all)]
-            [wiki-search-xml.system :refer (new-system)]
+            [clojure.tools.namespace.repl :refer [refresh refresh-all]]
+            [wiki-search-xml.system :refer [new-system make-config]]
             [midje.repl :as mr]))
 
 (def system nil)
@@ -11,7 +11,7 @@
   []
   (println "Initializing system...")
   (alter-var-root #'system
-    (constantly (new-system {}))))
+    (constantly (new-system (make-config)))))
 
 (defn start
   "Starts the current development system."

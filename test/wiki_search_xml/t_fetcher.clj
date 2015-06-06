@@ -21,6 +21,6 @@
         fetcher (map->FileFetcher (:fetcher config-map))]
 
     (fact "response :body is an InputStream"
-      (let [response (fetch fetcher (env :wsx-test-xml))]
+      (let [response (fetch fetcher (:test-file config-map))]
         (:body response) => (partial instance? InputStream) 
         (:status response) => 200))))

@@ -4,6 +4,7 @@
 
 (facts "about `search.impl`"
 
+  (fact "should return just ab words")
 
 
   )

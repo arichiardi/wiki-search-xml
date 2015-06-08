@@ -5,15 +5,15 @@
 
 (facts "about `text`"
 
-  (fact "`words` should return a lazy list"
+  (future-fact "`words` should return a lazy list"
     (lazy? (words "three two one")) => truthy)
 
-  (fact "`words` should return just words"
+  (future-fact "`words` should return just words"
     (words "                  ") => empty?
     (words ",\n,,..'.\"[") => empty?
     (words "\"four\"  three, two. \\one  \n zero") => (just ["four" "three" "two" "one" "zero"]))
 
-  (fact "`words` consistency checks"
+  (future-fact "`words` consistency checks"
     (words "") => empty?
     (words "two") => (just ["two"])
     (words "two three four") => (just ["two" "three" "four"]))

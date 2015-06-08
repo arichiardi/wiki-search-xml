@@ -1,7 +1,7 @@
 (ns wiki-search-xml.t-system
-  (:require [midje.sweet :refer :all]
-            [clojure.pprint :refer [pprint]]
-            [wiki-search-xml.system :refer :all]))
+  (:require [clojure.pprint :refer [pprint]]
+            [wiki-search-xml.system :refer :all]
+            [midje.sweet :refer :all]))
 
 (facts "about `system`"
   (fact "version is matching project.clj"

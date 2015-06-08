@@ -6,7 +6,8 @@
   (fetch [this url]
     "Fetching method, returns a map containing the result of fetching the document"))
 
-(defrecord Fetcher [http-option-map]
+(defrecord Fetcher [;; config
+                    http-option-map]
   Fetch
   (fetch [this url]
     (http/get url {:as :stream})))

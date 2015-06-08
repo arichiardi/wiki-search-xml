@@ -10,20 +10,25 @@
 (defrecord Searcher [ ;; config?
 
                      ;; dependecies
-                     logger bus fetcher]
-  ;; component/Lifecycle
-  ;; (stop [this]
-    ;; (if 
-      ;; unsubscribe from bus
-     
-      ;; this)
-  ;; )
+                     logger bus fetcher
+                     ;;
+                     subscription
+                     ]
+  component/Lifecycle
+  (stop [this]
+    ;; unsubscribe
+    (if subscription 
+      this
+      this)
+  )
   
-  ;; (start [this]
-    ;; (if-not
-      ;; subscribe to chan
-      ;; )
-;; )
+  (start [this]
+    (if subscription
+      this
+      this
+      ;; subscribe
+      )
+)
 )
 
 (defn new-searcher
@@ -37,7 +42,7 @@
 (defn search-key
   "Performs the search, needs a Searcher and a key to look for."
   [searcher url key]
-  (let [{:keys [fetcher]} searcher 
+  (let [{:keys [logger fetcher]} searcher 
         response (fetch fetcher url)]
 
     

@@ -9,17 +9,17 @@
   (let [config-map (sys/make-config)
         system (sys/new-system config-map)]
 
-    (fact ":logger never nil"
+    (fact "key in system never nil"
       (:wsx-logger system) => some?)
     
     (fact ":name from environment"
       (:name (new-logger config-map)) => (:wsx-logger-name env)
       (get-in system [:wsx-logger :name]) => (:wsx-logger-name env))
     
-    (fact "unstarted, should have nil :logger"
+    (fact "unstarted, should have nil instance"
       (get-in system [:wsx-logger :logger]))
     
-    (fact "started, should have its instance"
+    (fact "started, should have non-nil instance"
       (let [started-system (component/start system)]
         (get-in started-system [:wsx-logger :logger]) => some?))
 

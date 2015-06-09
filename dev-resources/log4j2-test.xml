@@ -19,7 +19,7 @@
     </RollingFile>
 
     <RollingFile name="error-log" fileName="${log-path}/wsx-error.log"
-                 filePattern="${log-path}/mycuteblog-error-%d{yyyy-MM-dd}.log">
+                 filePattern="${log-path}/wsx-error-%d{yyyy-MM-dd}.log">
       <PatternLayout>
         <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
       </PatternLayout>
@@ -33,10 +33,10 @@
     <Logger name="wiki-search-xml.log4j2" level="debug" additivity="false">
       <appender-ref ref="trace-log" level="debug"/>
       <appender-ref ref="error-log" level="error"/>
-      <appender-ref ref="console-log" level="debug"/>
+      <appender-ref ref="console-log" level="off"/>
     </Logger>
-    <Root level="info" additivity="false">
-      <AppenderRef ref="console-log"/>
+    <Root level="debug" additivity="false">
+      <AppenderRef ref="trace-log"/>
     </Root>
   </Loggers>
 </Configuration>

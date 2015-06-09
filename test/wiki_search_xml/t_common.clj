@@ -15,7 +15,9 @@
     (let [c1 (chan)]
       (do (go (>! c1 "test")) (<t!! c1 1000)) => "test"
       (do (go (do (<! (timeout 500)) (>! c1  "test"))) (<t!! c1 1000)) => "test" 
-      (do (go (do (<! (timeout 2000)) (>! c1  "test"))) (<t!! c1 1000)) => :!!timed-out!! 
-      (<t!! c1 10) => :!!timed-out!!))
+      (do (go (do (<! (timeout 2000)) (>! c1  "test"))) (<t!! c1 1000)) => nil
+      (<t!! c1 10) => nil
+      )
+    )
   )
 

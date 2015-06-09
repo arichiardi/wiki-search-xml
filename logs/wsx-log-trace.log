@@ -1,0 +1,753 @@
+[DEBUG] 2015-06-09 17:19:07.624 [async-dispatch-3] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:07.628 [async-dispatch-3] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:19:08.582 [clojure-agent-send-off-pool-5] common - Returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x576a1d65 clojure.core.async.impl.channels.ManyToManyChannel@576a1d65]
+[DEBUG] 2015-06-09 17:19:08.607 [async-dispatch-14] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:08.607 [async-dispatch-14] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:19:09.112 [clojure-agent-send-off-pool-5] common - Returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x718dd393 clojure.core.async.impl.channels.ManyToManyChannel@718dd393]
+[DEBUG] 2015-06-09 17:19:09.616 [clojure-agent-send-off-pool-5] common - Returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x60be07a1 clojure.core.async.impl.channels.ManyToManyChannel@60be07a1]
+[DEBUG] 2015-06-09 17:19:09.619 [async-dispatch-25] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:09.619 [async-dispatch-25] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:19:09.914 [clojure-agent-send-off-pool-5] common - Returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6d718668 clojure.core.async.impl.channels.ManyToManyChannel@6d718668]
+[DEBUG] 2015-06-09 17:19:10.419 [clojure-agent-send-off-pool-5] common - Returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6d718668 clojure.core.async.impl.channels.ManyToManyChannel@6d718668]
+[DEBUG] 2015-06-09 17:19:11.425 [clojure-agent-send-off-pool-5] common - Returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x752cb6a8 clojure.core.async.impl.channels.ManyToManyChannel@752cb6a8]
+[DEBUG] 2015-06-09 17:19:11.436 [clojure-agent-send-off-pool-5] common - Returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x140f2ca3 clojure.core.async.impl.channels.ManyToManyChannel@140f2ca3]
+[DEBUG] 2015-06-09 17:19:11.818 [async-dispatch-38] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:11.818 [async-dispatch-38] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:19:11.821 [async-dispatch-42] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:11.823 [async-dispatch-42] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:19:28.217 [nREPL-worker-0] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x60849042 clojure.core.async.impl.channels.ManyToManyChannel@60849042]
+[DEBUG] 2015-06-09 17:19:28.720 [nREPL-worker-0] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x60849042 clojure.core.async.impl.channels.ManyToManyChannel@60849042]
+[DEBUG] 2015-06-09 17:19:29.723 [nREPL-worker-0] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5146646 clojure.core.async.impl.channels.ManyToManyChannel@5146646]
+[DEBUG] 2015-06-09 17:19:29.737 [nREPL-worker-0] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4156f026 clojure.core.async.impl.channels.ManyToManyChannel@4156f026]
+[DEBUG] 2015-06-09 17:19:29.886 [async-dispatch-55] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:29.887 [async-dispatch-55] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:19:29.890 [async-dispatch-1] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:29.891 [async-dispatch-1] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:19:30.895 [nREPL-worker-0] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5b553174 clojure.core.async.impl.channels.ManyToManyChannel@5b553174]
+[DEBUG] 2015-06-09 17:19:30.900 [async-dispatch-10] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:30.900 [async-dispatch-10] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:19:31.408 [nREPL-worker-0] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x13c09c51 clojure.core.async.impl.channels.ManyToManyChannel@13c09c51]
+[DEBUG] 2015-06-09 17:19:31.915 [nREPL-worker-0] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3b0dd4c clojure.core.async.impl.channels.ManyToManyChannel@3b0dd4c]
+[DEBUG] 2015-06-09 17:19:31.917 [async-dispatch-20] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:31.918 [async-dispatch-20] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:19:31.989 [async-dispatch-26] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:31.989 [async-dispatch-26] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:19:31.990 [async-dispatch-28] search - Message received:  nil
+[DEBUG] 2015-06-09 17:19:31.991 [async-dispatch-28] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:22:10.336 [async-dispatch-33] search - Message received:  nil
+[DEBUG] 2015-06-09 17:22:10.337 [async-dispatch-33] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:22:10.338 [async-dispatch-37] search - Message received:  nil
+[DEBUG] 2015-06-09 17:22:10.339 [async-dispatch-37] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:22:11.342 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2bc75ade clojure.core.async.impl.channels.ManyToManyChannel@2bc75ade]
+[DEBUG] 2015-06-09 17:22:11.346 [async-dispatch-44] search - Message received:  nil
+[DEBUG] 2015-06-09 17:22:11.346 [async-dispatch-44] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:22:11.850 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2ffaf12 clojure.core.async.impl.channels.ManyToManyChannel@2ffaf12]
+[DEBUG] 2015-06-09 17:22:12.356 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x47c1b736 clojure.core.async.impl.channels.ManyToManyChannel@47c1b736]
+[DEBUG] 2015-06-09 17:22:12.357 [async-dispatch-55] search - Message received:  nil
+[DEBUG] 2015-06-09 17:22:12.358 [async-dispatch-55] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:22:12.429 [async-dispatch-1] search - Message received:  nil
+[DEBUG] 2015-06-09 17:22:12.429 [async-dispatch-1] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:22:12.430 [async-dispatch-8] search - Message received:  nil
+[DEBUG] 2015-06-09 17:22:12.430 [async-dispatch-8] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:24:56.613 [async-dispatch-10] search - Message received:  nil
+[DEBUG] 2015-06-09 17:24:56.613 [async-dispatch-10] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:24:56.615 [async-dispatch-15] search - Message received:  nil
+[DEBUG] 2015-06-09 17:24:56.615 [async-dispatch-15] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:24:57.618 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2d2dbe06 clojure.core.async.impl.channels.ManyToManyChannel@2d2dbe06]
+[DEBUG] 2015-06-09 17:24:57.622 [async-dispatch-22] search - Message received:  nil
+[DEBUG] 2015-06-09 17:24:57.623 [async-dispatch-22] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:24:58.129 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x67c88fd3 clojure.core.async.impl.channels.ManyToManyChannel@67c88fd3]
+[DEBUG] 2015-06-09 17:24:58.636 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x52ff9245 clojure.core.async.impl.channels.ManyToManyChannel@52ff9245]
+[DEBUG] 2015-06-09 17:24:58.638 [async-dispatch-32] search - Message received:  nil
+[DEBUG] 2015-06-09 17:24:58.638 [async-dispatch-32] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:32:55.896 [async-dispatch-43] search - Message received:  nil
+[DEBUG] 2015-06-09 17:32:55.897 [async-dispatch-43] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:32:55.898 [async-dispatch-44] search - Message received:  nil
+[DEBUG] 2015-06-09 17:32:55.899 [async-dispatch-44] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:32:56.904 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6292e119 clojure.core.async.impl.channels.ManyToManyChannel@6292e119]
+[DEBUG] 2015-06-09 17:32:56.907 [async-dispatch-52] search - Message received:  nil
+[DEBUG] 2015-06-09 17:32:56.907 [async-dispatch-52] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:32:57.412 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x55a069c clojure.core.async.impl.channels.ManyToManyChannel@55a069c]
+[DEBUG] 2015-06-09 17:32:57.918 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x53928436 clojure.core.async.impl.channels.ManyToManyChannel@53928436]
+[DEBUG] 2015-06-09 17:32:57.920 [async-dispatch-4] search - Message received:  nil
+[DEBUG] 2015-06-09 17:32:57.920 [async-dispatch-4] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:32:58.010 [async-dispatch-11] search - Message received:  nil
+[DEBUG] 2015-06-09 17:32:58.010 [async-dispatch-11] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:32:58.011 [async-dispatch-14] search - Message received:  nil
+[DEBUG] 2015-06-09 17:32:58.011 [async-dispatch-14] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:33:21.429 [async-dispatch-16] search - Message received:  nil
+[DEBUG] 2015-06-09 17:33:21.429 [async-dispatch-16] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:46:41.212 [clojure-agent-send-off-pool-4] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x80d8c4f clojure.core.async.impl.channels.ManyToManyChannel@80d8c4f]
+[DEBUG] 2015-06-09 17:46:41.728 [clojure-agent-send-off-pool-4] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x80d8c4f clojure.core.async.impl.channels.ManyToManyChannel@80d8c4f]
+[DEBUG] 2015-06-09 17:46:42.730 [clojure-agent-send-off-pool-4] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x619701d5 clojure.core.async.impl.channels.ManyToManyChannel@619701d5]
+[DEBUG] 2015-06-09 17:46:42.742 [clojure-agent-send-off-pool-4] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7b19d5f0 clojure.core.async.impl.channels.ManyToManyChannel@7b19d5f0]
+[DEBUG] 2015-06-09 17:46:43.291 [async-dispatch-11] search - Message received:  nil
+[DEBUG] 2015-06-09 17:46:43.293 [async-dispatch-11] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:46:43.295 [async-dispatch-15] search - Message received:  nil
+[DEBUG] 2015-06-09 17:46:43.296 [async-dispatch-15] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:46:49.273 [nREPL-worker-0] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7b79aca5 clojure.core.async.impl.channels.ManyToManyChannel@7b79aca5]
+[DEBUG] 2015-06-09 17:46:49.778 [nREPL-worker-0] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7b79aca5 clojure.core.async.impl.channels.ManyToManyChannel@7b79aca5]
+[DEBUG] 2015-06-09 17:46:50.782 [nREPL-worker-0] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xd24124e clojure.core.async.impl.channels.ManyToManyChannel@d24124e]
+[DEBUG] 2015-06-09 17:46:50.796 [nREPL-worker-0] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3b8e8bcb clojure.core.async.impl.channels.ManyToManyChannel@3b8e8bcb]
+[DEBUG] 2015-06-09 17:46:51.074 [async-dispatch-27] search - Message received:  nil
+[DEBUG] 2015-06-09 17:46:51.074 [async-dispatch-27] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:46:51.078 [async-dispatch-29] search - Message received:  nil
+[DEBUG] 2015-06-09 17:46:51.078 [async-dispatch-29] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:08.291 [async-dispatch-32] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:08.291 [async-dispatch-32] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:08.293 [async-dispatch-34] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:08.294 [async-dispatch-34] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:08.301 [async-dispatch-37] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:08.302 [async-dispatch-37] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:09.301 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5a7ce7a1 clojure.core.async.impl.channels.ManyToManyChannel@5a7ce7a1]
+[DEBUG] 2015-06-09 17:47:09.353 [async-dispatch-42] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:09.353 [async-dispatch-42] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:09.853 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5c34b2bb clojure.core.async.impl.channels.ManyToManyChannel@5c34b2bb]
+[DEBUG] 2015-06-09 17:47:10.359 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x329bc4ac clojure.core.async.impl.channels.ManyToManyChannel@329bc4ac]
+[DEBUG] 2015-06-09 17:47:12.449 [async-dispatch-49] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:12.449 [async-dispatch-49] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:12.450 [async-dispatch-51] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:12.450 [async-dispatch-51] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:12.457 [async-dispatch-54] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:12.457 [async-dispatch-54] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:13.457 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7f67bd13 clojure.core.async.impl.channels.ManyToManyChannel@7f67bd13]
+[DEBUG] 2015-06-09 17:47:13.468 [async-dispatch-1] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:13.468 [async-dispatch-1] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:13.968 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x70b41a55 clojure.core.async.impl.channels.ManyToManyChannel@70b41a55]
+[DEBUG] 2015-06-09 17:47:14.473 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4259776c clojure.core.async.impl.channels.ManyToManyChannel@4259776c]
+[DEBUG] 2015-06-09 17:47:29.103 [async-dispatch-8] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:29.104 [async-dispatch-8] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:29.105 [async-dispatch-10] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:29.105 [async-dispatch-10] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:29.109 [async-dispatch-13] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:29.109 [async-dispatch-13] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:30.109 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x204aa884 clojure.core.async.impl.channels.ManyToManyChannel@204aa884]
+[DEBUG] 2015-06-09 17:47:30.120 [async-dispatch-17] search - Message received:  nil
+[DEBUG] 2015-06-09 17:47:30.121 [async-dispatch-17] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:47:30.620 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x32a9036d clojure.core.async.impl.channels.ManyToManyChannel@32a9036d]
+[DEBUG] 2015-06-09 17:47:30.629 [pool-2-thread-1] common - <t!! - returning v:  {:yours :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x17ab0c47 clojure.core.async.impl.channels.ManyToManyChannel@17ab0c47]
+[DEBUG] 2015-06-09 17:48:16.646 [async-dispatch-22] search - Message received:  nil
+[DEBUG] 2015-06-09 17:48:16.646 [async-dispatch-22] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:48:16.648 [async-dispatch-24] search - Message received:  nil
+[DEBUG] 2015-06-09 17:48:16.648 [async-dispatch-24] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:48:16.653 [async-dispatch-27] search - Message received:  nil
+[DEBUG] 2015-06-09 17:48:16.653 [async-dispatch-27] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:48:17.653 [nREPL-worker-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5a17ead2 clojure.core.async.impl.channels.ManyToManyChannel@5a17ead2]
+[DEBUG] 2015-06-09 17:48:17.665 [async-dispatch-31] search - Message received:  nil
+[DEBUG] 2015-06-09 17:48:17.665 [async-dispatch-31] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:48:18.163 [nREPL-worker-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x257641e8 clojure.core.async.impl.channels.ManyToManyChannel@257641e8]
+[DEBUG] 2015-06-09 17:48:18.168 [nREPL-worker-1] common - <t!! - returning v:  {:yours :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7af2e494 clojure.core.async.impl.channels.ManyToManyChannel@7af2e494]
+[DEBUG] 2015-06-09 17:49:04.539 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:04.539 [async-dispatch-36] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:04.540 [async-dispatch-38] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:04.541 [async-dispatch-38] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:04.544 [async-dispatch-41] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:04.544 [async-dispatch-41] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:05.544 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x10609ffb clojure.core.async.impl.channels.ManyToManyChannel@10609ffb]
+[DEBUG] 2015-06-09 17:49:16.150 [async-dispatch-44] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:16.150 [async-dispatch-44] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:16.152 [async-dispatch-46] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:16.152 [async-dispatch-46] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:16.156 [async-dispatch-49] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:16.157 [async-dispatch-49] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:17.155 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xd95089f clojure.core.async.impl.channels.ManyToManyChannel@d95089f]
+[DEBUG] 2015-06-09 17:49:27.924 [async-dispatch-52] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:27.924 [async-dispatch-52] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:27.925 [async-dispatch-54] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:27.925 [async-dispatch-54] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:27.930 [async-dispatch-57] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:27.930 [async-dispatch-57] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:28.929 [nREPL-worker-2] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2f80bbfa clojure.core.async.impl.channels.ManyToManyChannel@2f80bbfa]
+[DEBUG] 2015-06-09 17:49:57.833 [async-dispatch-2] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:57.834 [async-dispatch-2] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:57.835 [async-dispatch-3] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:57.836 [async-dispatch-3] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:57.840 [async-dispatch-7] search - Message received:  nil
+[DEBUG] 2015-06-09 17:49:57.841 [async-dispatch-7] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:49:58.840 [nREPL-worker-2] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x435cb0da clojure.core.async.impl.channels.ManyToManyChannel@435cb0da]
+[DEBUG] 2015-06-09 17:51:02.798 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x12c729d2 clojure.core.async.impl.channels.ManyToManyChannel@12c729d2]  timeout  1000
+[DEBUG] 2015-06-09 17:51:02.799 [pool-2-thread-1] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x12c729d2 clojure.core.async.impl.channels.ManyToManyChannel@12c729d2]
+[DEBUG] 2015-06-09 17:51:02.800 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x12c729d2 clojure.core.async.impl.channels.ManyToManyChannel@12c729d2]  timeout  1000
+[DEBUG] 2015-06-09 17:51:03.302 [pool-2-thread-1] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x12c729d2 clojure.core.async.impl.channels.ManyToManyChannel@12c729d2]
+[DEBUG] 2015-06-09 17:51:03.305 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x12c729d2 clojure.core.async.impl.channels.ManyToManyChannel@12c729d2]  timeout  1000
+[DEBUG] 2015-06-09 17:51:04.306 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1c01851a clojure.core.async.impl.channels.ManyToManyChannel@1c01851a]
+[DEBUG] 2015-06-09 17:51:04.308 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x12c729d2 clojure.core.async.impl.channels.ManyToManyChannel@12c729d2]  timeout  10
+[DEBUG] 2015-06-09 17:51:04.319 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4462d860 clojure.core.async.impl.channels.ManyToManyChannel@4462d860]
+[DEBUG] 2015-06-09 17:51:04.368 [async-dispatch-19] search - Message received:  nil
+[DEBUG] 2015-06-09 17:51:04.369 [async-dispatch-19] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:51:04.374 [async-dispatch-18] search - Message received:  nil
+[DEBUG] 2015-06-09 17:51:04.374 [async-dispatch-18] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:51:04.377 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x76aabf12 clojure.core.async.impl.channels.ManyToManyChannel@76aabf12]  timeout  1000
+[DEBUG] 2015-06-09 17:51:04.378 [async-dispatch-23] search - Message received:  nil
+[DEBUG] 2015-06-09 17:51:04.378 [async-dispatch-23] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:51:05.378 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5ca090ac clojure.core.async.impl.channels.ManyToManyChannel@5ca090ac]
+[DEBUG] 2015-06-09 17:51:05.453 [async-dispatch-27] search - Message received:  nil
+[DEBUG] 2015-06-09 17:51:05.453 [async-dispatch-27] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:51:05.454 [async-dispatch-29] search - Message received:  nil
+[DEBUG] 2015-06-09 17:51:05.454 [async-dispatch-29] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:51:24.562 [async-dispatch-31] search - Message received:  nil
+[DEBUG] 2015-06-09 17:51:24.562 [async-dispatch-31] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:51:24.563 [async-dispatch-33] search - Message received:  nil
+[DEBUG] 2015-06-09 17:51:24.563 [async-dispatch-33] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:51:24.568 [nREPL-worker-3] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x169e3623 clojure.core.async.impl.channels.ManyToManyChannel@169e3623]  timeout  1000
+[DEBUG] 2015-06-09 17:51:24.568 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 17:51:24.569 [async-dispatch-36] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:51:25.569 [nREPL-worker-3] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x665fddd9 clojure.core.async.impl.channels.ManyToManyChannel@665fddd9]
+[DEBUG] 2015-06-09 17:52:05.607 [async-dispatch-39] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:05.607 [async-dispatch-39] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:52:05.609 [async-dispatch-41] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:05.609 [async-dispatch-41] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:52:05.613 [nREPL-worker-4] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3efa028e clojure.core.async.impl.channels.ManyToManyChannel@3efa028e]  timeout  1000
+[DEBUG] 2015-06-09 17:52:05.614 [async-dispatch-44] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:05.614 [async-dispatch-44] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:52:06.614 [nREPL-worker-4] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x362ab413 clojure.core.async.impl.channels.ManyToManyChannel@362ab413]
+[DEBUG] 2015-06-09 17:52:19.362 [async-dispatch-47] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:19.363 [async-dispatch-47] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:52:19.364 [async-dispatch-49] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:19.364 [async-dispatch-49] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:52:19.368 [nREPL-worker-4] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3be2e34c clojure.core.async.impl.channels.ManyToManyChannel@3be2e34c]  timeout  1000
+[DEBUG] 2015-06-09 17:52:19.370 [async-dispatch-52] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:19.371 [async-dispatch-52] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:52:20.369 [nREPL-worker-4] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x251b3228 clojure.core.async.impl.channels.ManyToManyChannel@251b3228]
+[DEBUG] 2015-06-09 17:52:54.540 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x362bf6fe clojure.core.async.impl.channels.ManyToManyChannel@362bf6fe]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:52:54.540 [pool-2-thread-1] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x362bf6fe clojure.core.async.impl.channels.ManyToManyChannel@362bf6fe]
+[DEBUG] 2015-06-09 17:52:54.541 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x362bf6fe clojure.core.async.impl.channels.ManyToManyChannel@362bf6fe]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:52:55.044 [pool-2-thread-1] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x362bf6fe clojure.core.async.impl.channels.ManyToManyChannel@362bf6fe]
+[DEBUG] 2015-06-09 17:52:55.045 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x362bf6fe clojure.core.async.impl.channels.ManyToManyChannel@362bf6fe]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:52:56.046 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5b96e6a8 clojure.core.async.impl.channels.ManyToManyChannel@5b96e6a8]
+[DEBUG] 2015-06-09 17:52:56.047 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x362bf6fe clojure.core.async.impl.channels.ManyToManyChannel@362bf6fe]  timeout-ms  10
+[DEBUG] 2015-06-09 17:52:56.058 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3280a98 clojure.core.async.impl.channels.ManyToManyChannel@3280a98]
+[DEBUG] 2015-06-09 17:52:56.112 [async-dispatch-5] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:56.113 [async-dispatch-5] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:52:56.116 [async-dispatch-7] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:56.117 [async-dispatch-7] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:52:56.119 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x53c3072d clojure.core.async.impl.channels.ManyToManyChannel@53c3072d]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:52:56.120 [async-dispatch-9] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:56.120 [async-dispatch-9] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:52:57.120 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x31509bd1 clojure.core.async.impl.channels.ManyToManyChannel@31509bd1]
+[DEBUG] 2015-06-09 17:52:57.191 [async-dispatch-14] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:57.191 [async-dispatch-14] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:52:57.192 [async-dispatch-15] search - Message received:  nil
+[DEBUG] 2015-06-09 17:52:57.192 [async-dispatch-15] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:53:22.845 [async-dispatch-19] search - Message received:  nil
+[DEBUG] 2015-06-09 17:53:22.845 [async-dispatch-19] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:53:22.848 [async-dispatch-18] search - Message received:  nil
+[DEBUG] 2015-06-09 17:53:22.848 [async-dispatch-18] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:53:22.851 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x41333d25 clojure.core.async.impl.channels.ManyToManyChannel@41333d25]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:53:22.852 [async-dispatch-23] search - Message received:  nil
+[DEBUG] 2015-06-09 17:53:22.852 [async-dispatch-23] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:53:23.852 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x17c323b5 clojure.core.async.impl.channels.ManyToManyChannel@17c323b5]
+[DEBUG] 2015-06-09 17:54:19.613 [async-dispatch-26] search - Message received:  nil
+[DEBUG] 2015-06-09 17:54:19.613 [async-dispatch-26] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:54:19.615 [async-dispatch-28] search - Message received:  nil
+[DEBUG] 2015-06-09 17:54:19.615 [async-dispatch-28] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:54:19.620 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x518f8403 clojure.core.async.impl.channels.ManyToManyChannel@518f8403]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:54:19.621 [async-dispatch-31] search - Message received:  nil
+[DEBUG] 2015-06-09 17:54:19.621 [async-dispatch-31] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:54:20.621 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x375fa70 clojure.core.async.impl.channels.ManyToManyChannel@375fa70]
+[DEBUG] 2015-06-09 17:54:37.229 [async-dispatch-34] search - Message received:  nil
+[DEBUG] 2015-06-09 17:54:37.230 [async-dispatch-34] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:54:37.231 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 17:54:37.231 [async-dispatch-36] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:54:37.236 [async-dispatch-39] search - Message received:  nil
+[DEBUG] 2015-06-09 17:54:37.236 [async-dispatch-39] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:56:40.831 [async-dispatch-2] search - Message received:  nil
+[DEBUG] 2015-06-09 17:56:40.837 [async-dispatch-2] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:56:41.155 [clojure-agent-send-off-pool-3] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0xcc5b875 clojure.core.async.impl.channels.ManyToManyChannel@cc5b875]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:56:41.163 [clojure-agent-send-off-pool-3] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xcc5b875 clojure.core.async.impl.channels.ManyToManyChannel@cc5b875]
+[DEBUG] 2015-06-09 17:56:41.164 [clojure-agent-send-off-pool-3] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0xcc5b875 clojure.core.async.impl.channels.ManyToManyChannel@cc5b875]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:56:41.683 [clojure-agent-send-off-pool-3] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xcc5b875 clojure.core.async.impl.channels.ManyToManyChannel@cc5b875]
+[DEBUG] 2015-06-09 17:56:41.686 [clojure-agent-send-off-pool-3] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0xcc5b875 clojure.core.async.impl.channels.ManyToManyChannel@cc5b875]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:56:42.688 [clojure-agent-send-off-pool-3] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1dbe3762 clojure.core.async.impl.channels.ManyToManyChannel@1dbe3762]
+[DEBUG] 2015-06-09 17:56:42.689 [clojure-agent-send-off-pool-3] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0xcc5b875 clojure.core.async.impl.channels.ManyToManyChannel@cc5b875]  timeout-ms  10
+[DEBUG] 2015-06-09 17:56:42.700 [clojure-agent-send-off-pool-3] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7f01df94 clojure.core.async.impl.channels.ManyToManyChannel@7f01df94]
+[DEBUG] 2015-06-09 17:56:43.202 [async-dispatch-18] search - Message received:  nil
+[DEBUG] 2015-06-09 17:56:43.202 [async-dispatch-18] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:56:43.205 [async-dispatch-20] search - Message received:  nil
+[DEBUG] 2015-06-09 17:56:43.205 [async-dispatch-20] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:57:21.949 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5d04d331 clojure.core.async.impl.channels.ManyToManyChannel@5d04d331]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:57:21.950 [nREPL-worker-1] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5d04d331 clojure.core.async.impl.channels.ManyToManyChannel@5d04d331]
+[DEBUG] 2015-06-09 17:57:21.951 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5d04d331 clojure.core.async.impl.channels.ManyToManyChannel@5d04d331]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:57:22.453 [nREPL-worker-1] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5d04d331 clojure.core.async.impl.channels.ManyToManyChannel@5d04d331]
+[DEBUG] 2015-06-09 17:57:22.455 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5d04d331 clojure.core.async.impl.channels.ManyToManyChannel@5d04d331]  timeout-ms  1000
+[DEBUG] 2015-06-09 17:57:23.456 [nREPL-worker-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6f47dfda clojure.core.async.impl.channels.ManyToManyChannel@6f47dfda]
+[DEBUG] 2015-06-09 17:57:23.457 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5d04d331 clojure.core.async.impl.channels.ManyToManyChannel@5d04d331]  timeout-ms  10
+[DEBUG] 2015-06-09 17:57:23.467 [nREPL-worker-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7b1bb4a clojure.core.async.impl.channels.ManyToManyChannel@7b1bb4a]
+[DEBUG] 2015-06-09 17:57:23.609 [async-dispatch-31] search - Message received:  nil
+[DEBUG] 2015-06-09 17:57:23.610 [async-dispatch-31] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:57:23.616 [async-dispatch-33] search - Message received:  nil
+[DEBUG] 2015-06-09 17:57:23.616 [async-dispatch-33] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:57:23.622 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 17:57:23.622 [async-dispatch-36] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:57:23.726 [async-dispatch-38] search - Message received:  nil
+[DEBUG] 2015-06-09 17:57:23.726 [async-dispatch-38] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:57:23.728 [async-dispatch-40] search - Message received:  nil
+[DEBUG] 2015-06-09 17:57:23.728 [async-dispatch-40] search - Starting searching  nil  in  clojure.lang.LazySeq@ff613833
+[DEBUG] 2015-06-09 17:57:51.608 [async-dispatch-43] search - Message received:  nil
+[DEBUG] 2015-06-09 17:57:51.609 [async-dispatch-43] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:57:51.611 [async-dispatch-45] search - Message received:  nil
+[DEBUG] 2015-06-09 17:57:51.611 [async-dispatch-45] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:57:51.617 [async-dispatch-48] search - Message received:  nil
+[DEBUG] 2015-06-09 17:57:51.618 [async-dispatch-48] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:57:51.686 [async-dispatch-50] search - Message received:  nil
+[DEBUG] 2015-06-09 17:57:51.686 [async-dispatch-50] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:57:51.687 [async-dispatch-52] search - Message received:  nil
+[DEBUG] 2015-06-09 17:57:51.688 [async-dispatch-52] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:58:23.867 [async-dispatch-54] search - Message received:  nil
+[DEBUG] 2015-06-09 17:58:23.867 [async-dispatch-54] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:58:23.870 [async-dispatch-56] search - Message received:  nil
+[DEBUG] 2015-06-09 17:58:23.870 [async-dispatch-56] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 17:58:23.874 [async-dispatch-1] search - Message received:  nil
+[DEBUG] 2015-06-09 17:58:23.874 [async-dispatch-1] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:00:27.342 [async-dispatch-4] search - Message received:  nil
+[DEBUG] 2015-06-09 18:00:27.343 [async-dispatch-4] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:00:27.344 [async-dispatch-7] search - Message received:  nil
+[DEBUG] 2015-06-09 18:00:27.344 [async-dispatch-7] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:00:27.347 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0xa060bb3 clojure.core.async.impl.channels.ManyToManyChannel@a060bb3]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:00:27.348 [async-dispatch-2] search - Message received:  nil
+[DEBUG] 2015-06-09 18:00:27.348 [async-dispatch-2] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:00:28.348 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x11d4ed59 clojure.core.async.impl.channels.ManyToManyChannel@11d4ed59]
+[DEBUG] 2015-06-09 18:00:33.925 [async-dispatch-12] search - Message received:  nil
+[DEBUG] 2015-06-09 18:00:33.925 [async-dispatch-12] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:00:33.926 [async-dispatch-14] search - Message received:  nil
+[DEBUG] 2015-06-09 18:00:33.927 [async-dispatch-14] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:00:33.930 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4adad29 clojure.core.async.impl.channels.ManyToManyChannel@4adad29]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:00:33.931 [async-dispatch-17] search - Message received:  nil
+[DEBUG] 2015-06-09 18:00:33.931 [async-dispatch-17] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:00:34.931 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2171519 clojure.core.async.impl.channels.ManyToManyChannel@2171519]
+[DEBUG] 2015-06-09 18:03:38.039 [async-dispatch-22] search - Message received:  nil
+[DEBUG] 2015-06-09 18:03:38.040 [async-dispatch-22] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:06:02.135 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2503f5ff clojure.core.async.impl.channels.ManyToManyChannel@2503f5ff]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:06:02.136 [pool-2-thread-1] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2503f5ff clojure.core.async.impl.channels.ManyToManyChannel@2503f5ff]
+[DEBUG] 2015-06-09 18:06:34.886 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0xa79aaee clojure.core.async.impl.channels.ManyToManyChannel@a79aaee]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:06:34.888 [pool-2-thread-1] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xa79aaee clojure.core.async.impl.channels.ManyToManyChannel@a79aaee]
+[DEBUG] 2015-06-09 18:06:34.891 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4c07ecff clojure.core.async.impl.channels.ManyToManyChannel@4c07ecff]  timeout-ms  500
+[DEBUG] 2015-06-09 18:06:34.893 [pool-2-thread-1] common - <t!! - returning v:  {:mine :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4c07ecff clojure.core.async.impl.channels.ManyToManyChannel@4c07ecff]
+[DEBUG] 2015-06-09 18:06:34.893 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4c07ecff clojure.core.async.impl.channels.ManyToManyChannel@4c07ecff]  timeout-ms  500
+[DEBUG] 2015-06-09 18:06:34.895 [pool-2-thread-1] common - <t!! - returning v:  {:yours :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4c07ecff clojure.core.async.impl.channels.ManyToManyChannel@4c07ecff]
+[DEBUG] 2015-06-09 18:07:03.087 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2530f2ab clojure.core.async.impl.channels.ManyToManyChannel@2530f2ab]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:07:03.088 [pool-2-thread-1] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2530f2ab clojure.core.async.impl.channels.ManyToManyChannel@2530f2ab]
+[DEBUG] 2015-06-09 18:07:03.094 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x58dedd29 clojure.core.async.impl.channels.ManyToManyChannel@58dedd29]  timeout-ms  500
+[DEBUG] 2015-06-09 18:07:03.096 [pool-2-thread-1] common - <t!! - returning v:  {:mine :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x58dedd29 clojure.core.async.impl.channels.ManyToManyChannel@58dedd29]
+[DEBUG] 2015-06-09 18:07:03.098 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x58dedd29 clojure.core.async.impl.channels.ManyToManyChannel@58dedd29]  timeout-ms  500
+[DEBUG] 2015-06-09 18:07:03.599 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6d2b3649 clojure.core.async.impl.channels.ManyToManyChannel@6d2b3649]
+[DEBUG] 2015-06-09 18:13:44.827 [clojure-agent-send-off-pool-2] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1964b1a6 clojure.core.async.impl.channels.ManyToManyChannel@1964b1a6]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:13:44.835 [clojure-agent-send-off-pool-2] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1964b1a6 clojure.core.async.impl.channels.ManyToManyChannel@1964b1a6]
+[DEBUG] 2015-06-09 18:13:44.842 [clojure-agent-send-off-pool-2] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0xfd9db21 clojure.core.async.impl.channels.ManyToManyChannel@fd9db21]  timeout-ms  500
+[DEBUG] 2015-06-09 18:13:44.845 [clojure-agent-send-off-pool-2] common - <t!! - returning v:  {:mine :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xfd9db21 clojure.core.async.impl.channels.ManyToManyChannel@fd9db21]
+[DEBUG] 2015-06-09 18:13:44.847 [clojure-agent-send-off-pool-2] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0xfd9db21 clojure.core.async.impl.channels.ManyToManyChannel@fd9db21]  timeout-ms  500
+[DEBUG] 2015-06-09 18:13:45.350 [clojure-agent-send-off-pool-2] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x308872bf clojure.core.async.impl.channels.ManyToManyChannel@308872bf]
+[DEBUG] 2015-06-09 18:13:45.686 [clojure-agent-send-off-pool-2] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x284143f2 clojure.core.async.impl.channels.ManyToManyChannel@284143f2]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:13:45.688 [clojure-agent-send-off-pool-2] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x284143f2 clojure.core.async.impl.channels.ManyToManyChannel@284143f2]
+[DEBUG] 2015-06-09 18:13:45.690 [clojure-agent-send-off-pool-2] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x284143f2 clojure.core.async.impl.channels.ManyToManyChannel@284143f2]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:13:46.194 [clojure-agent-send-off-pool-2] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x284143f2 clojure.core.async.impl.channels.ManyToManyChannel@284143f2]
+[DEBUG] 2015-06-09 18:13:46.197 [clojure-agent-send-off-pool-2] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x284143f2 clojure.core.async.impl.channels.ManyToManyChannel@284143f2]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:13:47.201 [clojure-agent-send-off-pool-2] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2e7c83eb clojure.core.async.impl.channels.ManyToManyChannel@2e7c83eb]
+[DEBUG] 2015-06-09 18:13:47.203 [clojure-agent-send-off-pool-2] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x284143f2 clojure.core.async.impl.channels.ManyToManyChannel@284143f2]  timeout-ms  10
+[DEBUG] 2015-06-09 18:13:47.214 [clojure-agent-send-off-pool-2] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xc001b05 clojure.core.async.impl.channels.ManyToManyChannel@c001b05]
+[DEBUG] 2015-06-09 18:13:59.700 [nREPL-worker-0] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5e091b37 clojure.core.async.impl.channels.ManyToManyChannel@5e091b37]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:13:59.704 [nREPL-worker-0] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5e091b37 clojure.core.async.impl.channels.ManyToManyChannel@5e091b37]
+[DEBUG] 2015-06-09 18:13:59.705 [nREPL-worker-0] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5e091b37 clojure.core.async.impl.channels.ManyToManyChannel@5e091b37]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:14:00.209 [nREPL-worker-0] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5e091b37 clojure.core.async.impl.channels.ManyToManyChannel@5e091b37]
+[DEBUG] 2015-06-09 18:14:00.213 [nREPL-worker-0] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5e091b37 clojure.core.async.impl.channels.ManyToManyChannel@5e091b37]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:14:01.215 [nREPL-worker-0] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x79b63b91 clojure.core.async.impl.channels.ManyToManyChannel@79b63b91]
+[DEBUG] 2015-06-09 18:14:01.217 [nREPL-worker-0] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5e091b37 clojure.core.async.impl.channels.ManyToManyChannel@5e091b37]  timeout-ms  10
+[DEBUG] 2015-06-09 18:14:01.228 [nREPL-worker-0] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5691b6de clojure.core.async.impl.channels.ManyToManyChannel@5691b6de]
+[DEBUG] 2015-06-09 18:14:01.407 [nREPL-worker-0] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7cdeeb0a clojure.core.async.impl.channels.ManyToManyChannel@7cdeeb0a]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:14:01.409 [nREPL-worker-0] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7cdeeb0a clojure.core.async.impl.channels.ManyToManyChannel@7cdeeb0a]
+[DEBUG] 2015-06-09 18:14:01.412 [nREPL-worker-0] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2c97906f clojure.core.async.impl.channels.ManyToManyChannel@2c97906f]  timeout-ms  500
+[DEBUG] 2015-06-09 18:14:01.416 [nREPL-worker-0] common - <t!! - returning v:  {:mine :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2c97906f clojure.core.async.impl.channels.ManyToManyChannel@2c97906f]
+[DEBUG] 2015-06-09 18:14:01.419 [nREPL-worker-0] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2c97906f clojure.core.async.impl.channels.ManyToManyChannel@2c97906f]  timeout-ms  500
+[DEBUG] 2015-06-09 18:14:01.921 [nREPL-worker-0] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x54f2b1bd clojure.core.async.impl.channels.ManyToManyChannel@54f2b1bd]
+[DEBUG] 2015-06-09 18:14:39.323 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1f55b6ad clojure.core.async.impl.channels.ManyToManyChannel@1f55b6ad]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:14:39.325 [pool-2-thread-1] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1f55b6ad clojure.core.async.impl.channels.ManyToManyChannel@1f55b6ad]
+[DEBUG] 2015-06-09 18:14:39.329 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3ffacab8 clojure.core.async.impl.channels.ManyToManyChannel@3ffacab8]  timeout-ms  500
+[DEBUG] 2015-06-09 18:14:39.330 [pool-2-thread-1] common - <t!! - returning v:  {:mine :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3ffacab8 clojure.core.async.impl.channels.ManyToManyChannel@3ffacab8]
+[DEBUG] 2015-06-09 18:14:39.332 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3ffacab8 clojure.core.async.impl.channels.ManyToManyChannel@3ffacab8]  timeout-ms  500
+[DEBUG] 2015-06-09 18:14:39.834 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x186d3581 clojure.core.async.impl.channels.ManyToManyChannel@186d3581]
+[DEBUG] 2015-06-09 18:14:44.460 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x45dff651 clojure.core.async.impl.channels.ManyToManyChannel@45dff651]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:14:44.462 [pool-2-thread-1] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x45dff651 clojure.core.async.impl.channels.ManyToManyChannel@45dff651]
+[DEBUG] 2015-06-09 18:14:44.467 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2f113960 clojure.core.async.impl.channels.ManyToManyChannel@2f113960]  timeout-ms  500
+[DEBUG] 2015-06-09 18:14:44.469 [pool-2-thread-1] common - <t!! - returning v:  {:mine :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2f113960 clojure.core.async.impl.channels.ManyToManyChannel@2f113960]
+[DEBUG] 2015-06-09 18:14:44.470 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2f113960 clojure.core.async.impl.channels.ManyToManyChannel@2f113960]  timeout-ms  500
+[DEBUG] 2015-06-09 18:14:44.971 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x28d85fa3 clojure.core.async.impl.channels.ManyToManyChannel@28d85fa3]
+[DEBUG] 2015-06-09 18:14:50.068 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x262b3250 clojure.core.async.impl.channels.ManyToManyChannel@262b3250]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:14:50.069 [pool-2-thread-1] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x262b3250 clojure.core.async.impl.channels.ManyToManyChannel@262b3250]
+[DEBUG] 2015-06-09 18:14:50.072 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5af5c45d clojure.core.async.impl.channels.ManyToManyChannel@5af5c45d]  timeout-ms  500
+[DEBUG] 2015-06-09 18:14:50.073 [pool-2-thread-1] common - <t!! - returning v:  {:mine :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5af5c45d clojure.core.async.impl.channels.ManyToManyChannel@5af5c45d]
+[DEBUG] 2015-06-09 18:14:50.074 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5af5c45d clojure.core.async.impl.channels.ManyToManyChannel@5af5c45d]  timeout-ms  500
+[DEBUG] 2015-06-09 18:14:50.575 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5184ccb4 clojure.core.async.impl.channels.ManyToManyChannel@5184ccb4]
+[DEBUG] 2015-06-09 18:14:52.658 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x223b2264 clojure.core.async.impl.channels.ManyToManyChannel@223b2264]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:14:52.660 [pool-2-thread-1] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x223b2264 clojure.core.async.impl.channels.ManyToManyChannel@223b2264]
+[DEBUG] 2015-06-09 18:14:52.663 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x219c62aa clojure.core.async.impl.channels.ManyToManyChannel@219c62aa]  timeout-ms  500
+[DEBUG] 2015-06-09 18:14:52.664 [pool-2-thread-1] common - <t!! - returning v:  {:mine :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x219c62aa clojure.core.async.impl.channels.ManyToManyChannel@219c62aa]
+[DEBUG] 2015-06-09 18:14:52.665 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x219c62aa clojure.core.async.impl.channels.ManyToManyChannel@219c62aa]  timeout-ms  500
+[DEBUG] 2015-06-09 18:14:53.167 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x14749bbe clojure.core.async.impl.channels.ManyToManyChannel@14749bbe]
+[DEBUG] 2015-06-09 18:24:26.834 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x369cb2fd clojure.core.async.impl.channels.ManyToManyChannel@369cb2fd]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:24:26.835 [pool-2-thread-1] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x369cb2fd clojure.core.async.impl.channels.ManyToManyChannel@369cb2fd]
+[DEBUG] 2015-06-09 18:24:26.838 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x78e3d27d clojure.core.async.impl.channels.ManyToManyChannel@78e3d27d]  timeout-ms  500
+[DEBUG] 2015-06-09 18:24:26.839 [pool-2-thread-1] common - <t!! - returning v:  {:mine :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x78e3d27d clojure.core.async.impl.channels.ManyToManyChannel@78e3d27d]
+[DEBUG] 2015-06-09 18:24:26.840 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x78e3d27d clojure.core.async.impl.channels.ManyToManyChannel@78e3d27d]  timeout-ms  500
+[DEBUG] 2015-06-09 18:24:27.341 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7d2260ee clojure.core.async.impl.channels.ManyToManyChannel@7d2260ee]
+[DEBUG] 2015-06-09 18:26:22.525 [async-dispatch-32] search - Message received:  nil
+[DEBUG] 2015-06-09 18:26:22.526 [async-dispatch-32] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:26:22.529 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 18:26:22.529 [async-dispatch-36] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:26:22.536 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0xa4d7f05 clojure.core.async.impl.channels.ManyToManyChannel@a4d7f05]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:26:23.537 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x278bef31 clojure.core.async.impl.channels.ManyToManyChannel@278bef31]
+[DEBUG] 2015-06-09 18:26:23.557 [async-dispatch-43] search - Message received:  nil
+[DEBUG] 2015-06-09 18:26:23.557 [async-dispatch-43] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:26:23.561 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2b845c4a clojure.core.async.impl.channels.ManyToManyChannel@2b845c4a]  timeout-ms  500
+[DEBUG] 2015-06-09 18:26:24.062 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xd5da46e clojure.core.async.impl.channels.ManyToManyChannel@d5da46e]
+[DEBUG] 2015-06-09 18:26:24.067 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2b845c4a clojure.core.async.impl.channels.ManyToManyChannel@2b845c4a]  timeout-ms  500
+[DEBUG] 2015-06-09 18:26:24.568 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6c094797 clojure.core.async.impl.channels.ManyToManyChannel@6c094797]
+[DEBUG] 2015-06-09 18:26:24.570 [async-dispatch-55] search - Message received:  nil
+[DEBUG] 2015-06-09 18:26:24.571 [async-dispatch-55] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:26:24.650 [async-dispatch-2] search - Message received:  nil
+[DEBUG] 2015-06-09 18:26:24.650 [async-dispatch-2] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:26:24.651 [async-dispatch-6] search - Message received:  nil
+[DEBUG] 2015-06-09 18:26:24.652 [async-dispatch-6] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:27:05.013 [async-dispatch-9] search - Message received:  nil
+[DEBUG] 2015-06-09 18:27:05.015 [async-dispatch-9] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:27:05.019 [async-dispatch-14] search - Message received:  nil
+[DEBUG] 2015-06-09 18:27:05.020 [async-dispatch-14] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:27:05.023 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1f76dc9b clojure.core.async.impl.channels.ManyToManyChannel@1f76dc9b]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:27:06.025 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4ba01303 clojure.core.async.impl.channels.ManyToManyChannel@4ba01303]
+[DEBUG] 2015-06-09 18:27:06.028 [async-dispatch-21] search - Message received:  nil
+[DEBUG] 2015-06-09 18:27:06.028 [async-dispatch-21] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:27:06.030 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x402ef2d5 clojure.core.async.impl.channels.ManyToManyChannel@402ef2d5]  timeout-ms  500
+[DEBUG] 2015-06-09 18:27:06.532 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x61b17946 clojure.core.async.impl.channels.ManyToManyChannel@61b17946]
+[DEBUG] 2015-06-09 18:27:06.537 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x402ef2d5 clojure.core.async.impl.channels.ManyToManyChannel@402ef2d5]  timeout-ms  500
+[DEBUG] 2015-06-09 18:27:07.038 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x480af3ef clojure.core.async.impl.channels.ManyToManyChannel@480af3ef]
+[DEBUG] 2015-06-09 18:27:07.039 [async-dispatch-32] search - Message received:  nil
+[DEBUG] 2015-06-09 18:27:07.040 [async-dispatch-32] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:27:07.106 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 18:27:07.106 [async-dispatch-36] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:27:07.108 [async-dispatch-40] search - Message received:  nil
+[DEBUG] 2015-06-09 18:27:07.108 [async-dispatch-40] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:27:49.423 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x510c2145 clojure.core.async.impl.channels.ManyToManyChannel@510c2145]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:27:50.424 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x513fb099 clojure.core.async.impl.channels.ManyToManyChannel@513fb099]
+[DEBUG] 2015-06-09 18:27:50.429 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5bc006ba clojure.core.async.impl.channels.ManyToManyChannel@5bc006ba]  timeout-ms  500
+[DEBUG] 2015-06-09 18:27:50.931 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x48f271cf clojure.core.async.impl.channels.ManyToManyChannel@48f271cf]
+[DEBUG] 2015-06-09 18:27:50.936 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x5bc006ba clojure.core.async.impl.channels.ManyToManyChannel@5bc006ba]  timeout-ms  500
+[DEBUG] 2015-06-09 18:27:51.437 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7844679d clojure.core.async.impl.channels.ManyToManyChannel@7844679d]
+[DEBUG] 2015-06-09 18:30:08.130 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4673a144 clojure.core.async.impl.channels.ManyToManyChannel@4673a144]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:30:09.131 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3f7bb07c clojure.core.async.impl.channels.ManyToManyChannel@3f7bb07c]
+[DEBUG] 2015-06-09 18:30:09.146 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x440f3a6f clojure.core.async.impl.channels.ManyToManyChannel@440f3a6f]  timeout-ms  500
+[DEBUG] 2015-06-09 18:30:09.649 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1e14f4f6 clojure.core.async.impl.channels.ManyToManyChannel@1e14f4f6]
+[DEBUG] 2015-06-09 18:30:09.654 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x440f3a6f clojure.core.async.impl.channels.ManyToManyChannel@440f3a6f]  timeout-ms  500
+[DEBUG] 2015-06-09 18:30:09.657 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x440f3a6f clojure.core.async.impl.channels.ManyToManyChannel@440f3a6f]
+[DEBUG] 2015-06-09 18:34:05.810 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4090107a clojure.core.async.impl.channels.ManyToManyChannel@4090107a]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:34:05.811 [pool-2-thread-1] common - <t!! - returning v:  {:type :msg}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4090107a clojure.core.async.impl.channels.ManyToManyChannel@4090107a]
+[DEBUG] 2015-06-09 18:34:05.815 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x47c0ba38 clojure.core.async.impl.channels.ManyToManyChannel@47c0ba38]  timeout-ms  500
+[DEBUG] 2015-06-09 18:34:06.316 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x35adea1 clojure.core.async.impl.channels.ManyToManyChannel@35adea1]
+[DEBUG] 2015-06-09 18:34:06.324 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x47c0ba38 clojure.core.async.impl.channels.ManyToManyChannel@47c0ba38]  timeout-ms  500
+[DEBUG] 2015-06-09 18:34:06.825 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xb09c9be clojure.core.async.impl.channels.ManyToManyChannel@b09c9be]
+[DEBUG] 2015-06-09 18:54:56.623 [async-dispatch-3] search - Message received:  nil
+[DEBUG] 2015-06-09 18:54:56.624 [async-dispatch-3] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:54:56.627 [async-dispatch-9] search - Message received:  nil
+[DEBUG] 2015-06-09 18:54:56.627 [async-dispatch-9] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:54:56.689 [async-dispatch-61] search - Message received:  nil
+[DEBUG] 2015-06-09 18:54:56.689 [async-dispatch-61] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:54:56.690 [async-dispatch-62] search - Message received:  nil
+[DEBUG] 2015-06-09 18:54:56.690 [async-dispatch-62] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:55:16.806 [async-dispatch-26] search - Message received:  nil
+[DEBUG] 2015-06-09 18:55:16.806 [async-dispatch-26] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:55:16.807 [async-dispatch-66] search - Message received:  nil
+[DEBUG] 2015-06-09 18:55:16.807 [async-dispatch-66] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:55:16.810 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1b396ce1 clojure.core.async.impl.channels.ManyToManyChannel@1b396ce1]  timeout-ms  1000
+[DEBUG] 2015-06-09 18:55:17.849 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x18c94873 clojure.core.async.impl.channels.ManyToManyChannel@18c94873]
+[DEBUG] 2015-06-09 18:55:17.855 [async-dispatch-44] search - Message received:  nil
+[DEBUG] 2015-06-09 18:55:17.856 [async-dispatch-44] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:07.581 [async-dispatch-51] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:07.581 [async-dispatch-51] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:07.582 [async-dispatch-56] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:07.582 [async-dispatch-56] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:07.585 [pool-2-thread-1] common - <t!! - input chan :mine  timeout-ms  500
+[DEBUG] 2015-06-09 18:56:07.589 [pool-2-thread-1] common - <t!! - input chan :mine  timeout-ms  500
+[DEBUG] 2015-06-09 18:56:07.591 [async-dispatch-7] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:07.591 [async-dispatch-7] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:28.206 [async-dispatch-14] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:28.206 [async-dispatch-14] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:28.208 [async-dispatch-16] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:28.208 [async-dispatch-16] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:28.212 [pool-2-thread-1] common - <t!! - input chan :mine  timeout-ms  500
+[DEBUG] 2015-06-09 18:56:28.214 [pool-2-thread-1] common - <t!! - input chan :mine  timeout-ms  500
+[DEBUG] 2015-06-09 18:56:28.216 [async-dispatch-28] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:28.216 [async-dispatch-28] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:35.291 [async-dispatch-32] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:35.292 [async-dispatch-32] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:35.293 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:35.293 [async-dispatch-36] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:35.296 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7759b61d clojure.core.async.impl.channels.ManyToManyChannel@7759b61d]  timeout-ms  500
+[DEBUG] 2015-06-09 18:56:35.797 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x35d6ae6 clojure.core.async.impl.channels.ManyToManyChannel@35d6ae6]
+[DEBUG] 2015-06-09 18:56:35.798 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7759b61d clojure.core.async.impl.channels.ManyToManyChannel@7759b61d]  timeout-ms  500
+[DEBUG] 2015-06-09 18:56:36.299 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x782d40a6 clojure.core.async.impl.channels.ManyToManyChannel@782d40a6]
+[DEBUG] 2015-06-09 18:56:36.299 [async-dispatch-51] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:36.299 [async-dispatch-51] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:45.875 [async-dispatch-56] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:45.875 [async-dispatch-56] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:45.876 [async-dispatch-8] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:45.876 [async-dispatch-8] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:56:45.879 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1644820 clojure.core.async.impl.channels.ManyToManyChannel@1644820]  timeout-ms  500
+[DEBUG] 2015-06-09 18:56:46.380 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3da2e7fa clojure.core.async.impl.channels.ManyToManyChannel@3da2e7fa]
+[DEBUG] 2015-06-09 18:56:46.385 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1644820 clojure.core.async.impl.channels.ManyToManyChannel@1644820]  timeout-ms  500
+[DEBUG] 2015-06-09 18:56:46.886 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x19030eb5 clojure.core.async.impl.channels.ManyToManyChannel@19030eb5]
+[DEBUG] 2015-06-09 18:56:46.886 [async-dispatch-61] search - Message received:  nil
+[DEBUG] 2015-06-09 18:56:46.886 [async-dispatch-61] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:57:17.551 [async-dispatch-62] search - Message received:  nil
+[DEBUG] 2015-06-09 18:57:17.551 [async-dispatch-62] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:57:17.552 [async-dispatch-74] search - Message received:  nil
+[DEBUG] 2015-06-09 18:57:17.552 [async-dispatch-74] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:57:17.555 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x68df74d5 clojure.core.async.impl.channels.ManyToManyChannel@68df74d5]  timeout-ms  500
+[DEBUG] 2015-06-09 18:57:18.056 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7d978732 clojure.core.async.impl.channels.ManyToManyChannel@7d978732]
+[DEBUG] 2015-06-09 18:57:18.058 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x68df74d5 clojure.core.async.impl.channels.ManyToManyChannel@68df74d5]  timeout-ms  500
+[DEBUG] 2015-06-09 18:57:18.559 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2bfa7687 clojure.core.async.impl.channels.ManyToManyChannel@2bfa7687]
+[DEBUG] 2015-06-09 18:57:18.560 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 18:57:18.561 [async-dispatch-36] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:57:31.668 [async-dispatch-48] search - Message received:  nil
+[DEBUG] 2015-06-09 18:57:31.668 [async-dispatch-48] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:57:31.669 [async-dispatch-51] search - Message received:  nil
+[DEBUG] 2015-06-09 18:57:31.670 [async-dispatch-51] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:57:31.672 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4c515707 clojure.core.async.impl.channels.ManyToManyChannel@4c515707]  timeout-ms  500
+[DEBUG] 2015-06-09 18:57:32.173 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4b892e45 clojure.core.async.impl.channels.ManyToManyChannel@4b892e45]
+[DEBUG] 2015-06-09 18:57:32.177 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4c515707 clojure.core.async.impl.channels.ManyToManyChannel@4c515707]  timeout-ms  500
+[DEBUG] 2015-06-09 18:57:32.678 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6e3940c0 clojure.core.async.impl.channels.ManyToManyChannel@6e3940c0]
+[DEBUG] 2015-06-09 18:57:32.679 [async-dispatch-8] search - Message received:  nil
+[DEBUG] 2015-06-09 18:57:32.680 [async-dispatch-8] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:57:45.278 [async-dispatch-60] search - Message received:  nil
+[DEBUG] 2015-06-09 18:57:45.278 [async-dispatch-60] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:57:45.279 [async-dispatch-61] search - Message received:  nil
+[DEBUG] 2015-06-09 18:57:45.279 [async-dispatch-61] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:57:45.282 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4654f089 clojure.core.async.impl.channels.ManyToManyChannel@4654f089]  timeout-ms  500
+[DEBUG] 2015-06-09 18:57:45.783 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x54e75037 clojure.core.async.impl.channels.ManyToManyChannel@54e75037]
+[DEBUG] 2015-06-09 18:57:45.787 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4654f089 clojure.core.async.impl.channels.ManyToManyChannel@4654f089]  timeout-ms  500
+[DEBUG] 2015-06-09 18:57:46.288 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7e5bd9b1 clojure.core.async.impl.channels.ManyToManyChannel@7e5bd9b1]
+[DEBUG] 2015-06-09 18:57:46.289 [async-dispatch-74] search - Message received:  nil
+[DEBUG] 2015-06-09 18:57:46.289 [async-dispatch-74] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:58:10.928 [async-dispatch-39] search - Message received:  nil
+[DEBUG] 2015-06-09 18:58:10.928 [async-dispatch-39] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:58:10.928 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 18:58:10.929 [async-dispatch-36] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:58:10.933 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x9caa715 clojure.core.async.impl.channels.ManyToManyChannel@9caa715]  timeout-ms  500
+[DEBUG] 2015-06-09 18:58:11.434 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6a6199db clojure.core.async.impl.channels.ManyToManyChannel@6a6199db]
+[DEBUG] 2015-06-09 18:58:11.438 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x9caa715 clojure.core.async.impl.channels.ManyToManyChannel@9caa715]  timeout-ms  500
+[DEBUG] 2015-06-09 18:58:11.939 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x13cd7876 clojure.core.async.impl.channels.ManyToManyChannel@13cd7876]
+[DEBUG] 2015-06-09 18:58:11.941 [async-dispatch-51] search - Message received:  nil
+[DEBUG] 2015-06-09 18:58:11.941 [async-dispatch-51] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:58:26.562 [async-dispatch-5] search - Message received:  nil
+[DEBUG] 2015-06-09 18:58:26.563 [async-dispatch-5] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:58:26.564 [async-dispatch-8] search - Message received:  nil
+[DEBUG] 2015-06-09 18:58:26.564 [async-dispatch-8] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:58:26.568 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7022b54d clojure.core.async.impl.channels.ManyToManyChannel@7022b54d]  timeout-ms  500
+[DEBUG] 2015-06-09 18:58:27.069 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x68d159ae clojure.core.async.impl.channels.ManyToManyChannel@68d159ae]
+[DEBUG] 2015-06-09 18:58:27.073 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7022b54d clojure.core.async.impl.channels.ManyToManyChannel@7022b54d]  timeout-ms  500
+[DEBUG] 2015-06-09 18:58:27.575 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x58e41f34 clojure.core.async.impl.channels.ManyToManyChannel@58e41f34]
+[DEBUG] 2015-06-09 18:58:27.576 [async-dispatch-61] search - Message received:  nil
+[DEBUG] 2015-06-09 18:58:27.577 [async-dispatch-61] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:58:39.666 [async-dispatch-64] search - Message received:  nil
+[DEBUG] 2015-06-09 18:58:39.666 [async-dispatch-64] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:58:39.667 [async-dispatch-74] search - Message received:  nil
+[DEBUG] 2015-06-09 18:58:39.667 [async-dispatch-74] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:58:39.669 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2cc1a27a clojure.core.async.impl.channels.ManyToManyChannel@2cc1a27a]  timeout-ms  500
+[DEBUG] 2015-06-09 18:58:40.170 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x476ea744 clojure.core.async.impl.channels.ManyToManyChannel@476ea744]
+[DEBUG] 2015-06-09 18:58:40.177 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2cc1a27a clojure.core.async.impl.channels.ManyToManyChannel@2cc1a27a]  timeout-ms  500
+[DEBUG] 2015-06-09 18:58:40.678 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x12f2bf66 clojure.core.async.impl.channels.ManyToManyChannel@12f2bf66]
+[DEBUG] 2015-06-09 18:58:40.680 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 18:58:40.681 [async-dispatch-36] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:02.813 [async-dispatch-53] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:02.814 [async-dispatch-53] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:02.814 [async-dispatch-51] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:02.814 [async-dispatch-51] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:02.817 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x167459aa clojure.core.async.impl.channels.ManyToManyChannel@167459aa]  timeout-ms  500
+[DEBUG] 2015-06-09 18:59:03.318 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x54605303 clojure.core.async.impl.channels.ManyToManyChannel@54605303]
+[DEBUG] 2015-06-09 18:59:03.323 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x167459aa clojure.core.async.impl.channels.ManyToManyChannel@167459aa]  timeout-ms  500
+[DEBUG] 2015-06-09 18:59:03.824 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xd79fd68 clojure.core.async.impl.channels.ManyToManyChannel@d79fd68]
+[DEBUG] 2015-06-09 18:59:03.825 [async-dispatch-8] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:03.826 [async-dispatch-8] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:24.953 [async-dispatch-19] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:24.953 [async-dispatch-19] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:24.955 [async-dispatch-61] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:24.955 [async-dispatch-61] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:24.958 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1032ac2f clojure.core.async.impl.channels.ManyToManyChannel@1032ac2f]  timeout-ms  500
+[DEBUG] 2015-06-09 18:59:25.459 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x788370c clojure.core.async.impl.channels.ManyToManyChannel@788370c]
+[DEBUG] 2015-06-09 18:59:25.463 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1032ac2f clojure.core.async.impl.channels.ManyToManyChannel@1032ac2f]  timeout-ms  500
+[DEBUG] 2015-06-09 18:59:25.965 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x20611d34 clojure.core.async.impl.channels.ManyToManyChannel@20611d34]
+[DEBUG] 2015-06-09 18:59:25.966 [async-dispatch-38] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:25.966 [async-dispatch-38] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:37.556 [async-dispatch-40] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:37.556 [async-dispatch-40] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:37.557 [async-dispatch-52] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:37.557 [async-dispatch-52] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:37.559 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x46bfa421 clojure.core.async.impl.channels.ManyToManyChannel@46bfa421]  timeout-ms  500
+[DEBUG] 2015-06-09 18:59:38.060 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xd346114 clojure.core.async.impl.channels.ManyToManyChannel@d346114]
+[DEBUG] 2015-06-09 18:59:38.063 [async-dispatch-55] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:38.063 [async-dispatch-55] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:49.647 [async-dispatch-4] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:49.647 [async-dispatch-4] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:49.648 [async-dispatch-10] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:49.648 [async-dispatch-10] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 18:59:49.651 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x665b5c8b clojure.core.async.impl.channels.ManyToManyChannel@665b5c8b]  timeout-ms  500
+[DEBUG] 2015-06-09 18:59:50.152 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3bbed39a clojure.core.async.impl.channels.ManyToManyChannel@3bbed39a]
+[DEBUG] 2015-06-09 18:59:50.156 [async-dispatch-60] search - Message received:  nil
+[DEBUG] 2015-06-09 18:59:50.156 [async-dispatch-60] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:00:32.903 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x544ce84f clojure.core.async.impl.channels.ManyToManyChannel@544ce84f]  timeout-ms  500
+[DEBUG] 2015-06-09 19:00:33.405 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7a194a6d clojure.core.async.impl.channels.ManyToManyChannel@7a194a6d]
+[DEBUG] 2015-06-09 19:01:47.532 [async-dispatch-36] search - Message received:  nil
+[DEBUG] 2015-06-09 19:01:47.532 [async-dispatch-36] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:01:47.536 [async-dispatch-76] search - Message received:  nil
+[DEBUG] 2015-06-09 19:01:47.536 [async-dispatch-76] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:01:47.538 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x36f556f8 clojure.core.async.impl.channels.ManyToManyChannel@36f556f8]  timeout-ms  500
+[DEBUG] 2015-06-09 19:01:48.039 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x346d603c clojure.core.async.impl.channels.ManyToManyChannel@346d603c]
+[DEBUG] 2015-06-09 19:01:48.043 [async-dispatch-7] search - Message received:  nil
+[DEBUG] 2015-06-09 19:01:48.043 [async-dispatch-7] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:01:48.099 [async-dispatch-59] search - Message received:  nil
+[DEBUG] 2015-06-09 19:01:48.099 [async-dispatch-59] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:01:48.100 [async-dispatch-77] search - Message received:  nil
+[DEBUG] 2015-06-09 19:01:48.100 [async-dispatch-77] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:02:01.775 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x17fb8c83 clojure.core.async.impl.channels.ManyToManyChannel@17fb8c83]  timeout-ms  500
+[DEBUG] 2015-06-09 19:02:02.276 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x29cbf067 clojure.core.async.impl.channels.ManyToManyChannel@29cbf067]
+[DEBUG] 2015-06-09 19:02:19.522 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7498d1de clojure.core.async.impl.channels.ManyToManyChannel@7498d1de]  timeout-ms  500
+[DEBUG] 2015-06-09 19:02:20.023 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1809fadf clojure.core.async.impl.channels.ManyToManyChannel@1809fadf]
+[DEBUG] 2015-06-09 19:04:54.639 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3dfa7f67 clojure.core.async.impl.channels.ManyToManyChannel@3dfa7f67]  timeout-ms  500
+[DEBUG] 2015-06-09 19:04:55.140 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x179159e7 clojure.core.async.impl.channels.ManyToManyChannel@179159e7]
+[DEBUG] 2015-06-09 19:05:12.397 [pool-2-thread-1] common - <t!! - input chan :mine  timeout-ms  500
+[DEBUG] 2015-06-09 19:05:32.087 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3d7d8235 clojure.core.async.impl.channels.ManyToManyChannel@3d7d8235]  timeout-ms  500
+[DEBUG] 2015-06-09 19:05:32.588 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x161a34fb clojure.core.async.impl.channels.ManyToManyChannel@161a34fb]
+[DEBUG] 2015-06-09 19:06:26.320 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2ded2873 clojure.core.async.impl.channels.ManyToManyChannel@2ded2873]  timeout-ms  500
+[DEBUG] 2015-06-09 19:06:26.821 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x36ff4fb3 clojure.core.async.impl.channels.ManyToManyChannel@36ff4fb3]
+[DEBUG] 2015-06-09 19:06:30.378 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x49e83d0f clojure.core.async.impl.channels.ManyToManyChannel@49e83d0f]  timeout-ms  500
+[DEBUG] 2015-06-09 19:06:30.878 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1a9b188e clojure.core.async.impl.channels.ManyToManyChannel@1a9b188e]
+[DEBUG] 2015-06-09 19:07:24.718 [pool-2-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x44d0f920 clojure.core.async.impl.channels.ManyToManyChannel@44d0f920]  timeout-ms  500
+[DEBUG] 2015-06-09 19:07:25.219 [pool-2-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3fdd4b69 clojure.core.async.impl.channels.ManyToManyChannel@3fdd4b69]
+[DEBUG] 2015-06-09 19:08:34.746 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1e029494 clojure.core.async.impl.channels.ManyToManyChannel@1e029494]  timeout-ms  1000
+[DEBUG] 2015-06-09 19:08:34.747 [nREPL-worker-1] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1e029494 clojure.core.async.impl.channels.ManyToManyChannel@1e029494]
+[DEBUG] 2015-06-09 19:08:34.748 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1e029494 clojure.core.async.impl.channels.ManyToManyChannel@1e029494]  timeout-ms  1000
+[DEBUG] 2015-06-09 19:08:35.249 [nREPL-worker-1] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1e029494 clojure.core.async.impl.channels.ManyToManyChannel@1e029494]
+[DEBUG] 2015-06-09 19:08:35.252 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1e029494 clojure.core.async.impl.channels.ManyToManyChannel@1e029494]  timeout-ms  1000
+[DEBUG] 2015-06-09 19:08:36.253 [nREPL-worker-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2d4d3166 clojure.core.async.impl.channels.ManyToManyChannel@2d4d3166]
+[DEBUG] 2015-06-09 19:08:36.255 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1e029494 clojure.core.async.impl.channels.ManyToManyChannel@1e029494]  timeout-ms  10
+[DEBUG] 2015-06-09 19:08:36.266 [nREPL-worker-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6ea8e550 clojure.core.async.impl.channels.ManyToManyChannel@6ea8e550]
+[DEBUG] 2015-06-09 19:08:36.421 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1c7f7968 clojure.core.async.impl.channels.ManyToManyChannel@1c7f7968]  timeout-ms  500
+[DEBUG] 2015-06-09 19:08:36.922 [nREPL-worker-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1407b291 clojure.core.async.impl.channels.ManyToManyChannel@1407b291]
+[DEBUG] 2015-06-09 19:08:43.405 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x397b3424 clojure.core.async.impl.channels.ManyToManyChannel@397b3424]  timeout-ms  1000
+[DEBUG] 2015-06-09 19:08:43.406 [nREPL-worker-1] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x397b3424 clojure.core.async.impl.channels.ManyToManyChannel@397b3424]
+[DEBUG] 2015-06-09 19:08:43.407 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x397b3424 clojure.core.async.impl.channels.ManyToManyChannel@397b3424]  timeout-ms  1000
+[DEBUG] 2015-06-09 19:08:43.909 [nREPL-worker-1] common - <t!! - returning v:  test  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x397b3424 clojure.core.async.impl.channels.ManyToManyChannel@397b3424]
+[DEBUG] 2015-06-09 19:08:43.912 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x397b3424 clojure.core.async.impl.channels.ManyToManyChannel@397b3424]  timeout-ms  1000
+[DEBUG] 2015-06-09 19:08:44.912 [nREPL-worker-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x54ee8d17 clojure.core.async.impl.channels.ManyToManyChannel@54ee8d17]
+[DEBUG] 2015-06-09 19:08:44.914 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x397b3424 clojure.core.async.impl.channels.ManyToManyChannel@397b3424]  timeout-ms  10
+[DEBUG] 2015-06-09 19:08:44.925 [nREPL-worker-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x71ee8fb7 clojure.core.async.impl.channels.ManyToManyChannel@71ee8fb7]
+[DEBUG] 2015-06-09 19:08:45.107 [nREPL-worker-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x68dc9904 clojure.core.async.impl.channels.ManyToManyChannel@68dc9904]  timeout-ms  500
+[DEBUG] 2015-06-09 19:08:45.609 [nREPL-worker-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x73672ade clojure.core.async.impl.channels.ManyToManyChannel@73672ade]
+[DEBUG] 2015-06-09 19:10:26.089 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1b89d318 clojure.core.async.impl.channels.ManyToManyChannel@1b89d318]  timeout-ms  500
+[DEBUG] 2015-06-09 19:10:26.590 [pool-3-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x13095646 clojure.core.async.impl.channels.ManyToManyChannel@13095646]
+[DEBUG] 2015-06-09 19:10:44.210 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x36600bb4 clojure.core.async.impl.channels.ManyToManyChannel@36600bb4]  timeout-ms  500
+[DEBUG] 2015-06-09 19:10:44.213 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x36600bb4 clojure.core.async.impl.channels.ManyToManyChannel@36600bb4]
+[DEBUG] 2015-06-09 19:10:49.784 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x29725707 clojure.core.async.impl.channels.ManyToManyChannel@29725707]  timeout-ms  500
+[DEBUG] 2015-06-09 19:10:49.785 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x29725707 clojure.core.async.impl.channels.ManyToManyChannel@29725707]
+[DEBUG] 2015-06-09 19:11:04.005 [async-dispatch-76] search - Message received:  nil
+[DEBUG] 2015-06-09 19:11:04.006 [async-dispatch-76] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:11:04.009 [async-dispatch-55] search - Message received:  nil
+[DEBUG] 2015-06-09 19:11:04.009 [async-dispatch-55] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:11:04.011 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7698fea0 clojure.core.async.impl.channels.ManyToManyChannel@7698fea0]  timeout-ms  500
+[DEBUG] 2015-06-09 19:11:04.012 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7698fea0 clojure.core.async.impl.channels.ManyToManyChannel@7698fea0]
+[DEBUG] 2015-06-09 19:11:04.012 [async-dispatch-13] search - Message received:  nil
+[DEBUG] 2015-06-09 19:11:04.012 [async-dispatch-13] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:11:04.067 [async-dispatch-8] search - Message received:  nil
+[DEBUG] 2015-06-09 19:11:04.068 [async-dispatch-8] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:11:04.068 [async-dispatch-16] search - Message received:  nil
+[DEBUG] 2015-06-09 19:11:04.068 [async-dispatch-16] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:12:45.062 [async-dispatch-62] search - Message received:  nil
+[DEBUG] 2015-06-09 19:12:45.062 [async-dispatch-62] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:12:45.065 [async-dispatch-83] search - Message received:  nil
+[DEBUG] 2015-06-09 19:12:45.065 [async-dispatch-83] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:12:45.067 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6a99293e clojure.core.async.impl.channels.ManyToManyChannel@6a99293e]  timeout-ms  500
+[DEBUG] 2015-06-09 19:12:45.068 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6a99293e clojure.core.async.impl.channels.ManyToManyChannel@6a99293e]
+[DEBUG] 2015-06-09 19:12:45.069 [async-dispatch-43] search - Message received:  nil
+[DEBUG] 2015-06-09 19:12:45.069 [async-dispatch-43] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:12:45.125 [async-dispatch-46] search - Message received:  nil
+[DEBUG] 2015-06-09 19:12:45.125 [async-dispatch-46] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:12:45.126 [async-dispatch-53] search - Message received:  nil
+[DEBUG] 2015-06-09 19:12:45.126 [async-dispatch-53] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:13:43.518 [async-dispatch-55] search - Message received:  nil
+[DEBUG] 2015-06-09 19:13:43.519 [async-dispatch-55] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:13:43.525 [async-dispatch-5] search - Message received:  nil
+[DEBUG] 2015-06-09 19:13:43.525 [async-dispatch-5] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:13:43.529 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4cb416b2 clojure.core.async.impl.channels.ManyToManyChannel@4cb416b2]  timeout-ms  500
+[DEBUG] 2015-06-09 19:13:43.530 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4cb416b2 clojure.core.async.impl.channels.ManyToManyChannel@4cb416b2]
+[DEBUG] 2015-06-09 19:13:43.530 [async-dispatch-60] search - Message received:  nil
+[DEBUG] 2015-06-09 19:13:43.530 [async-dispatch-60] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:13:43.608 [async-dispatch-63] search - Message received:  nil
+[DEBUG] 2015-06-09 19:13:43.608 [async-dispatch-63] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:13:43.610 [async-dispatch-83] search - Message received:  nil
+[DEBUG] 2015-06-09 19:13:43.610 [async-dispatch-83] search - Starting searching  nil  in  (h t t p s : / / d u m p s . w i k i m e d i a . o r g / e n w i k i / 2 0 1 5 0 6 0 2 /)
+[DEBUG] 2015-06-09 19:13:59.822 [async-dispatch-42] search - Message received:  nil
+[DEBUG] 2015-06-09 19:13:59.826 [async-dispatch-43] search - Message received:  nil
+[DEBUG] 2015-06-09 19:13:59.829 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6465e483 clojure.core.async.impl.channels.ManyToManyChannel@6465e483]  timeout-ms  500
+[DEBUG] 2015-06-09 19:13:59.830 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6465e483 clojure.core.async.impl.channels.ManyToManyChannel@6465e483]
+[DEBUG] 2015-06-09 19:13:59.830 [async-dispatch-71] search - Message received:  nil
+[DEBUG] 2015-06-09 19:13:59.892 [async-dispatch-56] search - Message received:  nil
+[DEBUG] 2015-06-09 19:13:59.893 [async-dispatch-5] search - Message received:  nil
+[DEBUG] 2015-06-09 19:15:17.271 [async-dispatch-8] search - Message received:  nil
+[DEBUG] 2015-06-09 19:15:17.276 [async-dispatch-60] search - Message received:  nil
+[DEBUG] 2015-06-09 19:15:17.278 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4138cbf8 clojure.core.async.impl.channels.ManyToManyChannel@4138cbf8]  timeout-ms  500
+[DEBUG] 2015-06-09 19:15:17.279 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4138cbf8 clojure.core.async.impl.channels.ManyToManyChannel@4138cbf8]
+[DEBUG] 2015-06-09 19:15:17.280 [async-dispatch-84] search - Message received:  nil
+[DEBUG] 2015-06-09 19:15:17.348 [async-dispatch-39] search - Message received:  nil
+[DEBUG] 2015-06-09 19:15:17.349 [async-dispatch-43] search - Message received:  nil
+[DEBUG] 2015-06-09 19:15:23.512 [async-dispatch-70] search - Message received:  nil
+[DEBUG] 2015-06-09 19:15:23.517 [async-dispatch-87] search - Message received:  nil
+[DEBUG] 2015-06-09 19:15:23.519 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x44ed814a clojure.core.async.impl.channels.ManyToManyChannel@44ed814a]  timeout-ms  500
+[DEBUG] 2015-06-09 19:15:23.521 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x44ed814a clojure.core.async.impl.channels.ManyToManyChannel@44ed814a]
+[DEBUG] 2015-06-09 19:15:23.521 [async-dispatch-13] search - Message received:  nil
+[DEBUG] 2015-06-09 19:15:23.582 [async-dispatch-14] search - Message received:  nil
+[DEBUG] 2015-06-09 19:15:23.583 [async-dispatch-60] search - Message received:  nil
+[DEBUG] 2015-06-09 19:19:13.061 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1c30e856 clojure.core.async.impl.channels.ManyToManyChannel@1c30e856]  timeout-ms  500
+[DEBUG] 2015-06-09 19:19:13.562 [pool-3-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x48bd784e clojure.core.async.impl.channels.ManyToManyChannel@48bd784e]
+[DEBUG] 2015-06-09 19:19:13.565 [async-dispatch-74] search - Message received:  nil
+[DEBUG] 2015-06-09 19:23:27.061 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x59ef9c91 clojure.core.async.impl.channels.ManyToManyChannel@59ef9c91]  timeout-ms  500
+[DEBUG] 2015-06-09 19:23:27.062 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x59ef9c91 clojure.core.async.impl.channels.ManyToManyChannel@59ef9c91]
+[DEBUG] 2015-06-09 19:23:56.361 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1cf729b clojure.core.async.impl.channels.ManyToManyChannel@1cf729b]  timeout-ms  500
+[DEBUG] 2015-06-09 19:23:56.363 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1cf729b clojure.core.async.impl.channels.ManyToManyChannel@1cf729b]
+[DEBUG] 2015-06-09 19:24:19.022 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3617a576 clojure.core.async.impl.channels.ManyToManyChannel@3617a576]  timeout-ms  500
+[DEBUG] 2015-06-09 19:24:19.523 [pool-3-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x2e644699 clojure.core.async.impl.channels.ManyToManyChannel@2e644699]
+[DEBUG] 2015-06-09 19:24:59.202 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x15c7a077 clojure.core.async.impl.channels.ManyToManyChannel@15c7a077]  timeout-ms  500
+[DEBUG] 2015-06-09 19:24:59.702 [pool-3-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x48ddf74b clojure.core.async.impl.channels.ManyToManyChannel@48ddf74b]
+[DEBUG] 2015-06-09 19:25:02.751 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x1a9c9048 clojure.core.async.impl.channels.ManyToManyChannel@1a9c9048]  timeout-ms  500
+[DEBUG] 2015-06-09 19:25:03.252 [pool-3-thread-1] common - <t!! - returning v:  nil  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x4db2c27b clojure.core.async.impl.channels.ManyToManyChannel@4db2c27b]
+[DEBUG] 2015-06-09 19:25:13.374 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x42b0260f clojure.core.async.impl.channels.ManyToManyChannel@42b0260f]  timeout-ms  500
+[DEBUG] 2015-06-09 19:25:13.375 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :searcher, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x42b0260f clojure.core.async.impl.channels.ManyToManyChannel@42b0260f]
+[DEBUG] 2015-06-09 19:25:13.439 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6c6722d4 clojure.core.async.impl.channels.ManyToManyChannel@6c6722d4]  timeout-ms  500
+[DEBUG] 2015-06-09 19:25:13.440 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x6c6722d4 clojure.core.async.impl.channels.ManyToManyChannel@6c6722d4]
+[DEBUG] 2015-06-09 19:25:38.687 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0xc17dae4 clojure.core.async.impl.channels.ManyToManyChannel@c17dae4]  timeout-ms  500
+[DEBUG] 2015-06-09 19:25:38.688 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :searcher, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0xc17dae4 clojure.core.async.impl.channels.ManyToManyChannel@c17dae4]
+[DEBUG] 2015-06-09 19:25:38.693 [async-dispatch-89] search - Message received:  nil
+[DEBUG] 2015-06-09 19:25:38.746 [async-dispatch-25] search - Message received:  nil
+[DEBUG] 2015-06-09 19:25:38.748 [async-dispatch-28] search - Message received:  nil
+[DEBUG] 2015-06-09 19:25:38.750 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x25ddc5bb clojure.core.async.impl.channels.ManyToManyChannel@25ddc5bb]  timeout-ms  500
+[DEBUG] 2015-06-09 19:25:38.751 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x25ddc5bb clojure.core.async.impl.channels.ManyToManyChannel@25ddc5bb]
+[DEBUG] 2015-06-09 19:25:38.751 [async-dispatch-85] search - Message received:  nil
+[DEBUG] 2015-06-09 19:25:38.806 [async-dispatch-43] search - Message received:  nil
+[DEBUG] 2015-06-09 19:25:38.807 [async-dispatch-58] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:31.591 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x176e5f68 clojure.core.async.impl.channels.ManyToManyChannel@176e5f68]  timeout-ms  500
+[DEBUG] 2015-06-09 19:26:31.592 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :searcher, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x176e5f68 clojure.core.async.impl.channels.ManyToManyChannel@176e5f68]
+[DEBUG] 2015-06-09 19:26:31.595 [async-dispatch-56] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:31.647 [async-dispatch-18] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:31.648 [async-dispatch-89] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:31.650 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3c05edf clojure.core.async.impl.channels.ManyToManyChannel@3c05edf]  timeout-ms  500
+[DEBUG] 2015-06-09 19:26:31.652 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x3c05edf clojure.core.async.impl.channels.ManyToManyChannel@3c05edf]
+[DEBUG] 2015-06-09 19:26:31.652 [async-dispatch-80] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:31.709 [async-dispatch-84] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:31.710 [async-dispatch-32] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:36.323 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x9630be2 clojure.core.async.impl.channels.ManyToManyChannel@9630be2]  timeout-ms  500
+[DEBUG] 2015-06-09 19:26:36.325 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :searcher, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x9630be2 clojure.core.async.impl.channels.ManyToManyChannel@9630be2]
+[DEBUG] 2015-06-09 19:26:36.330 [async-dispatch-70] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:36.380 [async-dispatch-55] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:36.382 [async-dispatch-56] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:36.384 [pool-3-thread-1] common - <t!! - input chan #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7238e478 clojure.core.async.impl.channels.ManyToManyChannel@7238e478]  timeout-ms  500
+[DEBUG] 2015-06-09 19:26:36.385 [pool-3-thread-1] common - <t!! - returning v:  {:msg-to :mine, :msg hi}  of  #object[clojure.core.async.impl.channels.ManyToManyChannel 0x7238e478 clojure.core.async.impl.channels.ManyToManyChannel@7238e478]
+[DEBUG] 2015-06-09 19:26:36.386 [async-dispatch-8] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:36.442 [async-dispatch-61] search - Message received:  nil
+[DEBUG] 2015-06-09 19:26:36.443 [async-dispatch-34] search - Message received:  nil
+[DEBUG] 2015-06-09 19:29:40.821 [async-dispatch-84] search - Message received:  {:msg-to :searcher, :msg Ciao!}

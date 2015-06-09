@@ -21,7 +21,8 @@
     
     (fact "started, should have non-nil instance"
       (let [started-system (component/start system)]
-        (get-in started-system [:wsx-logger :logger]) => some?))
+        (get-in started-system [:wsx-logger :logger]) => some?
+        (component/stop started-system)))
 
     (fact "started then stopped, should have nil instance"
       (let [stopped-system (component/stop (component/start system))]

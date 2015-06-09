@@ -7,7 +7,7 @@
     "Fetching method, returns a map containing the result of fetching the document"))
 
 (defrecord Fetcher [;; config
-                    http-option-map]
+                    options]
   Fetch
   (fetch [this url]
     (http/get url {:as :stream})))

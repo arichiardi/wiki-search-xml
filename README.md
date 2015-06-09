@@ -27,10 +27,21 @@ I was also tempted by [this other template](https://github.com/borkdude/lein-new
 
 I decided to experiment TDD using ```Midje``` instead of ```clojure.test``` for two reasons: it looks more flexible and interactive (have a look at midje-notifier). 
 
+## DB
+- [Couchdb Docs](http://docs.couchdb.org/en/1.6.1)
+- [Couchdb on Ubuntu](https://launchpad.net/~couchdb/+archive/ubuntu/stable)
+
 ## Other libraries (might be useful or not)
 - [org.clojure/data.xml](https://github.com/clojure/data.xml)-> xml/parse is lazy and can handle efficienty huge .xml files
 - [Cheshire](https://github.com/dakrone/cheshire)
 <br>
 - [Aleph](https://github.com/ztellman/aleph)
 - [Compojure-API](https://github.com/metosin/compojure-api)
+
+# Bootstrap
+
+For ```couchdb``` it is necessary to create a db with:
+
+- ```curl -X PUT http://127.0.0.1:5984/wsx```
+
 

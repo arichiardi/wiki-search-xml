@@ -2,6 +2,7 @@
   (:require [com.stuartsierra.component :as component]
             [environ.core :refer [env]]
             [clojure.java.io :as io]
+            [clojure.tools.logging :as log]
             [clojure.edn :as edn]
             [wiki-search-xml
              [log :refer [new-logger]]
@@ -14,18 +15,17 @@
     (with-open [r (-> "config.edn" io/resource io/reader (java.io.PushbackReader.))]
       (edn/read r))
     (catch Exception e
-      (println (str "WARNING: config.edn error: " (.getLocalizedMessage e))))))
+      (log/warn "config.edn error: " (.getLocalizedMessage e)))))
 
 (defn make-config
   "Creates a default configuration map."
   []
-  (let [config-edn (:config (read-config-file))]
-    {:searcher {} 
-     :fetcher {:http-option-map {}}
-     :logger {:name (:wsx-logger-name env)}
-     :bus {:timeout 1000}
-     :version (:wiki-search-xml-version env)
-     :test-file (:wsx-test-xml config-edn)}))
+  (merge {:searcher {} 
+          :fetcher {:options {}}
+          :logger {:name (:wsx-logger-name env)}
+          :bus {}
+          :version (:wiki-search-xml-version env)}
+         (:config (read-config-file))))
 
 (defn new-system [config-map]
   (component/system-map

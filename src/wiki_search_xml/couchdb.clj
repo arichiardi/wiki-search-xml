@@ -1,6 +1,6 @@
 (ns wiki-search-xml.couchdb)
 
-(defrecord Couchdb [;; config
+#_(defrecord Couchdb [;; config
                     end-point
                     ;; dependecies
                     bus
@@ -25,4 +25,4 @@
         
         (assoc this :subscription c)
         
-        )))
+        ))))

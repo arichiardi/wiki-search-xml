@@ -1,3 +1,3 @@
 (ns wiki-search-xml.core)
 
-(defrecord Msg [type] )
+(defrecord Msg [type])

@@ -20,7 +20,7 @@
   "Creates a default configuration map."
   []
   (merge {:searcher {} 
-          :fetcher {:static-options {}}
+          :fetcher {:kind :network}
           :logger {:name (:wsx-logger-name env)}
           :bus {}
           :version (:wiki-search-xml-version env)}

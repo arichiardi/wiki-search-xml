@@ -1,11 +1,11 @@
 (ns wiki-search-xml.t-bus
   (:require [com.stuartsierra.component :as component]
-            [clojure.core.async :refer [chan go <! >! <!! >!! alts! alts!! timeout]]
+            [clojure.core.async :refer [chan go <! >!] :rename {chan new-chan} ]
             [midje.sweet :refer :all]
             [wiki-search-xml.bus :refer :all]
             [wiki-search-xml.common :refer :all :as common]
             [wiki-search-xml.system :as sys]
-            [wiki-search-xml.core :as core] ))
+            [wiki-search-xml.core :as core]))
 
 (facts "about `bus`"
   (let [config-map (sys/make-config)
@@ -18,31 +18,28 @@
       (get-in system [:wsx-bus :chan]) => nil)
 
     (fact "when started should have non-nil dependencies and instance"
-      (let [started-system (component/start system)]
-        (get-in started-system [:wsx-bus :chan]) => some?
-        (component/stop started-system)))
+      (common/with-component-start system
+        (get-in __started__ [:wsx-bus :chan]) => some?))
 
-    (fact "when started then stopped, should have nil dependencies and instance"
-      (let [stopped-system (component/stop (component/start system))]
-        (get-in stopped-system [:wsx-bus :chan]) => nil))
+    (future-fact "when putting on bus, it should correctly send the message"
+      (common/with-component-start system
+        (let [bus-chan (get-in __started__ [:wsx-bus :chan])]
+          (go (>! bus-chan "string"))
+          (common/<t!! bus-chan 100)) => "string"))
 
-    (fact "when putting on bus, it should correctly send the message"
-      (let [started-system (component/start system)
-            chan (:chan (:wsx-bus started-system))]
-        (do (common/<t!! (go (>! chan (core/->Msg :test))
-                             (<! chan)) 1000)) => (core/->Msg :test) 
-        (component/stop started-system)))
+    (fact "when `subscribe`, it should return a filtered message"
+      (common/with-component-start system
+        (let [bus (:wsx-bus __started__)
+              bus-chan (:chan bus)
+              subscription (subscribe bus :test (new-chan 1))]
+          (go (>! bus-chan (core/->Msg :test)))
+          (common/<t!! subscription 500)) => (core/->Msg :test)))
 
-    (fact "when `subscribe`, it should return only filtered messages"
-      (let [started-system (component/start system)
-            bus (:wsx-bus started-system)
-            chan (chan 1)
-            subscription (subscribe bus  chan)]
-        (do (go (>! (:chan bus) (core/->Msg :test)))
-            (common/<t!! chan 500)) => (core/->Msg :test)
-        (do (go (>! (:chan bus) {:yours :msg}))
-            (common/<t!! chan 500)) => (core/->Msg :timeout)
-        (component/stop started-system)))
-
-    ))
+    (fact "when `subscribe` and send other :type msg should timeout"
+      (common/with-component-start system
+        (let [bus (:wsx-bus __started__)
+              bus-chan (:chan bus)
+              subscription (subscribe bus :test (new-chan 1))]
+          (go (>! bus-chan {:your :msg}))
+          (common/<t!! subscription 500)) => (core/->Msg :timeout)))))
 

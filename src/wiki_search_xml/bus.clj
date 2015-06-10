@@ -12,7 +12,8 @@
   (stop [this]
     (if chan
       (do (close! chan)
-          (-> (dissoc this :chan)
+          (-> this
+              (dissoc :chan)
               (dissoc :pub-chan)))
       this))
 
@@ -20,7 +21,8 @@
     (if chan
       this
       (let [c (new-chan (or chan-size 1))]
-        (-> (assoc this :pub-chan (pub c :type))
+        (-> this
+            (assoc :pub-chan (pub c :type))
             (assoc :chan c))))))
 
 (defn new-bus [config]

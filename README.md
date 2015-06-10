@@ -7,12 +7,13 @@ A very simple implementation of a Clojure webapp to search wiki xmls
 
 ## Framework
 - [component](https://github.com/stuartsierra/component)
--  <del>[Luminus](http://www.luminusweb.net)</del>
--  <del>[Luminus Doc](http://www.luminusweb.net/docs)</del>
-- [lib-noir](https://github.com/noir-clojure/lib-noir)
+- <del>[Luminus](http://www.luminusweb.net)</del>
+- <del>[Luminus Doc](http://www.luminusweb.net/docs)</del>
+- <del>[lib-noir](https://github.com/noir-clojure/lib-noir)</del>
 - [ring wiki](https://github.com/ring-clojure/ring/wiki)
 - [compojure wiki](https://github.com/weavejester/compojure/wiki)
 - <del>[Interactive dev](https://github.com/ring-clojure/ring/wiki/Interactive-Development)</del> -> will use ```component``` reset and ```reloadable-app```
+- [http-kit](http://www.http-kit.org/)
 
 As I won't require any frontend, I went for a stable and solid framework that is based on ```ring```'s reliabilty and simplicity.
 I was also tempted by [this other template](https://github.com/borkdude/lein-new-liberagent) but it looked a bit overkill for what I want to implement.
@@ -34,7 +35,6 @@ I decided to experiment TDD using ```Midje``` instead of ```clojure.test``` for 
 ## Other libraries (might be useful or not)
 - [org.clojure/data.xml](https://github.com/clojure/data.xml)-> xml/parse is lazy and can handle efficienty huge .xml files
 - [Cheshire](https://github.com/dakrone/cheshire)
-<br>
 - [Aleph](https://github.com/ztellman/aleph)
 - [Compojure-API](https://github.com/metosin/compojure-api)
 

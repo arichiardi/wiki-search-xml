@@ -37,8 +37,8 @@
       (let [started-system (component/start system)
             sub-chan (get-in started-system [:wsx-searcher :subscription])
             bus-chan (get-in started-system [:wsx-bus :chan])]
-        (do (go (>! bus-chan {:msg-to :searcher, :msg "hi"}))
-            (common/<t!! sub-chan 500)) => {:msg-to :searcher :msg "hi"}
+        (do (go (>! bus-chan {:route :searcher, :msg "hi"}))
+            (common/<t!! sub-chan 500)) => {:route :searcher :msg "hi"}
         ;; (do (go (>! (:chan bus) {:yours :msg}))
             ;; (common/<t!! chan 500)) => nil
         (component/stop started-system)))

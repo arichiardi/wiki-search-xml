@@ -1,8 +1,8 @@
 (ns wiki-search-xml.bus
   (:require [com.stuartsierra.component :as component]
             [clojure.tools.logging :as log]
-            [wiki-search-xml.common :as common]
-            [clojure.core.async :refer [chan go >! <! close! buffer pub sub] :rename {chan new-chan}]))
+            [clojure.core.async :refer [chan go >! <! close! buffer pub sub] :rename {chan new-chan}]
+            [wiki-search-xml.common :as common]))
 
 (defrecord Bus [;; conf
                 chan-size
@@ -20,7 +20,7 @@
     (if chan
       this
       (let [c (new-chan (or chan-size 1))]
-        (-> (assoc this :pub-chan (pub c :msg-to))
+        (-> (assoc this :pub-chan (pub c :type))
             (assoc :chan c))))))
 
 (defn new-bus [config]

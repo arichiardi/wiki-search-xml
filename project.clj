@@ -9,7 +9,7 @@
                  [org.clojure/data.zip "0.1.1"]
                  [com.stuartsierra/component "0.2.3"]
                  [environ "1.0.0"]
-                 [clj-http-lite "0.2.1"]
+                 [http-kit "2.1.18"]
                  [cheshire "5.5.0"]
                  [slingshot "0.12.2"]
                  [ring/ring-core "1.4.0-RC1"]
@@ -27,7 +27,9 @@
   :jvm-opts ^:replace []
   :plugins [[lein-environ "1.0.0"]
             [lein-pprint "1.1.2"]]
-  :profiles {:repl {:dependencies [[org.clojure/tools.namespace "0.2.10"]
+  :aliases {"bg-repl" ["trampoline" "repl" ":headless" "> repl.out 2> repl.err < /dev/null &"]}
+  :profiles {:dev {:debug true
+                   :dependencies [[org.clojure/tools.namespace "0.2.10"]
                                   [midje "2.0.0-SNAPSHOT"]
                                   [midje-notifier "0.2.0"]
                                   [ring/ring-devel "1.4.0-RC1"]]

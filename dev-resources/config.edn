@@ -1,4 +1,4 @@
 {:config
  {:server {:port 7502}
-  :searcher {:end-point "https://dumps.wikimedia.org/enwiki/20150602/"}
+  :searcher {:end-point "https://dumps.wikimedia.org/enwiki/"}
   :test-file "enwiki-20150515-abstract24.xml"}}

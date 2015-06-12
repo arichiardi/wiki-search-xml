@@ -1,4 +1,4 @@
-(ns wiki-search-xml.log
+(ns wiki-search-xml.logger
   (:require [com.stuartsierra.component :as component])
   (:import org.apache.logging.log4j.LogManager))
 

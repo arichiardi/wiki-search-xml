@@ -1,5 +1,5 @@
 (ns wiki-search-xml.t-log
-  (:require [wiki-search-xml.log :refer :all]
+  (:require [wiki-search-xml.logger :refer :all]
             [wiki-search-xml.system :as sys]
             [com.stuartsierra.component :as component]
             [environ.core :refer [env]]

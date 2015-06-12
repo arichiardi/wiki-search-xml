@@ -4,10 +4,10 @@
             [clojure.java.io :as io]
             [clojure.tools.logging :as log]
             [clojure.edn :as edn]
-            [wiki-search-xml.log :refer [new-logger]]
+            [wiki-search-xml.logger :refer [new-logger]]
             [wiki-search-xml.bus :refer [new-bus]]
             [wiki-search-xml.fetcher :refer [new-fetcher]]
-            [wiki-search-xml.search :refer [new-searcher]]))
+            [wiki-search-xml.searcher :refer [new-searcher]]))
 
 (defn- read-config-file []
   (try
@@ -20,9 +20,9 @@
   "Creates a default configuration map."
   []
   (merge {:searcher {} 
-          :fetcher {:kind :network}
+          :fetcher {:type :wiki-search-xml.fetcher/network}
           :logger {:name (:wsx-logger-name env)}
-          :bus {}
+          :bus {:buffer-size 10}
           :version (:wiki-search-xml-version env)}
          (:config (read-config-file))))
 

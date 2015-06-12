@@ -1,17 +1,17 @@
-(ns wiki-search-xml.search
+(ns wiki-search-xml.searcher
   (:require [com.stuartsierra.component :as component]
             [wiki-search-xml.bus :refer [subscribe]]
             [clojure.tools.logging :as log]
             [clojure.core.async :refer [go-loop chan <! close!]]))
 
-(declare process!)
+(declare listens!)
 
 (defrecord Searcher [ ;; config?
                      end-point
                      ;; dependecies
-                     bus
+                     bus fetcher
                      ;; state
-                     loop subscription process!]
+                     subscription listens!]
   component/Lifecycle
   (stop [this]
     ;; unsubscribe
@@ -19,7 +19,6 @@
       (do (close! subscription)
           (-> this
               (dissoc :subscription)
-              (dissoc :loop)
               (dissoc :process!)))
       this))
   
@@ -42,13 +41,20 @@
 (defn search-key
   "Performs the search, needs a Searcher and a key to look for."
   [searcher path key]
-  (log/debug "Starting searching " key " in " path))
+  (log/debug "Starting searching " key " in " path)
 
-(defn process!
+  (let [{:keys [fetcher]} searcher])
+  ;; (if ) ;; find in db
+
+  ;; else fetch
+  ;; (go (<! (fetch )))
+  )
+
+(defn listens!
   "Main execution loop"
   [this]
   (go-loop []
-    (when (:loop this) 
+    (when (:listens! this) 
       (let [msg (<! (:subscription this))] 
         (log/debug "Message received: " msg)
         (condp :type msg

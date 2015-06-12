@@ -17,3 +17,4 @@ TAGS
 logs/
 *.err
 *.out
+*.swp

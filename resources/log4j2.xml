@@ -31,9 +31,9 @@
   </Appenders>
   <Loggers>
     <Logger name="wiki-search-xml.log4j2" level="debug" additivity="false">
-      <appender-ref ref="trace-log" level="debug"/>
-      <appender-ref ref="error-log" level="error"/>
-      <appender-ref ref="console-log" level="debug"/>
+      <AppenderRef-ref ref="trace-log" level="debug"/>
+      <AppenderRef-ref ref="error-log" level="error"/>
+      <AppenderRef-ref ref="console-log" level="debug"/>
     </Logger>
     <Root level="info" additivity="false">
       <AppenderRef ref="console-log"/>

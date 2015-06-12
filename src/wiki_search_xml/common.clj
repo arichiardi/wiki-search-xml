@@ -7,7 +7,10 @@
 
 (defn lazy?
   [xs]
-  (instance? clojure.lang.LazySeq xs))
+  (condp instance? xs 
+    clojure.lang.LazySeq true
+    clojure.lang.Cons (lazy? (rest xs))
+    java.lang.Object false))
 
 (defn str-pprint
   "Pretty prints object to a string."

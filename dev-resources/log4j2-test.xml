@@ -30,13 +30,19 @@
 
   </Appenders>
   <Loggers>
-    <Logger name="wiki-search-xml.log4j2" level="debug" additivity="false">
-      <appender-ref ref="trace-log" level="debug"/>
-      <appender-ref ref="error-log" level="error"/>
-      <appender-ref ref="console-log" level="off"/>
+    <Logger name="wiki-search-xml" level="debug" additivity="false">
+      <AppenderRef ref="trace-log" level="debug"/>
+      <AppenderRef ref="error-log" level="error"/>
+      <AppenderRef ref="console-log" level="off"/>
     </Logger>
-    <Root level="debug" additivity="false">
-      <AppenderRef ref="trace-log"/>
+    <Logger name="org.apache.logging" level="warn" additivity="false">
+      <AppenderRef ref="trace-log" level="debug"/>
+      <AppenderRef ref="error-log" level="error"/>
+      <AppenderRef ref="console-log" level="off"/>
+    </Logger>
+    <Root level="warn" additivity="false">
+      <AppenderRef ref="trace-log" level="debug" />
+      <AppenderRef ref="error-log" level="error" />
     </Root>
   </Loggers>
 </Configuration>

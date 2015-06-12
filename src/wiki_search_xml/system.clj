@@ -9,7 +9,7 @@
             [wiki-search-xml.fetcher :refer [new-fetcher]]
             [wiki-search-xml.searcher :refer [new-searcher]]))
 
-(defn- read-config-file []
+(defn read-config-file []
   (try
     (with-open [r (-> "config.edn" io/resource io/reader (java.io.PushbackReader.))]
       (edn/read r))

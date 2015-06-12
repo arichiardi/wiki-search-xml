@@ -20,7 +20,7 @@
   (start [this]
     (if server
       this
-      (let [options (-> server-opts (assoc :join? false))
+      (let [options (assoc server-opts :join? false)
             server  (jetty/run-jetty handler options)]
         (assoc this :server server)))))
   

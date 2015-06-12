@@ -60,7 +60,7 @@
     (log/debug method url "status" status "took time"
                (- (System/currentTimeMillis) start-time) "ms"))
   
-  (go (>! chan (-> (core/->Msg :stream) (merge http-result)))))
+  (go (>! chan (merge (core/->Msg :stream) http-result))))
 
 ;; (defn process!
 ;;   "Main execution loop"

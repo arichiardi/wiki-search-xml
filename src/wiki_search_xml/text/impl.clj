@@ -13,13 +13,13 @@
   [m k v]
   (assoc m k (conj (or (get m k nil) []) v)))
 
-(defn trie-word-nodes
+(defn trie-insert-children
   "Assuming I just want to create a node from a word, creates the
   nodes."
   ([str value]
-   (let [rev (reverse str)]
-     (trie-word-nodes (rest rev) value
-                      (conjm (map->Node {:sym (first rev)}) :values value))))
+   (when-let [rev (reverse str)]
+     (trie-insert-children (rest rev) value
+                           (conjm (map->Node {:sym (first rev)}) :values value))))
 
   ([str value acc-node]
    (if (seq str)
@@ -49,27 +49,30 @@
   more flexible with dictionaries (the equality is on the :sym field of
   the Node record, which can be anything). The entries are not sorted."
   [node s value]
-  (if-let [tail (next s)]
-    (if (= (first s) (:sym node))
-      (assoc node :child (if-let [child (:child node)]
-                           (trie-insert-recursive child tail value)
-                           (trie-word-nodes tail value)))
+  (if-let [sym (first s)]
+    (if (= sym (:sym node))
+      (if-let [sym-tail (next s)]
+        (assoc node :child (if-let [child (:child node)]
+                             (trie-insert-recursive child sym-tail value)
+                             (trie-insert-children sym-tail value))) 
+        (conjm node :values value))
       (assoc node :next (if-let [next (:next node)]
                           (trie-insert-recursive next s value)
-                          (trie-word-nodes s value))))
-    (conjm node :values value)))
+                          (trie-insert-children s value)))) 
+    (trie-insert-children s value)))
 
 (defn trie-find
   "Finds the input s in the node. Returns the Node record of the last
   symbol (the one that containes the values) or nil."
   [node s]
   {:pre [(instance? Node node)]}
-  (if-let [tail (next s)]
-    (if (= (first s) (:sym node))
-      (if-let [child (:child node)]
-        (trie-find child tail)
+  (if-let [sym (first s)]
+    (if (= sym (:sym node))
+      (if-let [sym-tail (next s)] 
+        (if-let [child (:child node)]
+          (trie-find child sym-tail)
+          node)
         node)
       (when-let [next (:next node)]
-        (trie-find next s)))
-    node))
+        (trie-find next s)))))
 

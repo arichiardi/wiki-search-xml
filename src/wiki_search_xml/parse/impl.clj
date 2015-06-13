@@ -2,6 +2,7 @@
   (:require [clojure.tools.trace :refer [deftrace trace] :rename {trace t}]
             [clojure.data.xml :as xml]
             [clojure.zip :as zip]
+            [clojure.string :as string]
             [clojure.data.zip.xml :as zxml]
             [wiki-search-xml.text :as txt]))
 
@@ -18,14 +19,12 @@
     
   ))
 
-
-
 (defn doc->trie
   "Given a wiki doc tag, returns a vector of the trie value/payload in
   the form {:title ...  :abstract ...  :url ...} plus the trie built
   around title and abstact of the doc itself."
   [doc]
-  (let [title (t :title (xml-text doc :title))
+  (let [title (xml-text doc :title)
         abstract (xml-text doc :abstract)
         url (xml-text doc :url)
         trie-value {:title title :abstract abstract :url url}]
@@ -33,8 +32,4 @@
     ;; AR - It would be nice to have some monad here, the maybe monad
     ;; combined with a monad that concatenates builds of the trie.
     ;; AR - TODO Criterium benchmark for introducing reducers
-    (let [title-trie (txt/text->trie title trie-value)]
-      (txt/text->trie title-trie abstract trie-value))
-
-    )
-  )
+    (txt/text->trie (string/lower-case (concat title "\n" abstract)) trie-value)))

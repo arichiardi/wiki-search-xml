@@ -7,7 +7,7 @@
 
 (expose-testables wiki-search-xml.text.impl)
 
-(facts "about `text.impl`"
+#_(facts "about `text.impl`"
 
   (fact "`conjm` should create key if not present"
     (conjm {:foo 1} :bar 2) => {:foo 1 :bar [2]})
@@ -18,8 +18,8 @@
   (fact "`conjm` should work with any key"
     (conjm {"foo" 1} "bar" 2) => {"foo" 1 "bar" [2]})
 
-  (fact "`trie-word-nodes` should create nodes correctly"
-    (trie-word-nodes "baby" 3) => baby-trie)
+  (fact "`trie-insert-childrens` should create nodes correctly"
+    (trie-insert-children "baby" 3) => baby-trie)
 
   (fact "`trie-insert-recursive` of 'badly' in 'bad' should create..."
     (trie-insert-recursive bad-trie "badly" 4) => bad-badly-trie)
@@ -85,7 +85,13 @@
   (fact "`trie-insert-recursive` inserting twice should conj values"
     (let [foobar-trie (trie-insert-recursive (map->Node {}) "foobar" 3)
           foobar2-trie (trie-insert-recursive foobar-trie "foobar" 4) ]
-      (trie-find foobar2-trie "foobar") => (contains {:values [3 4]}))))
+      (println (str foobar-trie))
+      (println (str foobar2-trie))
+      (trie-find foobar2-trie "foobar") => (contains {:values [3 4]})))
+  
+  )
+
+
 
 ;.;. A journey of a thousand miles begins with a single step. -- @alanmstokes
 ;.;. TRACE n: nil

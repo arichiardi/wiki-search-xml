@@ -19,7 +19,7 @@
   characters in size. If str exists in the node/tree the value will be
   conjoined to the :values key."
   ([] (trie-empty))
-  ([str value] (impl/trie-word-nodes str value))
+  ([str value] (impl/trie-insert-children str value))
   ([node str value]
    {:pre [(> (count str) 2)]}
    (impl/trie-insert-recursive node str value)))

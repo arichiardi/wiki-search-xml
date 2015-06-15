@@ -1,9 +1,9 @@
 (ns wiki-search-xml.t-bus
   (:require [com.stuartsierra.component :as component]
-            [clojure.core.async :refer [chan go <! >!] :rename {chan new-chan} ]
+            [clojure.core.async :refer [chan go <! >!] :rename {chan new-chan}]
             [midje.sweet :refer :all]
             [wiki-search-xml.bus :refer :all]
-            [wiki-search-xml.common :refer :all :as common]
+            [wiki-search-xml.common :as common]
             [wiki-search-xml.system :as sys]
             [wiki-search-xml.core :as core]))
 
@@ -41,5 +41,5 @@
               bus-chan (:chan bus)
               subscription (subscribe bus :test (new-chan 1))]
           (go (>! bus-chan {:your :msg}))
-          (common/<t!! subscription 500)) => (core/->Msg :timeout)))))
+          (common/<t!! subscription 500)) => core/timeout-msg))))
 

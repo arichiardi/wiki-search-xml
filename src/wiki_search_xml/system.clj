@@ -1,12 +1,14 @@
 (ns wiki-search-xml.system
-  (:require [com.stuartsierra.component :as component]
-            [environ.core :refer [env]]
+  (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
             [clojure.tools.logging :as log]
-            [clojure.edn :as edn]
-            [wiki-search-xml.logger :refer [new-logger]]
+            [clojure.core.async :refer [go >!]]
+            [com.stuartsierra.component :as component]
+            [environ.core :refer [env]]
+            [wiki-search-xml.core :as core]
             [wiki-search-xml.bus :refer [new-bus]]
-            [wiki-search-xml.fetcher :refer [new-fetcher]]
+            [wiki-search-xml.parser :refer [new-parser]]
+            [wiki-search-xml.logger :refer [new-logger]]
             [wiki-search-xml.searcher :refer [new-searcher]]))
 
 (defn read-config-file []
@@ -20,9 +22,11 @@
   "Creates a default configuration map."
   []
   (merge {:searcher {} 
-          :fetcher {:type :wiki-search-xml.fetcher/network}
           :logger {:name (:wsx-logger-name env)}
-          :bus {:buffer-size 10}
+          :bus {:bus-conf {:buffer-type :sliding
+                           :buffer-size 10}
+                :pub-type-conf {:buffer-type :dropping
+                                :buffer-size 100}}
           :version (:wiki-search-xml-version env)}
          (:config (read-config-file))))
 
@@ -31,5 +35,6 @@
    :wsx-bus (new-bus config-map)
    :wsx-logger (new-logger config-map)
    :wsx-searcher (new-searcher config-map)
-   :wsx-fetcher (new-fetcher config-map)
+   :wsx-parser (new-parser config-map)
    :wsx-version (:version config-map)))
+

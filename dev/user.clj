@@ -11,7 +11,7 @@
   "Constructs the current development system."
   []
   (println "Initializing system...")
-  (daemon/-init)
+  (daemon/-init :fake-instance)
   #_(alter-var-root #'system
                     (constantly (new-system (make-config)))))
 
@@ -19,14 +19,14 @@
   "Starts the current development system."
   []
   (println "Starting system...")
-  (daemon/-start)
+  (daemon/-start :fake-instance)
   #_(alter-var-root #'system component/start))
 
 (defn stop
   "Shuts down and destroys the current development system."
   []
   (println "Stopping system...")
-  (daemon/-stop)
+  (daemon/-stop :fake-instance)
   #_(alter-var-root #'system
                     (fn [s] (when s (component/stop s)))))
 
@@ -42,9 +42,6 @@
   (stop)
   (refresh :after 'user/go))
 
-(defn autotest
-  []
-  (println "Starting automatic tests...")
-  (midje.repl/autotest))
+(def test midje.repl/autotest)
 
 

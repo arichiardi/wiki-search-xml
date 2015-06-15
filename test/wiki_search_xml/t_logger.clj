@@ -1,4 +1,4 @@
-(ns wiki-search-xml.t-log
+(ns wiki-search-xml.t-logger
   (:require [wiki-search-xml.logger :refer :all]
             [wiki-search-xml.system :as sys]
             [com.stuartsierra.component :as component]

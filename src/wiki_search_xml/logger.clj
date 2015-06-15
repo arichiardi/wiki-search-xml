@@ -1,5 +1,6 @@
 (ns wiki-search-xml.logger
-  (:require [com.stuartsierra.component :as component])
+  (:require [com.stuartsierra.component :as component]
+            [clojure.tools.logging :as log])
   (:import org.apache.logging.log4j.LogManager))
 
 (declare set-default-uncaught-exception-handler)
@@ -41,5 +42,5 @@
   (Thread/setDefaultUncaughtExceptionHandler
    (reify Thread$UncaughtExceptionHandler
      (uncaughtException [_ thread throwable]
-       (.fatal logger throwable "Uncaught exception")))))
+       (log/fatal throwable "Uncaught exception")))))
 

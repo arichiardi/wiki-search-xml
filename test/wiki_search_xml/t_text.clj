@@ -22,8 +22,8 @@
     (words "two three four") => (just ["two" "three" "four"]))
 
   (future-fact "`words` should skip links"
-    (words "Västerbotten County founded in 1923 http://www.bolletinen.") => (just ["Västerbotten" "County" "founded" "in" "1923"])
-    (words "Västerbotten County founded in 1923http://www.bolletinen.") => (just ["Västerbotten" "County" "founded" "in" "1923"]))
+               (words "Västerbotten County founded in 1923 http://www.bolletinen.") => (just ["Västerbotten" "County" "founded" "in" "1923"])
+               (words "Västerbotten County founded in 1923http://www.bolletinen.") => (just ["Västerbotten" "County" "founded" "in" "1923"]))
 
   (fact "`text->trie` should produce a trie and find within it"
     (text->trie "" 3) => (trie-empty)
@@ -43,5 +43,7 @@
       (trie-get trie "a") => nil
       (trie-get trie "bar") => (just [3])))
 
-  
+  (fact "`text->trie` with empty string returns nil"
+    (text->trie "" 3) => (trie-empty))
+
   )

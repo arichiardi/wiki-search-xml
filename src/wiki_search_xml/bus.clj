@@ -1,41 +1,38 @@
 (ns wiki-search-xml.bus
   (:require [com.stuartsierra.component :as component]
             [clojure.tools.logging :as log]
-            [clojure.core.async :refer [chan go >! <! close! buffer pub sub] :rename {chan new-chan}]
+            [clojure.core.async :refer [chan close! pub sub] :as async]
             [wiki-search-xml.common :as common]))
 
-(defrecord Bus [;; conf
-                chan-size
+(defrecord Bus [ ;; conf
+                bus-conf pub-type-conf
                 ;; instance
-                chan pub-chan]
+                chan pub-type]
   component/Lifecycle
   (stop [this]
     (if chan
-      (do (close! chan)
+      (do (async/close! chan)
           (-> this
               (dissoc :chan)
-              (dissoc :pub-chan)))
+              (dissoc :pub-type)))
       this))
 
   (start [this]
     (if chan
       this
-      (let [c (new-chan (or chan-size 1))]
+      (let [c (async/chan (common/conf->buffer bus-conf))]
         (-> this
-            (assoc :pub-chan (pub c :type))
+            (assoc :pub-type (async/pub c
+                                        :type
+                                        (fn [_] (common/conf->buffer pub-type-conf))))
             (assoc :chan c))))))
 
 (defn new-bus [config]
   (map->Bus (:bus config)))
 
-;; (defn- start-dispatch
-;;   [bus]
-;;   (go (while true
-;;         ))
-;;   )
-
 (defn subscribe
   "Subscribes chan to the input bus. Returns a channel which will
-  receive messages that satisfy the predicate pred"
+  receive messages that satisfy the topic"
   [bus topic ch]
-  (sub (:pub-chan bus) topic ch))
+  (async/sub (:pub-type bus) topic ch))
+

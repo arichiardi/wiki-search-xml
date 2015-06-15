@@ -1,2 +1,10 @@
 {:config
- {:server {:port 7501}}}
+ {:server {:port 7501}
+  :searcher {:locations [{:type :network-files
+                          :end-point "https://dumps.wikimedia.org/enwiki/latest"
+                          :filter "^.+abstract.+rss[.]{1}xml"
+                          :TODO}
+                         {:type :network-file
+                          :end-point "https://dumps.wikimedia.org/enwiki/latest"
+                          :path "enwiki-latest-abstract9.xml"
+                          :TODO}]}}}

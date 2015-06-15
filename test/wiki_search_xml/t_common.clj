@@ -22,8 +22,8 @@
     (let [c1 (chan)]
       (do (go (>! c1 "test")) (<t!! c1 1000)) => "test"
       (do (go (do (<! (timeout 500)) (>! c1  "test"))) (<t!! c1 1000)) => "test" 
-      (do (go (do (<! (timeout 2000)) (>! c1  "test"))) (<t!! c1 1000)) => (core/->Msg :timeout)
-      (<t!! c1 10) => (core/->Msg :timeout)))
+      (do (go (do (<! (timeout 2000)) (>! c1  "test"))) (<t!! c1 1000)) => core/timeout-msg
+      (<t!! c1 10) => core/timeout-msg))
 
   (fact "`with-component-start` should behave correctly"
     (let [dummy (new-dummy-component "test")]

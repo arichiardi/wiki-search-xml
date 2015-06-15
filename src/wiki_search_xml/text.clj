@@ -38,7 +38,16 @@
   ([text value]
    (text->trie (trie-empty) text value))
   ([another-trie text value] 
-   (when-let [ws (distinct (filter #(> (count %1) 2) (words text)))]
+   (if-let [ws (seq (distinct (filter #(> (count %1) 2) (words text))))]
      (if-not (= (count ws) 1)
        (reduce #(trie-insert %1 %2 value) another-trie ws) 
-       (trie-insert (first ws) value)))))
+       (trie-insert (first ws) value))
+     (trie-empty))))
+
+;; (defn merge-trie
+;;   "Merge for tries. Useful for clojure.core.reducers.
+;;   TODO"
+;;   ([]
+;;    (ex-info "Function not yet implemented")
+;;    (trie-empty))
+;;   ([& tries] (ex-info "Function not yet implemented")))

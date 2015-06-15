@@ -1,7 +1,7 @@
 (ns wiki-search-xml.common
   (:require [clojure.pprint :as pprint]
             [clojure.tools.logging :as log]
-            [clojure.core.async :refer [<!! alts!! timeout]]
+            [clojure.core.async :as async]
             [com.stuartsierra.component :as component]
             [wiki-search-xml.core :as core]))
 
@@ -21,11 +21,11 @@
   "Takes (blocking) from the input chan waiting for timeout-ms.
   Returns nil when it times out."
   [chan timeout-ms]
-  (let [timeout-ch (timeout timeout-ms)
-        [v c] (alts!! [chan timeout-ch] :priority true)]
+  (let [timeout-ch (async/timeout timeout-ms)
+        [v c] (async/alts!! [chan timeout-ch] :priority true)]
     (if (= c timeout-ch)
       (do (log/debug "<t!! - timed out: val" v "on" chan)
-          (core/->Msg :timeout))
+          core/timeout-msg)
       (do (log/debug "<t!! - received: val" v "on" c)
           v))))
 
@@ -47,3 +47,14 @@
          result# (do ~@body)]
      (component/stop ~'__started__)
      result#))
+
+(defn conf->buffer
+  "Returns the correct kind of buffer instance based
+  on :buffer-type (can be either :dropping or :sliding)
+  and :buffer-size."
+  [conf]
+  (let [{:keys [buffer-size buffer-type]} conf]
+    (case buffer-type
+      :dropping (async/dropping-buffer (or buffer-size 1)) 
+      :sliding (async/sliding-buffer (or buffer-size 1))
+      (async/chan (or buffer-size 1)))))

@@ -1,4 +1,8 @@
 {:config
  {:server {:port 7502}
-  :searcher {:end-point "https://dumps.wikimedia.org/enwiki/"}
+  :searcher {:locations [{:type :resource-file
+                          :resource-path "enwiki-20150515-abstract24.xml"}]
+             :test-network-location {:type :network-file
+                                     :end-point "https://dumps.wikimedia.org/enwiki/latest"
+                                     :path "enwiki-latest-md5sums.txt"}}
   :test-file "enwiki-20150515-abstract24.xml"}}

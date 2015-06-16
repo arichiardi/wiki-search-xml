@@ -17,14 +17,16 @@
 (def test-xml "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
                <foo><bar><baz>The baz value</baz></bar></foo>")
 
-(def test-string "Blatnaya pesnya (Russian: Блатна́я пе́сня), or “criminals’ songs,” is a genre of Russian song characterized by depictions of criminal subculture and the urban underworld. These depictions are oftentimes romanticized and humorous in nature.")
-
 (defn- words-size>2
   [s]
   (filter #(> (count %1) 2) (txt/words s)))
 
 (facts "about `parse.impl`"
 
+  (fact "strip-wikipedia should behave correctly"
+    (strip-wikipedia "Wikipedia: foo bar baz") => (contains "foo bar baz")
+    (strip-wikipedia "Wikipedia: foo wikipedia:bar") => #"[ ]+foo[ ]+bar")
+  
   (let [input-xml (java.io.StringReader. test-xml)
         root (-> input-xml xml/parse zip/xml-zip)
         bar (zxml/xml1-> root :bar)]
@@ -53,7 +55,7 @@
                         (rand-nth (words-size>2 abstract))) => (just [42 43]))
 
         ;; AR - The metadata facility is very powerful and neat!
-        (doseq [word (words-size>2 (string/lower-case title))]
+        (doseq [word (words-size>2 (string/lower-case (strip-wikipedia title)))]
           (fact
             {:midje/description (str "`doc->trie` correctly indexes `" word "` from title")}
             (txt/trie-get (first (doc->trie identity doc)) word) => (just {:url url
@@ -65,8 +67,7 @@
             {:midje/description (str "`doc->trie` correctly indexes `" word "` from abstract")}
             (txt/trie-get (first (doc->trie identity doc)) word) => (just {:url url
                                                                            :title title
-                                                                           :abstract abstract})))
-        ))))
+                                                                           :abstract abstract})))))))
 
 (facts "about `wiki-xml->trie`" :slow
 

@@ -24,10 +24,9 @@
   (let [timeout-ch (async/timeout timeout-ms)
         [v c] (async/alts!! [chan timeout-ch] :priority true)]
     (if (= c timeout-ch)
-      (do (log/debug "<t!! - timed out: val" v "on" chan)
+      (do (log/debug "<t!! - timed out on" chan)
           core/timeout-msg)
-      (do (log/debug "<t!! - received: val" v "on" c)
-          v))))
+      v)))
 
 (defrecord DummyComponent [name deps]
   component/Lifecycle

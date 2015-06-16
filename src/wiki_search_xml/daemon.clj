@@ -1,6 +1,8 @@
 (ns wiki-search-xml.daemon
   "Implements the Commons Daemon interface"
-  (:require [com.stuartsierra.component :as component]
+  (:require [clojure.tools.logging :as log]
+            [com.stuartsierra.component :as component]
+            [slingshot.slingshot :refer [try+ throw+]]
             [wiki-search-xml.system :as sys])
   (:gen-class :implements [org.apache.commons.daemon.Daemon]))
 
@@ -9,16 +11,26 @@
 (defn -init
   "Initializes a new system given a commons daemon context."
   [_ daemon-context]
-  (->> sys/make-config
-       sys/new-system
-       constantly
+  (->> (sys/make-config)
+       (sys/new-system)
+       (constantly)
        (alter-var-root #'system)))
 
 (defn -start [_]
-  (alter-var-root #'system component/start))
+  (try+
+   (alter-var-root #'system component/start)
+   (catch Object _
+     (let [thr (:throwable &throw-context)]
+       (log/error thr "Component error on start")
+       (throw+)))))
 
 (defn -stop [_]
-  (alter-var-root #'system component/stop))
+  (try+
+   (alter-var-root #'system component/stop)
+   (catch Object _
+     (let [thr (:throwable &throw-context)]
+       (log/error thr "Component error on stop")
+       (throw+)))))
 
 (defn -destroy [_]
   (alter-var-root #'system (constantly nil)))

@@ -85,8 +85,6 @@
   (fact "`trie-insert-recursive` inserting twice should conj values"
     (let [foobar-trie (trie-insert-recursive (map->Node {}) "foobar" 3)
           foobar2-trie (trie-insert-recursive foobar-trie "foobar" 4) ]
-      (println (str foobar-trie))
-      (println (str foobar2-trie))
       (trie-find foobar2-trie "foobar") => (contains {:values [3 4]})))
   
   )

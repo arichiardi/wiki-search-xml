@@ -1,5 +1,5 @@
 {:config
- {:server {:port 7501}
+ {:server {:options {:port 7501}}
   :searcher {:locations [{:type :network-files
                           :end-point "https://dumps.wikimedia.org/enwiki/latest"
                           :filter "^.+abstract.+rss[.]{1}xml"

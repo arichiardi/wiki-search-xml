@@ -9,11 +9,12 @@
                  [org.clojure/data.zip "0.1.1"]
                  [com.stuartsierra/component "0.2.3"]
                  [environ "1.0.0"]
-                 [http-kit "2.1.18"]
                  [cheshire "5.5.0"]
                  [slingshot "0.12.2"]
+                 
                  [ring/ring-core "1.4.0-RC1"]
-                 [ring/ring-jetty-adapter "1.4.0-RC1"]
+                 [http-kit "2.1.18"]
+                 [compojure "1.3.4"]
                  [commons-daemon/commons-daemon "1.0.15"]
                  ;; [com.ashafa/clutch "0.4.0"]
                  

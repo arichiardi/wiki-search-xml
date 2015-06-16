@@ -1,17 +1,25 @@
 (ns user
-  (:require [com.stuartsierra.component :as component]
-            [clojure.tools.namespace.repl :refer [refresh refresh-all]]
-            [wiki-search-xml.system :refer [new-system make-config]]
-            [wiki-search-xml.daemon :as daemon]
-            [midje.repl :as mr]))
+  (:require[clojure.tools.namespace.repl :refer [refresh refresh-all]]
+           [clojure.pprint :refer [pprint]]
+           [com.stuartsierra.component :as component]
+           [wiki-search-xml.system :refer [new-system make-config]]
+           [wiki-search-xml.daemon :as daemon]
+           [midje.repl :as mr]))
 
 #_(def system nil)
+
+(defn ppsys
+  "Pretty prints the system var"
+  []
+  (if-let [sys daemon/system]
+    (pprint sys)
+    (println "System not initialized yet")))
 
 (defn init
   "Constructs the current development system."
   []
   (println "Initializing system...")
-  (daemon/-init :fake-instance)
+  (daemon/-init :fake-instance :fake-daemon-context)
   #_(alter-var-root #'system
                     (constantly (new-system (make-config)))))
 

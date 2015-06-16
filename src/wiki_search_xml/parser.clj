@@ -11,30 +11,29 @@
 (declare consume!)
 
 (defrecord Parser [;; config
-                   buffer-conf fetch-timeout
+                   buffer-conf
                    ;; dependecies
                    bus
                    ;; state
-                   subscription parsed-locations]
+                   sub-parse parsed-locations]
   component/Lifecycle
   (stop [this]
     ;; unsubscribe
-    (if subscription 
-      (do (async/close! subscription)
+    (if sub-parse 
+      (do (async/close! sub-parse)
           (-> this
-              (dissoc :subscription)
+              (dissoc :sub-parse)
               (dissoc :parsed-cache)))
       this))
   
   (start [this]
-    (if subscription
+    (if sub-parse
       this
       (let [c (common/conf->buffer buffer-conf)
-            subscription (subscribe bus :parse c)
-            component (-> this (assoc :subscription subscription)
+            sp (subscribe bus :parse c)
+            component (-> this (assoc :sub-parse sp)
                                (assoc :parsed-cache (atom nil)))]
-        (core/loop! subscription (partial consume! component))
-        (log/debug "started component" component)
+        (core/loop! (partial consume! component) sp)
         component))))
   
 (defn new-parser [config]
@@ -48,33 +47,32 @@
 ;;;;;;;;;;;;;
 
 (defn parse-stream-async
-  "Asynchronously parse from the input coming from channel"
-  [channel]
-  (async/thread (let [{:keys [stream error]} (async/<!! channel)]
+  "Asynchronously parse the FetchResult coming from channel.
+  The output depends on the format of the parsing function, which now
+  corresponds to parse/wiki-stream->trie."
+  [fetch-channel]
+  (async/thread (let [{:keys [stream error]} (async/<!! fetch-channel)]
                   (log/debug "fetch-result ready, stream:" stream "error:" error)
-                  (when stream 
-                    (parse/xml-stream->trie identity stream)))))
+                  (if stream 
+                    {:data (parse/wiki-stream->trie identity stream)}
+                    {:error error}))))
 
 (defn parse-location
   [this msg]
-  (let [{:keys [bus locations parsed-cache fetch-timeout]} this
-        {:keys [location]} msg]
+  (let [{:keys [bus parsed-cache]} this
+        {:keys [chan]} bus
+        {:keys [location for-key]} msg]
     (log/debug "parsing location" location)
-    
-    (if-let [parsed (get @parsed-cache location)]
-       parsed
-       (async/go
-         (async/alt!
-           (async/timeout (or fetch-timeout 10000)) :timeout
 
-           (parse-stream-async (fetch location)) :success
-           :priority true
-           )
-         )
-      )
-    
-    )
-  )
+    (async/go
+      (async/>! chan
+                (core/msg->result :parser msg 
+                                  (if-let [parsed (get @parsed-cache location)]
+                                    {:data parsed}
+                                    (let [parsed (async/<! (parse-stream-async (fetch location)))]
+                                      (when-let [data (:data parsed)]
+                                        (swap! parsed-cache assoc location data))
+                                      parsed)))))))
 
 (defn consume!
   "Consumes the input message."
@@ -82,3 +80,4 @@
   (case (:type msg) 
     :parse (parse-location this msg)
     (log/debug "message is not for me")))
+

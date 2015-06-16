@@ -1,5 +1,6 @@
 {:config
- {:server {:port 7502}
+ {:server {:options {:port 7502
+                     :worker-name-prefix "wsx-dev-worker-"}}
   :searcher {:locations [{:type :resource-file
                           :resource-path "enwiki-20150515-abstract24.xml"}]
              :test-network-location {:type :network-file

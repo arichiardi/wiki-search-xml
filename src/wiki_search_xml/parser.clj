@@ -49,35 +49,42 @@
 (defn parse-stream-async
   "Asynchronously parse the FetchResult coming from channel.
   The output depends on the format of the parsing function, which now
-  corresponds to parse/wiki-stream->trie."
-  [fetch-channel]
+  corresponds to parse/wiki-stream->trie-pair. Value hook modifies the
+  value payload before insertion and is tipically used to assoc some
+  db-specific fields."
+  [value-hook fetch-channel]
   (async/thread (let [{:keys [stream error]} (async/<!! fetch-channel)]
-                  (log/debug "fetch-result ready, stream:" stream "error:" error)
+                  (log/debugf "fetch-result ready (payload not displayed but error was: %s)" error)
                   (if stream 
-                    {:data (parse/wiki-stream->trie identity stream)}
+                    {:data (parse/wiki-stream->trie-pair value-hook stream)}
                     {:error error}))))
 
 (defn parse-location
+  "Parses a location, returning a channel that will yield a
+  core/msg->DataMsg with class :parsed-xml whose data is the result of
+  either fetching or just returning the parsed document according to the
+  location found in the input msg."
   [this msg]
-  (let [{:keys [bus parsed-cache]} this
-        {:keys [chan]} bus
-        {:keys [location for-key]} msg]
+  (let [{:keys [parsed-cache]} this
+        {:keys [location]} msg]
     (log/debug "parsing location" location)
 
     (async/go
-      (async/>! chan
-                (core/msg->result :parser msg 
-                                  (if-let [parsed (get @parsed-cache location)]
-                                    {:data parsed}
-                                    (let [parsed (async/<! (parse-stream-async (fetch location)))]
-                                      (when-let [data (:data parsed)]
-                                        (swap! parsed-cache assoc location data))
-                                      parsed)))))))
+      (core/msg->DataMsg msg
+                         (merge {:class :parsed-xml} 
+                                (if-let [parsed (get @parsed-cache location)]
+                                  {:data parsed}
+                                  (let [parsed (async/<! (parse-stream-async identity (fetch location)))
+                                        fp (second (:data parsed))]
+                                    (log/debugf "ssssssssssss---  %s" (first fp))
+                                    (when-let [data (:data parsed)]
+                                      (swap! parsed-cache assoc location data))
+                                    parsed)))))))
 
 (defn consume!
   "Consumes the input message."
   [this msg]
-  (case (:type msg) 
-    :parse (parse-location this msg)
-    (log/debug "message is not for me")))
-
+  (let [bus (get-in this [:bus :chan] this)]
+    (case (:type msg) 
+      :parse (async/pipe (parse-location this msg) bus)
+      (log/debug "message is not for me"))))

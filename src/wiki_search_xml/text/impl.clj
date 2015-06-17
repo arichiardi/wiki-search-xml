@@ -20,7 +20,6 @@
    (when-let [rev (reverse str)]
      (trie-insert-children (rest rev) value
                            (conjm (map->Node {:sym (first rev)}) :values value))))
-
   ([str value acc-node]
    (if (seq str)
      (recur (rest str) value (map->Node {:sym (first str) :child acc-node}))

@@ -2,6 +2,7 @@
   (:require [clojure.core.async :refer [go >! >!!]]
             [wiki-search-xml.parser :refer :all]
             [wiki-search-xml.system :as sys]
+            [wiki-search-xml.core :as core]
             [wiki-search-xml.common :as common]
             [midje.sweet :refer :all]))
 
@@ -26,7 +27,17 @@
         (get-in stopped [:wsx-parser :sub-parse]) => nil
         (get-in stopped [:wsx-parser :bus]) => nil))
 
-    )
-  )
+    (let [config-map (sys/make-config)
+          system (sys/new-system config-map)] 
+      (fact "parse-location should produce :parsed-xml data"
+        :slow
+        (common/with-component-start system
+          (let [parser (get-in __started__ [:wsx-parser])
+                test-location (:test-resource-location config-map)] 
+            (common/<t!! (parse-location parser {:location test-location})
+                         15000)) => (contains {:type :data
+                         :class :parsed-xml}))))
+
+    ))
 
 

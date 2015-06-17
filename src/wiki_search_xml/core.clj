@@ -6,13 +6,17 @@
 
 (def timeout-msg (->Msg :timeout))
 
-(defrecord ResultMsg [type sender data error])
+(defrecord DataMsg [type class data error])
 
-(defn msg->result
+(defn ->DataMsg*
+  [{:keys [class data error] :or {class :unknown data nil error nil}}]
+  (->DataMsg :data class data error))
+
+(defn msg->DataMsg
   "Converts any message into a ResultMsg, overriding :type and
   adding :data or :error."
-  [msg sender {:keys [data error] :or {data nil error nil}}]
-  (merge msg (->ResultMsg :result data error)))
+  [another-msg {:keys [class data error] :or {class :unknown data nil error nil}}]
+  (merge another-msg (->DataMsg :data class data error)))
 
 (defn loop!
   "Starts an async execution go-loop on the sub(scripted)-channels,

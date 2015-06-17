@@ -26,7 +26,7 @@
 
 (defn -stop [_]
   (try+
-   (alter-var-root #'system component/stop)
+   (alter-var-root #'system (fn [sys] (when sys (component/stop sys))))
    (catch Object _
      (let [thr (:throwable &throw-context)]
        (log/error thr "Component error on stop")

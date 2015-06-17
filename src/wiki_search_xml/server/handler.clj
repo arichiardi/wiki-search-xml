@@ -3,11 +3,11 @@
             [clojure.core.async :refer [go >!]]
             [com.stuartsierra.component :as component]
             [org.httpkit.server :as http]
-            [wiki-search-xml.server.routes :as routes]
             [ring.middleware.params :refer [wrap-params]]
             [ring.middleware.keyword-params :refer [wrap-keyword-params]]
             [compojure.route :refer [not-found]]
-            [compojure.core :refer [routes GET]]))
+            [compojure.core :refer [routes GET]]
+            [wiki-search-xml.searcher :as search]))
 
 (declare make-routes search-for)
 
@@ -40,7 +40,7 @@
   [this]
   (let [{:keys [searcher]} this] 
     (routes
-     (GET "/search" [] (partial routes/search-for this))
+     (GET "/search" [] (partial search-for this))
      ;; (GET "/async" [] async-handler) ;; asynchronous(long polling)
      (not-found "<p>Page not found.</p>"))))
 
@@ -53,7 +53,8 @@
   ;; while they are ready
   (let [{:keys [searcher bus]} handler
         key (get-in req [:query-params :q])]
-      (search/search-for searcher key))
+
+    (search/search-for searcher key))
   )
 
 ;; TODO

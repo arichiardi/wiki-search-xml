@@ -7,7 +7,7 @@
 
 (expose-testables wiki-search-xml.text.impl)
 
-#_(facts "about `text.impl`"
+(facts "about `text.impl`"
 
   (fact "`conjm` should create key if not present"
     (conjm {:foo 1} :bar 2) => {:foo 1 :bar [2]})
@@ -43,11 +43,14 @@
     (let [t (trie-insert-recursive baby-bad-bank-box-trie "dad" 6)]
       (trie-insert-recursive t "dance" 7)) => baby-bad-bank-box-dad-dance-trie)
 
-  (fact "`trie-find` on some words always returns the node containing the value"
-    (trie-find wiki-trie "baby") => (every-checker (contains {:sym \y :values anything}))
-    (trie-find wiki-trie "dad") => (every-checker (contains {:sym \d :values anything}))
-    (trie-find wiki-trie "bank") => (every-checker (contains {:sym \k :values anything}))
-    (trie-find wiki-trie "zip") => nil)
+  (fact "`trie-find` on all wiki-trie always returns the node containing the value"
+    (trie-find wiki-trie "baby") => (contains {:sym \y :values anything})
+    (trie-find wiki-trie "dad") => (contains {:sym \d :values anything})
+    (trie-find wiki-trie "bank") => (contains {:sym \k :values anything})
+    (trie-find wiki-trie "box") => (contains {:sym \x :values anything})
+    (trie-find wiki-trie "dad") => (contains {:sym \d :values anything})
+    (trie-find wiki-trie "dance") => (contains {:sym \e :values anything})
+    (trie-find wiki-trie "niet") => nil)
 
   (fact "`trie-find` inserting suffix of a word in trie should not interfere"
     (let [song-trie (trie-insert-recursive (map->Node {}) "song" 3)
@@ -84,16 +87,14 @@
 
   (fact "`trie-insert-recursive` inserting twice should conj values"
     (let [foobar-trie (trie-insert-recursive (map->Node {}) "foobar" 3)
-          foobar2-trie (trie-insert-recursive foobar-trie "foobar" 4) ]
+          foobar2-trie (trie-insert-recursive foobar-trie "foobar" 4)]
       (trie-find foobar2-trie "foobar") => (contains {:values [3 4]})))
+
+  (fact "`trie-insert-recursive` inserting a shorter word after a longer should not break"
+    (let [robot-trie (trie-insert-recursive (map->Node {}) "roberto" 3)
+          robot-roberto-trie (trie-insert-recursive robot-trie "robot" 4)]
+      (trie-find robot-roberto-trie "roberto") => (contains {:values [3]})))
   
   )
-
-
-
-;.;. A journey of a thousand miles begins with a single step. -- @alanmstokes
-;.;. TRACE n: nil
-;.;. TRACE s: \b
-
 
 

@@ -15,18 +15,17 @@
           response (common/<t!! resp-channel 2000)
           stream (:stream response)]
       stream => (partial instance? InputStream)
-      (-> stream (.close))))
+      (.close stream)))
 
   (fact "fetch with type :network-file (config.edn test-network-location) has :stream as InputStream."
+    :network
     (let [config-map (sys/make-config)
           ;; I know what is the first location here
-          resp-channel (fetch (get-in config-map [:searcher :test-network-location]))
+          resp-channel (fetch (get config-map :test-network-location))
           response (common/<t!! resp-channel 7000)
           stream (:stream response)]
       stream => (partial instance? InputStream)
-      (-> stream (.close))))
-
-  )
+      (.close stream))))
 
 
 

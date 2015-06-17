@@ -1,7 +1,7 @@
 (ns wiki-search-xml.bus
   (:require [com.stuartsierra.component :as component]
             [clojure.tools.logging :as log]
-            [clojure.core.async :refer [chan close! pub sub] :as async]
+            [clojure.core.async :refer [chan close! pub sub unsub unsub-all] :as async]
             [wiki-search-xml.common :as common]))
 
 (defrecord Bus [ ;; conf
@@ -12,6 +12,7 @@
   (stop [this]
     (if chan
       (do (async/close! chan)
+          (unsub-all pub-type)
           (-> this
               (dissoc :chan)
               (dissoc :pub-type)))
@@ -36,3 +37,7 @@
   [bus topic ch]
   (async/sub (:pub-type bus) topic ch))
 
+(defn unsubscribe
+  "Unsubscribes chan from to the input bus."
+  [bus topic ch]
+  (async/unsub (:pub-type bus) topic ch))

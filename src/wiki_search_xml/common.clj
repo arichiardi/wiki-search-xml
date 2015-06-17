@@ -2,6 +2,7 @@
   (:require [clojure.pprint :as pprint]
             [clojure.tools.logging :as log]
             [clojure.core.async :as async]
+            [slingshot.slingshot :refer [try+ get-throw-context]]
             [com.stuartsierra.component :as component]
             [wiki-search-xml.core :as core]))
 
@@ -42,10 +43,13 @@
   body). Exposes the anaphoric symbol started-system! and returns the result
   of body's last sexp. The stopped system is not returned."
   [component & body]
-  `(let [~'__started__ (component/start ~component)
-         result# (do ~@body)]
-     (component/stop ~'__started__)
-     result#))
+  `(let [~'__started__ (component/start ~component)]
+     (try+
+      (do ~@body)
+      (catch Object caught#
+        (let [thr# (:throwable (get-throw-context caught#))]
+          (log/error thr# "with-component-start error in body")))
+      (finally (component/stop ~'__started__)))))
 
 (defn conf->buffer
   "Returns the correct kind of buffer instance based

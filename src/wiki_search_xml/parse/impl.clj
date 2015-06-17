@@ -8,17 +8,19 @@
             [wiki-search-xml.text :as txt]))
 
 (defn- ^:testable xml-text
-  [element tag]
-  (zxml/text (zxml/xml1-> element (keyword tag))))
+  [element keyword-or-tag]
+  (zxml/text (zxml/xml1-> element (keyword keyword-or-tag))))
 
-(defn- ^:testable strip-wikipedia
-  "Strips the word Wikipedia (case insensitive) from s. Returns the rest
+(defn- ^:testable
+  strip-wikipedia
+  "Strips the initial Wikipedia: (case insensitive) from s. Returns the rest
   of the text separated by spaces (in order to avoid losing words during
   the join."
   [s]
-  (string/join " " (filter (complement empty?) (string/split s #"(?i)wikipedia:"))))
+  (string/replace-first s #"(?i)^wikipedia:" ""))
 
-(defn doc->trie
+(defn- ^:testable
+  doc->trie-pair
   "Given a wiki doc tag, returns a pair with the trie built around title
   and abstract plus a vector of the trie value/payload in the form
   {:title ...  :abstract ...  :url ...}.
@@ -31,12 +33,12 @@
   inserted in the (immutable) trie in order to add/modify its fields.
   It accepts a record. If no prior manipulation is needed, just pass
   identity. Typically this is used to add db fields."
-  ([trie-value-hook another-trie doc]
-   (let [title (xml-text doc :title)
+  ([trie-value-hook another-trie doc-element]
+   (let [doc (zip/xml-zip doc-element)
+         title (xml-text doc :title)
          abstract (xml-text doc :abstract)
          url (xml-text doc :url)
          trie-value (trie-value-hook {:title title :abstract abstract :url url})]
-
      ;; AR - TODO Criterium benchmark for introducing reducers
      [(txt/text->trie another-trie
                       ;; a separator needed in case the title ends by a word (we don't want to lose it)
@@ -44,12 +46,12 @@
                       trie-value)
       trie-value]))
   ([trie-value-hook doc]
-   (doc->trie trie-value-hook (txt/trie-empty) doc)))
+   (doc->trie-pair trie-value-hook (txt/trie-empty) doc)))
 
-(defn wiki-xml->trie
+(defn wiki-xml->trie-pair
   "Returns a pair containing:
-  1) The prefix trie of the contents of the <doc><abstract> and
-  <doc><title> xml tags.
+  1) The prefix trie of the contents of the <doc><abstract> ...
+  <title></doc> xml tags.
   2) The list of all the values/payloads {:title ...  :abstract
   ...  :url ...} inserted in the trie.
 
@@ -58,21 +60,17 @@
   fields. It accepts a trie value. If no prior manipulation is needed,
   just pass identity. Typically this is used to add db fields."
   [trie-value-hook xml-root]
-  (let [docs (zxml/xml-> xml-root :doc)]
-    (condp = (count docs)
-      0 []
-      1 (doc->trie trie-value-hook (first docs))
-      (do (log/info "wiki-xml->trie - reducing on the <doc> elements, this can take some time")
-          (reduce (fn [[acc-trie acc-value] doc]
-                    (let [[new-trie new-value] (doc->trie trie-value-hook acc-trie doc)]
-                      [new-trie (conj acc-value new-value)]))
-                  [(txt/trie-empty) []]
-                  docs)))))
+  (do (log/info "wiki-xml->trie-pair - reducing on the <doc> elements, this can take some time")
+      (dorun (reduce (fn [[acc-trie acc-value] doc]
+                       (let [[new-trie new-value] (doc->trie-pair trie-value-hook acc-trie doc)]
+                         [new-trie (conj acc-value new-value)]))
+                     [(txt/trie-empty) []]
+                     (->> xml-root :content (filter #(= :doc (:tag %))))))))
 
-(defn wiki-stream->trie
+(defn wiki-stream->trie-pair
   "Given an already opened stream, builds a pair containing:
-  1) The prefix trie of the contents of the <doc><abstract> and
-  <doc><title> xml tags.
+  1) The prefix trie of the contents of the <doc><abstract> ...
+  <title></doc> xml tags.
   2) The list of all the values/payloads {:title ...  :abstract
   ...  :url ...} inserted in the trie.
 
@@ -80,6 +78,14 @@
   being inserted in the (immutable) trie in order to add/modify its
   fields. It accepts a trie value. If no prior manipulation is needed,
   just pass identity. Typically this is used to add db fields."
-  [trie-value-hook xml-stream]
-  (wiki-xml->trie trie-value-hook (-> xml-stream xml/parse zip/xml-zip)))
+  [trie-value-hook source]
+  (wiki-xml->trie-pair trie-value-hook (-> source xml/parse)))
   
+(def trie
+  "Given a trie pair, returns the trie"
+  first)
+
+(def values
+  "Given a trie pair, returns the list of all its values"
+  second)
+

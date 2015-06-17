@@ -50,6 +50,8 @@
   (stop)
   (refresh :after 'user/go))
 
-(def test midje.repl/autotest)
+(defn auto
+  [& opts]
+  (apply midje.repl/autotest opts))
 
 

@@ -7,7 +7,7 @@
   "Parses s and produces a lazy list of words. Removes everything that
   is not a word."
   [s]
-  (re-seq #"\p{L}+|\w+" s))
+  (re-seq #"\p{L}+|[a-zA-Z0-9]+" s))
 
 (defn trie-empty
   []

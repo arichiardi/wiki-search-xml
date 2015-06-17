@@ -1,9 +1,11 @@
 {:config
- {:server {:options {:port 7502
+ {:searcher {:locations [{:type :resource-file
+                          :resource-path "enwiki-20150515-abstract24.xml"}]}
+  :server {:options {:port 7502
                      :worker-name-prefix "wsx-dev-worker-"}}
-  :searcher {:locations [{:type :resource-file
-                          :resource-path "enwiki-20150515-abstract24.xml"}]
-             :test-network-location {:type :network-file
-                                     :end-point "https://dumps.wikimedia.org/enwiki/latest"
-                                     :path "enwiki-latest-md5sums.txt"}}
-  :test-file "enwiki-20150515-abstract24.xml"}}
+  :test-file "enwiki-20150515-abstract24.xml"
+  :test-network-location {:type :network-file
+                          :end-point "https://dumps.wikimedia.org/enwiki/latest"
+                          :path "enwiki-latest-md5sums.txt"} 
+  :test-resource-location {:type :resource-file
+                           :resource-path "enwiki-20150515-abstract24.xml"}}}

@@ -1,9 +1,9 @@
 (ns wiki-search-xml.text.t-impl
+  (:refer-clojure :exclude [next])
   (:require [midje.sweet :refer :all]
             [midje.util :refer [expose-testables]]
             [wiki-search-xml.text.impl :refer :all]
-            [wiki-search-xml.text.t-impl-sample :refer :all])
-  (:import java.lang.AssertionError))
+            [wiki-search-xml.text.t-impl-sample :refer :all]))
 
 (expose-testables wiki-search-xml.text.impl)
 
@@ -14,6 +14,12 @@
 
   (fact "`conj-value` should conj if key is there"
     (conj-value (map->Node {:sym \a :values [2]}) 3) => (contains [\a [2 3]] :gaps-ok))
+
+  (fact "`conj-value` should preserve structure"
+    (let [node-with-structure (map->Node {:sym \g :values [1]
+                                          :child (map->Node {:sym \u})
+                                          :next (map->Node {:sym \p})})]
+    (conj-value node-with-structure 2) => (just [\g [1 2] [\u nil nil nil] [\p nil nil nil]])))
 
   (fact "`trie-insert-childrens` should create nodes correctly"
     (trie-insert-children "baby" 3) => baby-trie)
@@ -42,7 +48,7 @@
 
   (fact "`trie-find` on all wiki-trie always returns the node containing the value"
     (trie-find wiki-trie "baby") => (contains \y :gaps-ok)
-    (trie-find wiki-trie "dad") => (contains \d :gaps-ok)
+    (trie-find wiki-trie "bad") => (contains \d :gaps-ok)
     (trie-find wiki-trie "bank") => (contains \k :gaps-ok)
     (trie-find wiki-trie "box") => (contains \x :gaps-ok)
     (trie-find wiki-trie "dad") => (contains \d :gaps-ok)
@@ -82,6 +88,28 @@
   (fact "`trie-insert-recursive` inserting a shorter word after a longer should not break"
     (let [robot-trie (trie-insert-recursive (map->Node {}) "roberto" 3)
           robot-roberto-trie (trie-insert-recursive robot-trie "robot" 4)]
-      (trie-find robot-roberto-trie "roberto") => (contains [\o [3]] :gaps-ok))))
+      (trie-find robot-roberto-trie "roberto") => (contains [\o [3]] :gaps-ok)))
 
+  (fact "`trie-insert-recursive` inserting twice should conj values"
+    (let [wiki2-trie (trie-insert-recursive wiki-trie "baby" 9)]
+      (trie-find wiki2-trie "baby") => (contains [\y [3 9]] :gaps-ok)))
 
+  (fact "`trie-insert-recursive` inserting twice should conj values"
+    (let [wiki2-trie (trie-insert-recursive wiki-trie "bad" 9)]
+      (trie-find wiki2-trie "bad") => (contains [\d [4 9]] :gaps-ok)))
+
+  (fact "`trie-insert-recursive` inserting twice should conj values"
+    (let [wiki2-trie (trie-insert-recursive wiki-trie "dad" 7)]
+      (trie-find wiki2-trie "dad") => (contains [\d [6 7]] :gaps-ok)))
+
+  (fact "`trie-insert-recursive` inserting twice should conj values"
+    (let [wiki2-trie (trie-insert-recursive wiki-trie "bank" 9)]
+      (trie-find wiki2-trie "bank") => (contains [\k [5 9]] :gaps-ok)))
+
+  (fact "`trie-insert-recursive` inserting twice should conj values"
+    (let [wiki2-trie (trie-insert-recursive wiki-trie "box" 9)]
+      (trie-find wiki2-trie "box") => (contains [\x [2 9]] :gaps-ok)))
+
+  (fact "`trie-insert-recursive` inserting twice should conj values"
+    (let [wiki2-trie (trie-insert-recursive wiki-trie "dance" 9)]
+      (trie-find wiki2-trie "dance") => (contains [\e [7 9]] :gaps-ok))))

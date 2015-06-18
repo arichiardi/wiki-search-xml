@@ -8,8 +8,8 @@
       <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
     </Console>
 
-    <RollingFile name="trace-log" fileName="${log-path}/wsx-log-trace.log"
-                 filePattern="${log-path}/wsx-trace-%d{yyyy-MM-dd}.log">
+    <RollingFile name="trace-log" fileName="${log-path}/wsx-prod-trace.log"
+                 filePattern="${log-path}/wsx-prod-trace-%d{yyyy-MM-dd}.log">
       <PatternLayout>
         <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
       </PatternLayout>
@@ -18,8 +18,8 @@
       </Policies>
     </RollingFile>
 
-    <RollingFile name="error-log" fileName="${log-path}/wsx-error.log"
-                 filePattern="${log-path}/mycuteblog-error-%d{yyyy-MM-dd}.log">
+    <RollingFile name="error-log" fileName="${log-path}/wsx-prod-error.log"
+                 filePattern="${log-path}/wsx-prod-error-%d{yyyy-MM-dd}.log">
       <PatternLayout>
         <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
       </PatternLayout>
@@ -33,7 +33,7 @@
     <Logger name="wiki-search-xml.log4j2" level="debug" additivity="false">
       <AppenderRef-ref ref="trace-log" level="debug"/>
       <AppenderRef-ref ref="error-log" level="error"/>
-      <AppenderRef-ref ref="console-log" level="debug"/>
+      <AppenderRef-ref ref="console-log" level="off"/>
     </Logger>
     <Root level="info" additivity="false">
       <AppenderRef ref="console-log"/>

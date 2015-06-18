@@ -27,7 +27,7 @@
 
 (defn- add-values
  [node new-values]
- (tuple/vector (sym node) new-values (child node) (child node)))
+ (tuple/vector (sym node) new-values (child node) (next node)))
 
 (defn- ^:testable conj-value
   "Conjoins a value within the node"
@@ -37,13 +37,13 @@
 (defn trie-insert-children
   "Assuming I just want to create a node from a word, creates the
   nodes."
-  ([str value]
-   (when-let [rev (reverse str)]
+  ([s value]
+   (when-let [rev (reverse s)]
      (trie-insert-children (rest rev) value
                            (conj-value (map->Node {:sym (first rev)}) value))))
-  ([str value acc-node]
-   (if (seq str)
-     (recur (rest str) value (map->Node {:sym (first str) :child acc-node}))
+  ([s value acc-node]
+   (if (seq s)
+     (recur (rest s) value (map->Node {:sym (first s) :child acc-node}))
      acc-node)))
 
 (defn trie-insert-recursive

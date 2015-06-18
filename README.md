@@ -1,6 +1,27 @@
 # Search wikipedia XML repository #
-A very simple implementation of a Clojure webapp to search wiki xmls
+An implementation of a Clojure webapp to search wiki abstracts using ```core.async```.
 
+The app leverages [Apache Commons Daemon](https://commons.apache.org/proper/commons-daemon/) and therefore can be launched with the lenghty:
+
+- ```/usr/bin/jsvc -debug -server -cwd `pwd` -pidfile ~/tmp/wiki-search-xml-daemon.pid -user $USER -cp `pwd`/target/wiki_search_xml-0.1.0-SNAPSHOT-standalone.jar wiki_search_xml.daemon```
+
+After having executed the classic:
+
+- ``` lein uberjar``` or ```lein with-profile dev uberjar```
+
+The app will be waiting for calls to its ```/search``` api on port ```7501```, like so:
+
+- ```http://127.0.0.1:7501/search?q=blatnaya```
+
+Finally, a repl session can be launched with:
+
+- ```lein repl```
+
+where:
+
+- ```(go)``` starts up the system (network binding included)
+- ```(stop)``` stops it
+- ```(reset)``` refreshes the clj files and restarts
 
 ## Bootstrap
 - [reloadable-app](https://github.com/mowat27/reloadable-app)
@@ -38,10 +59,6 @@ I decided to experiment TDD using ```Midje``` instead of ```clojure.test``` for 
 - [Aleph](https://github.com/ztellman/aleph)
 - [Compojure-API](https://github.com/metosin/compojure-api)
 
-# Bootstrap
 
-For ```couchdb``` it is necessary to create a db with:
-
-- ```curl -X PUT http://127.0.0.1:5984/wsx```
 
 

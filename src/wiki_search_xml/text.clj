@@ -17,10 +17,10 @@
   characters in size. If str exists in the node/tree the value will be
   conjoined to the :values key."
   ([] (trie-empty))
-  ([str value] (impl/trie-insert-children str value))
+  ([str value]
+   {:pre [(> (count str) 2)]} (impl/trie-insert-children str value))
   ([node str value]
-   {:pre [(> (count str) 2)]}
-   (impl/trie-insert-recursive node str value)))
+   {:pre [(> (count str) 2)]} (impl/trie-insert-recursive node str value)))
 
 (defn trie-get
   "Get the value(s) for str or nil. See trie-insert for details on the
@@ -35,12 +35,12 @@
   same trie-value."
   ([text value]
    (text->trie (trie-empty) text value))
-  ([another-trie text value] 
+  ([another-trie text value]
    (if-let [ws (seq (distinct (filter #(> (count %1) 2) (words text))))]
      (if-not (= (count ws) 1) ;; see reduce doc, I need an explicit case for count = 1
        (reduce #(trie-insert %1 %2 value) another-trie ws) 
-       (trie-insert (first ws) value))
-     impl/empty-node)))
+       (trie-insert another-trie (first ws) value))
+     another-trie)))
 
 ;; (defn merge-trie
 ;;   "Merge for tries. Useful for clojure.core.reducers.

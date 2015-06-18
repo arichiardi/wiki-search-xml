@@ -1,11 +1,13 @@
 {:config
- {:server {:options {:port 7501
-                     :worker-name-prefix "wsx-prod-worker-"}}
-  :searcher {:locations [{:type :network-files
-                          :end-point "https://dumps.wikimedia.org/enwiki/latest"
-                          :filter "^.+abstract.+rss[.]{1}xml"
-                          :TODO}
-                         {:type :network-file
-                          :end-point "https://dumps.wikimedia.org/enwiki/latest"
-                          :path "enwiki-latest-abstract9.xml"
-                          :TODO}]}}}
+ {:version "0.1.0-SNAPSHOT"
+  :bus {:bus-conf {:buffer-size 100}}
+  :parser {:buffer-conf {:buffer-size 100 :buffer-type :sliding}}
+  :searcher {:locations [{:type :resource-file
+                          :resource-path "enwiki-20150515-abstract24.xml"}
+                         ;; {:type :network-file
+                         ;;  :end-point "https://dumps.wikimedia.org/enwiki/latest"
+                         ;;  :path "enwiki-latest-abstract24.xml"
+                          }]}
+  :server {:options {:ip "192.168.1.100"
+                     :port 7501
+                     :worker-name-prefix "wsx-prod-worker-"}}}}

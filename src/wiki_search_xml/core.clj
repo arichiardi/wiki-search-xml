@@ -27,9 +27,9 @@
 
   It executes side-effect (1-arity fn with the msg in input) at every
   loop, stopping only when it receives a nil msg (channel closed)."
-  [side-effect & sub-channels]
+  [side-effect sub-channel]
   (async/go-loop []
-    (let [[msg channel] (async/alts! (vec sub-channels) :priority true)]
-      (when msg
-        (do (side-effect msg)
-            (recur))))))
+    (when-let [msg (async/<! sub-channel)]
+      (do (log/debug "Message received!")
+          (side-effect msg)
+          (recur)))))

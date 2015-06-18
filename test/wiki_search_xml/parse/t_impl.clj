@@ -79,29 +79,29 @@
             (txt/trie-get (trie (doc->trie-pair identity doc)) word) => (just {:url url
                                                                                :title title
                                                                                :abstract abstract})))))))
-
 (facts "about `wiki-xml->trie-pair`" :slow
 
   (let [test-file (get-in (sys/read-config-file) [:config :test-file])
-        xml-string (-> test-file io/resource io/file slurp)
-        file-trie (trie (wiki-stream->trie-pair identity (StringReader. xml-string)))
-        docs (->> xml-string xml/parse-str :content (filter #(= :doc (:tag %))))]
+        xml-string (slurp (-> test-file io/resource io/file))
+        file-trie (trie (wiki-source->trie-pair identity (StringReader. xml-string)))]
+    #_(spit "dump.trie" file-trie)
 
-    (doseq [doc (conj (take 500 docs) (first docs) (last docs))]
-      (let [zipped-doc (zip/xml-zip doc)
-            title (xml-text zipped-doc :title)
-            abstract (xml-text zipped-doc :abstract)
-            url (xml-text zipped-doc :url)]
-        
-        (doseq [word (words-size>2 (string/lower-case (strip-wikipedia title)))]
-          (fact
-            {:midje/description (str "it correctly indexes `" word "` from title")}
-            (txt/trie-get file-trie word) => (complement nil?)))
+    (let [docs (->> xml-string xml/parse-str :content (filter #(= :doc (:tag %))))]
+      (doseq [doc (conj (take 200 docs) (first docs) (last docs))]
+        (let [zipped-doc (zip/xml-zip doc)
+              title (xml-text zipped-doc :title)
+              abstract (xml-text zipped-doc :abstract)
+              url (xml-text zipped-doc :url)]
 
-        (doseq [word (words-size>2 (string/lower-case abstract))]
-          (fact
-            {:midje/description (str "it correctly indexes `" word "` from abstract")}
-            (txt/trie-get file-trie word) => (complement nil?)))))))
+          (doseq [word (words-size>2 (string/lower-case (strip-wikipedia title)))]
+            (fact
+              {:midje/description (str "it correctly indexes `" word "` from title")}
+              (txt/trie-get file-trie word) => (complement nil?)))
+
+          (doseq [word (words-size>2 (string/lower-case abstract))]
+            (fact
+              {:midje/description (str "it correctly indexes `" word "` from abstract")}
+              (txt/trie-get file-trie word) => (complement nil?))))))))
 
 
 

@@ -27,17 +27,19 @@
         (get-in stopped [:wsx-parser :sub-parse]) => nil
         (get-in stopped [:wsx-parser :bus]) => nil))
 
-    (let [config-map (sys/make-config)
-          system (sys/new-system config-map)] 
-      (fact "parse-location should produce :parsed-xml data"
-        :slow
-        (common/with-component-start system
-          (let [parser (get-in __started__ [:wsx-parser])
-                test-location (:test-resource-location config-map)] 
-            (common/<t!! (parse-location parser {:location test-location})
-                         15000)) => (contains {:type :data
-                         :class :parsed-xml}))))
+    (fact "parse-location should produce :parsed-xml data"
+      :slow
+      (common/with-component-start system
+        (let [parser (get-in __started__ [:wsx-parser])
+              test-location (:test-resource-location config-map)] 
+          (common/<t!! (parse-location parser {:location test-location})
+                       45000)) => (contains {:type :data :class :parsed-xml})))
 
-    ))
-
-
+    (fact "parse-location should produce data from cache (faster) the second time over"
+      :slow
+      (common/with-component-start system
+        (let [parser (get-in __started__ [:wsx-parser])
+              test-location (:test-resource-location config-map)] 
+          (do (common/<t!! (parse-location parser {:location test-location}) 45000) 
+              (common/<t!! (parse-location parser {:location test-location})
+                           500))) => (contains {:type :data :class :parsed-xml})))))

@@ -25,8 +25,12 @@
                (words "Västerbotten County founded in 1923 http://www.bolletinen.") => (just ["Västerbotten" "County" "founded" "in" "1923"])
                (words "Västerbotten County founded in 1923http://www.bolletinen.") => (just ["Västerbotten" "County" "founded" "in" "1923"]))
 
-  (fact "`text->trie` should produce a trie and find within it"
+  (fact "`text->trie` corner cases"
     (text->trie "" 3) => (trie-empty)
+    (let [trie (text->trie "two three four" 3)]
+      (text->trie trie "" 4) => trie))
+  
+  (fact "`text->trie` should produce a trie and find within it"
     (trie-get (text->trie "foo" 3) "foo") => (just [3])
     (let [trie (text->trie "two three four" 3)]
       (trie-get trie "two") => (just [3])
@@ -46,4 +50,12 @@
   (fact "`text->trie` with empty string returns empty trie"
     (text->trie "" 3) => (trie-empty))
 
+  (fact "`text->trie` with one word in another trie should not break (corner case of reduce)"
+    (let [trie (text->trie "two three four" 3)
+          new-trie (text->trie trie "ichess" 4)]
+      (trie-get new-trie "ichess") => (just [4])
+      (trie-get new-trie "two") => (just [3])))
+
   )
+
+

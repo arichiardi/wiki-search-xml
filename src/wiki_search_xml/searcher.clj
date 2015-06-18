@@ -12,26 +12,24 @@
 (declare consume!)
 
 (defrecord Searcher [ ;; config?
-                     buffer-conf parse-timeout locations
+                     data-buffer-conf locations
                      ;; dependecies
                      bus
                      ;; state
-                     sub-query]
+                     sub-data]
   component/Lifecycle
   (stop [this]
-    (if sub-query
-      (let [component (assoc this :sub-query nil)]
-        (async/close! sub-query)
-        component)
+    (if sub-data
+      (do (async/close! sub-data)
+          (assoc this :sub-data nil))
       this))
 
   (start [this]
-    (if sub-query
+    (if sub-data
       this
-      (let [c (common/conf->buffer buffer-conf)
-            sq (subscribe bus :query c)
-            component (assoc this :sub-query sq)]
-        (core/loop! (partial consume! component) sq)
+      (let [sq (subscribe bus :data (common/conf->buffer data-buffer-conf))
+            component (assoc this :sub-data sq)]
+        ;; (core/loop! (partial consume! component) sq)
         component))))
 
 (defn new-searcher
@@ -40,50 +38,41 @@
   (component/using (map->Searcher (:searcher config-map))
     {:bus :wsx-bus}))
 
-(defn- ^:testable
-  search-location-async
-  "Search for a location, interacting with the input channels if
-  necessary and waiting timeout for the underlying data grinding to
-  complete before returning an error.
+(defn reduce-search-results
+  "Reduces the results in a map of list of :result and :error."
+  [acc-result-maps result-map]
+  (let [[results errors] acc-result-maps]
+    [(conj results (:result result-map))
+     (conj errors (:error result-map))]))
 
-  It always returns a channel which will always contain a record with
-  either :result, a vector of found results or :error. Note that :result
-  will never be nil. If no result is found, it will be an empty vector."
-  [bus-channel data-channel timeout-ms location key]
-  (async/go
-    (log/debugf "Searching for key %s in location %s" key location)
-    (async/>! bus-channel (core/map->Msg {:type :parse
-                                          :location location
-                                          :for-key key}))
-    (log/debugf "Waiting for :parse request to complete (timeout %s)" timeout-ms)
-    (async/alt!
-      data-channel ([{:keys [class data error location]} _]
-                    (log/debugf "received data of class %s for location %s (error: %s)" class location error)
-                    (if (= :parsed-xml class)
-                      (if data
-                        {:result (or (t "result" (text/trie-get (parse/trie data) (t "key" key))) [])}
-                        {:error error})))
-      (async/timeout timeout-ms) {:error (str "Search in location " location " timed out")}
-      :priority true)))
+;; Cannot use alt! with subscribed channels???
+;;http://dev.clojure.org/jira/browse/ASYNC-75?page=com.atlassian.jira.plugin.system.issuetabpanels:changehistory-tabpanel
+;; (async/timeout timeout-ms) {:error (str "Search in location " location " timed out")}
 
 (defn search-for
   "Performs the search, needs a Searcher and a key to look for.
-  This method is synchronous, but it parks if cannot go on. Resurns a
-  vector of results for key."
+  This method is synchronous, but it parks if cannot go on. Returns a
+  vector of {:result ... :error} for the searched key."
   [this key]
-  (let [{:keys [bus locations]} this
-        sub-data (subscribe bus :data (async/chan))]
+  (let [{:keys [bus sub-data locations]} this]
+    (async/go
+      (doseq [loc locations]
+        (do (log/debugf "dispatching msg(s) for key %s at location %s" key loc)
+            (async/>!! (:chan bus) (core/map->Msg {:type :parse
+                                                      :location loc
+                                                      :for-key key}))))
 
-    ;; Parsing/Retrieving the parsed documents in locations
-    (doseq [loc locations]
-      (do (log/debugf "searching for key %s at location %s" key loc)
+      (log/debug "collecting results")
+      (loop []
+        (let [{:keys [class data error location] :as data} (async/<! sub-data)]
+          (when-not data (log/warn "returned data on bus was nil, something might be wrong"))
+          (log/debugf "received data of class %s for location %s (error: %s)" class location error)
 
-          ;; (if ) ;; find in db
-
-          ;; if not delegate to parse
-          ))
-
-    (unsubscribe bus :data sub-data)))
+          (if (= :parsed-xml class)
+            (if data
+              {:result (or (text/trie-get (parse/trie data) key) [])}
+              {:error error})
+            (recur)))))))
 
 
 (defn consume!

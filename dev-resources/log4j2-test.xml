@@ -8,8 +8,8 @@
       <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
     </Console>
 
-    <RollingFile name="trace-log" fileName="${log-path}/wsx-log-trace.log"
-                 filePattern="${log-path}/wsx-trace-%d{yyyy-MM-dd}.log">
+    <RollingFile name="trace-log" fileName="${log-path}/wsx-dev-trace.log"
+                 filePattern="${log-path}/wsx-dev-trace-%d{yyyy-MM-dd}.log">
       <PatternLayout>
         <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
       </PatternLayout>
@@ -18,8 +18,8 @@
       </Policies>
     </RollingFile>
 
-    <RollingFile name="error-log" fileName="${log-path}/wsx-error.log"
-                 filePattern="${log-path}/wsx-error-%d{yyyy-MM-dd}.log">
+    <RollingFile name="error-log" fileName="${log-path}/wsx-dev-error.log"
+                 filePattern="${log-path}/wsx-dev-error-%d{yyyy-MM-dd}.log">
       <PatternLayout>
         <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
       </PatternLayout>

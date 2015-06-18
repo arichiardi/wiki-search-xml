@@ -22,8 +22,8 @@
     (if sub-parse 
       (do (async/close! sub-parse)
           (-> this
-              (dissoc :sub-parse)
-              (dissoc :parsed-cache)))
+              (assoc :sub-parse nil)
+              (assoc :parsed-cache nil)))
       this))
   
   (start [this]
@@ -49,14 +49,14 @@
 (defn parse-stream-async
   "Asynchronously parse the FetchResult coming from channel.
   The output depends on the format of the parsing function, which now
-  corresponds to parse/wiki-stream->trie-pair. Value hook modifies the
+  corresponds to parse/wiki-*->trie-pair. Value hook modifies the
   value payload before insertion and is tipically used to assoc some
   db-specific fields."
   [value-hook fetch-channel]
   (async/thread (let [{:keys [stream error]} (async/<!! fetch-channel)]
                   (log/debugf "fetch-result ready (payload not displayed but error was: %s)" error)
                   (if stream 
-                    {:data (parse/wiki-stream->trie-pair value-hook stream)}
+                    {:data (parse/wiki-source->trie-pair value-hook stream)}
                     {:error error}))))
 
 (defn parse-location
@@ -74,9 +74,8 @@
                          (merge {:class :parsed-xml} 
                                 (if-let [parsed (get @parsed-cache location)]
                                   {:data parsed}
-                                  (let [parsed (async/<! (parse-stream-async identity (fetch location)))
-                                        fp (second (:data parsed))]
-                                    (log/debugf "ssssssssssss---  %s" (first fp))
+                                  (let [parsed (async/<! (parse-stream-async identity (fetch location)))]
+                                    (log/debugf "location parsed (error was: %s)" (:error parsed))
                                     (when-let [data (:data parsed)]
                                       (swap! parsed-cache assoc location data))
                                     parsed)))))))
@@ -84,7 +83,8 @@
 (defn consume!
   "Consumes the input message."
   [this msg]
-  (let [bus (get-in this [:bus :chan] this)]
+  (let [chan (get-in this [:bus :chan] this)]
     (case (:type msg) 
-      :parse (async/pipe (parse-location this msg) bus)
+      :parse (async/go (let [parsed (async/<! (parse-location this msg))]
+                         (async/>! chan parsed)))
       (log/debug "message is not for me"))))

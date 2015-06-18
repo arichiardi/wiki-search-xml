@@ -14,18 +14,18 @@
       (do (async/close! chan)
           (unsub-all pub-type)
           (-> this
-              (dissoc :chan)
-              (dissoc :pub-type)))
+              (assoc :chan nil)
+              (assoc :pub-type nil)))
       this))
 
   (start [this]
     (if chan
       this
-      (let [c (async/chan (common/conf->buffer bus-conf))]
+      (let [c (common/conf->buffer bus-conf)]
         (-> this
             (assoc :pub-type (async/pub c
                                         :type
-                                        (fn [_] (common/conf->buffer pub-type-conf))))
+                                        #_(fn [_] (common/conf->buffer pub-type-conf))))
             (assoc :chan c))))))
 
 (defn new-bus [config]

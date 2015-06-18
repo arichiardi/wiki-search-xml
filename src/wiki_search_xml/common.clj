@@ -57,7 +57,7 @@
   and :buffer-size."
   [conf]
   (let [{:keys [buffer-size buffer-type]} conf]
-    (case buffer-type
-      :dropping (async/dropping-buffer (or buffer-size 1)) 
-      :sliding (async/sliding-buffer (or buffer-size 1))
-      (async/chan (or buffer-size 1)))))
+    (async/chan (case buffer-type
+                  :dropping (async/dropping-buffer (or buffer-size 1)) 
+                  :sliding (async/sliding-buffer (or buffer-size 1))
+                  (async/buffer (or buffer-size 1))))))

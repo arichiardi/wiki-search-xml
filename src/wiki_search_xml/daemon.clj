@@ -36,11 +36,5 @@
   (alter-var-root #'system (constantly nil)))
 
 ;;----------------Command Line Usage---------------------
+;; jsvc -outfile.... -Xmx3072m -cp *.jar daemon
 
-;; jsvc \
-;; -user blah \
-;; -out-file /var/log/blah/out.log \
-;; -Xmx3072m \
-;; -cp system.jar
-;; daemon
-;; config.edn

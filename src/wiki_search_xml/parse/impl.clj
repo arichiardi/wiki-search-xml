@@ -39,7 +39,6 @@
          abstract (xml-text doc :abstract)
          url (xml-text doc :url)
          trie-value (trie-value-hook {:title title :abstract abstract :url url})]
-     ;; AR - TODO Criterium benchmark for introducing reducers
      [(txt/text->trie another-trie
                       ;; a separator needed in case the title ends by a word (we don't want to lose it)
                       (string/lower-case (str (strip-wikipedia title) " " abstract))
@@ -60,14 +59,17 @@
   fields. It accepts a trie value. If no prior manipulation is needed,
   just pass identity. Typically this is used to add db fields."
   [trie-value-hook xml-root]
-  (do (log/info "wiki-xml->trie-pair - reducing on the <doc> elements, this can take some time")
-      (dorun (reduce (fn [[acc-trie acc-value] doc]
-                       (let [[new-trie new-value] (doc->trie-pair trie-value-hook acc-trie doc)]
-                         [new-trie (conj acc-value new-value)]))
-                     [(txt/trie-empty) []]
-                     (->> xml-root :content (filter #(= :doc (:tag %))))))))
+  (let [docs (doall (->> xml-root :content (filter #(= :doc (:tag %)))))]
+    (if-not (= 1 (count docs))
+      (do (log/info "wiki-xml->trie-pair - reducing on the <doc> elements, this can take some time")
+          (doall (reduce (fn [[acc-trie acc-values] doc]
+                           (let [[new-trie new-value] (doc->trie-pair trie-value-hook acc-trie doc)]
+                             [new-trie (conj acc-values new-value)]))
+                         [(txt/trie-empty) []]
+                         docs)))
+      (doc->trie-pair trie-value-hook (txt/trie-empty) (first docs)))))
 
-(defn wiki-stream->trie-pair
+(defn wiki-source->trie-pair
   "Given an already opened stream, builds a pair containing:
   1) The prefix trie of the contents of the <doc><abstract> ...
   <title></doc> xml tags.
@@ -80,7 +82,7 @@
   just pass identity. Typically this is used to add db fields."
   [trie-value-hook source]
   (wiki-xml->trie-pair trie-value-hook (-> source xml/parse)))
-  
+
 (def trie
   "Given a trie pair, returns the trie"
   first)

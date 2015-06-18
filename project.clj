@@ -1,4 +1,4 @@
-(defproject wiki_search_xml "0.1.0-SNAPSHOT"
+(defproject wiki_search_xml "0.2.0-SNAPSHOT"
   :description "A text search app within wikipedia xml abstract files"
   :url "https://github.com/arichiardi/wiki-search-xml"
   :license {:name "Eclipse Public License"

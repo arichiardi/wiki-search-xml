@@ -4,10 +4,6 @@
     <Property name="log-path">logs</Property>
   </Properties>
   <Appenders>
-    <Console name="console-log" target="SYSTEM_OUT">
-      <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
-    </Console>
-
     <RollingFile name="trace-log" fileName="${log-path}/wsx-prod-trace.log"
                  filePattern="${log-path}/wsx-prod-trace-%d{yyyy-MM-dd}.log">
       <PatternLayout>
@@ -30,13 +26,17 @@
 
   </Appenders>
   <Loggers>
-    <Logger name="wiki-search-xml.log4j2" level="debug" additivity="false">
-      <AppenderRef-ref ref="trace-log" level="debug"/>
-      <AppenderRef-ref ref="error-log" level="error"/>
-      <AppenderRef-ref ref="console-log" level="off"/>
+    <Logger name="wiki-search-xml" level="debug" additivity="false">
+      <AppenderRef ref="trace-log" level="debug"/>
+      <AppenderRef ref="error-log" level="error"/>
     </Logger>
-    <Root level="info" additivity="false">
-      <AppenderRef ref="console-log"/>
+    <Logger name="org.apache.logging" level="warn" additivity="false">
+      <AppenderRef ref="trace-log" level="debug"/>
+      <AppenderRef ref="error-log" level="error"/>
+    </Logger>
+    <Root level="warn" additivity="false">
+      <AppenderRef ref="trace-log" level="debug" />
+      <AppenderRef ref="error-log" level="error" />
     </Root>
   </Loggers>
 </Configuration>

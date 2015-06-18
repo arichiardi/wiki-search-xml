@@ -1,14 +1,13 @@
 {:config
- {:bus {:bus-conf {:buffer-size 100}}
-  :parser {:buffer-conf {:buffer-size 10 :buffer-type :sliding}}
+ {:bus {:bus-conf {:buffer-size 3}}
+  :parser {:buffer-conf {:buffer-size 3 :buffer-type :sliding}}
   :searcher {:locations [{:type :resource-file
-                                  :resource-path "enwiki-20150515-abstract24.xml"}]}
-  :server {:options {:ip "192.168.1.100"
-                     :port 7501
+                          :resource-path "enwiki-20150515-abstract24.xml"}]}
+  :server {:options {:port 7501
                      :worker-name-prefix "wsx-dev-worker-"}}
   :test-file "enwiki-20150515-abstract24.xml"
   :test-network-location {:type :network-file
                           :end-point "https://dumps.wikimedia.org/enwiki/latest"
-                          :path "enwiki-latest-md5sums.txt"} 
+                          :path "enwiki-latest-md5sums.txt"}
   :test-resource-location {:type :resource-file
                            :resource-path "enwiki-20150515-abstract24.xml"}}}

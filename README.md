@@ -3,7 +3,7 @@ An implementation of a Clojure webapp to search wiki abstracts using ```core.asy
 
 The app leverages [Apache Commons Daemon](https://commons.apache.org/proper/commons-daemon/) and therefore can be launched with the lenghty:
 
-- ```/usr/bin/jsvc -debug -server -cwd `pwd` -pidfile ~/tmp/wiki-search-xml-daemon.pid -user $USER -cp `pwd`/target/wiki_search_xml-0.1.0-SNAPSHOT-standalone.jar wiki_search_xml.daemon```
+- ```/usr/bin/jsvc -debug -server -cwd `pwd` -pidfile ~/tmp/wiki-search-xml-daemon.pid -user $USER -cp `pwd`/target/wiki_search_xml-**$VERSION**-standalone.jar wiki_search_xml.daemon```
 
 After having executed the classic:
 
@@ -13,15 +13,22 @@ The app will be waiting for calls to its ```/search``` api on port ```7501```, l
 
 - ```http://127.0.0.1:7501/search?q=blatnaya```
 
-Finally, a repl session can be launched with:
+Finally, to test run:
 
-- ```lein repl```
+- ```lein midje```
+- ```lein midje :filter -slow``` to exclude slow tests
+- ```lein midje :filter -network``` to exclude network tests that might fail if offline
 
 where:
 
 - ```(go)``` starts up the system (network binding included)
 - ```(stop)``` stops it
 - ```(reset)``` refreshes the clj files and restarts
+
+## TODOs
+- Add persistency on db
+- Handle async responses (```http-kit``` websocket/long-polling)
+- Add connection with external replicas (through ```RabbitMQ```)
 
 ## Bootstrap
 - [reloadable-app](https://github.com/mowat27/reloadable-app)
@@ -59,6 +66,7 @@ I decided to experiment TDD using ```Midje``` instead of ```clojure.test``` for 
 - [Aleph](https://github.com/ztellman/aleph)
 - [Compojure-API](https://github.com/metosin/compojure-api)
 
+<br>
 
 
 

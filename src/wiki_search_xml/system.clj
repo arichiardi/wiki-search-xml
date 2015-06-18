@@ -24,10 +24,6 @@
   "Creates a default configuration map."
   []
   (merge {:logger {:name (:wsx-logger-name env)}
-          :bus {:bus-conf {:buffer-type :sliding
-                           :buffer-size 10}
-                :pub-type-conf {:buffer-type :dropping
-                                :buffer-size 100}}
           :version (:wiki-search-xml-version env)}
          (:config (read-config-file))))
 

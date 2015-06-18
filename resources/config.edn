@@ -1,5 +1,5 @@
 {:config
- {:version "0.1.0-SNAPSHOT"
+ {:version "0.2.0-SNAPSHOT"
   :bus {:bus-conf {:buffer-size 100}}
   :parser {:buffer-conf {:buffer-size 100 :buffer-type :sliding}}
   :searcher {:locations [{:type :resource-file
@@ -7,7 +7,6 @@
                          ;; {:type :network-file
                          ;;  :end-point "https://dumps.wikimedia.org/enwiki/latest"
                          ;;  :path "enwiki-latest-abstract24.xml"
-                          }]}
-  :server {:options {:ip "192.168.1.100"
-                     :port 7501
+                          ]}
+  :server {:options {:port 7501
                      :worker-name-prefix "wsx-prod-worker-"}}}}

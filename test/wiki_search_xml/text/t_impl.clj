@@ -9,14 +9,11 @@
 
 (facts "about `text.impl`"
 
-  (fact "`conjm` should create key if not present"
-    (conjm {:foo 1} :bar 2) => {:foo 1 :bar [2]})
+  (fact "`conj-value` should create key if not present"
+    (conj-value (map->Node {:sym \g}) 2) => (contains [\g [2]] :gaps-ok))
 
-  (fact "`conjm` should conj if key is there"
-    (conjm {:foo 1 :bar [2]} :bar 3) => {:foo 1 :bar [2 3]})
-
-  (fact "`conjm` should work with any key"
-    (conjm {"foo" 1} "bar" 2) => {"foo" 1 "bar" [2]})
+  (fact "`conj-value` should conj if key is there"
+    (conj-value (map->Node {:sym \a :values [2]}) 3) => (contains [\a [2 3]] :gaps-ok))
 
   (fact "`trie-insert-childrens` should create nodes correctly"
     (trie-insert-children "baby" 3) => baby-trie)
@@ -44,57 +41,47 @@
       (trie-insert-recursive t "dance" 7)) => baby-bad-bank-box-dad-dance-trie)
 
   (fact "`trie-find` on all wiki-trie always returns the node containing the value"
-    (trie-find wiki-trie "baby") => (contains {:sym \y :values anything})
-    (trie-find wiki-trie "dad") => (contains {:sym \d :values anything})
-    (trie-find wiki-trie "bank") => (contains {:sym \k :values anything})
-    (trie-find wiki-trie "box") => (contains {:sym \x :values anything})
-    (trie-find wiki-trie "dad") => (contains {:sym \d :values anything})
-    (trie-find wiki-trie "dance") => (contains {:sym \e :values anything})
+    (trie-find wiki-trie "baby") => (contains \y :gaps-ok)
+    (trie-find wiki-trie "dad") => (contains \d :gaps-ok)
+    (trie-find wiki-trie "bank") => (contains \k :gaps-ok)
+    (trie-find wiki-trie "box") => (contains \x :gaps-ok)
+    (trie-find wiki-trie "dad") => (contains \d :gaps-ok)
+    (trie-find wiki-trie "dance") => (contains \e :gaps-ok)
     (trie-find wiki-trie "niet") => nil)
 
   (fact "`trie-find` inserting suffix of a word in trie should not interfere"
     (let [song-trie (trie-insert-recursive (map->Node {}) "song" 3)
           song-songs-trie (trie-insert-recursive song-trie "songs" 4)]
-      (trie-find song-songs-trie "song") => (contains {:sym \g :values [3]})
-      (trie-find song-songs-trie "song") =not=> (contains {:sym \s :values [4]})
-      (trie-find song-songs-trie "songs") =not=> (contains {:sym \g :values [3]})
-      (trie-find song-songs-trie "songs") => (contains {:sym \s :values [4]})))
+      (trie-find song-songs-trie "song") => (contains [\g [3]] :gaps-ok)
+      (trie-find song-songs-trie "song") =not=> (contains [\s [4]]) :gaps-ok
+      (trie-find song-songs-trie "songs") =not=> (contains [\g [3]] :gaps-ok)
+      (trie-find song-songs-trie "songs") => (contains [\s [4]] :gaps-ok)))
 
   (fact "`trie-find` on some words always returns the value"
-    (trie-find wiki-trie "baby") => (contains {:values [3]})
-    (trie-find wiki-trie "dad") => (contains {:values [6]})
+    (trie-find wiki-trie "baby") => (contains [\y [3]] :gaps-ok)
+    (trie-find wiki-trie "dad") => (contains [\d [6]] :gaps-ok)
     (trie-find wiki-trie "zip") => nil)
 
-  (fact "`trie-find` inserting suffix of a word in trie should not interfere"
-    (let [song-trie (trie-insert-recursive (map->Node {}) "song" 3)
-          song-songs-trie (trie-insert-recursive song-trie "songs" 4)]
-      (trie-find song-songs-trie "song") => (contains {:sym \g :values [3]})
-      (trie-find song-songs-trie "song") =not=> (contains {:sym \s :values [4]})
-      (trie-find song-songs-trie "songs") =not=> (contains {:sym \g :values [3]})
-      (trie-find song-songs-trie "songs") => (contains {:sym \s :values [4]})))
-
   (fact "`trie-insert-recursive` of 'baby' again in 'baby, bad' conjs the value"
-    (trie-find (trie-insert-recursive baby-bad-trie "baby" 7) "baby") => (contains {:values [3 7]}))
+    (trie-find (trie-insert-recursive baby-bad-trie "baby" 7) "baby") => (contains [\y [3 7]] :gaps-ok))
 
   (fact "`trie-insert-recursive` inserting song and songs should not conj values"
     (let [song-trie (trie-insert-recursive (map->Node {}) "song" 3)
           song-songs-trie (trie-insert-recursive song-trie "songs" 4)]
-      (trie-find song-songs-trie "song") => (contains {:sym \g :values [3]})
-      (trie-find song-songs-trie "songs") => (contains {:sym \s :values [4]})))
+      (trie-find song-songs-trie "song") => (contains [\g [3]] :gaps-ok)
+      (trie-find song-songs-trie "songs") => (contains [\s [4]] :gaps-ok)))
 
   (fact "`trie-insert-recursive` of 'dad' again in wiki-trie conjs the value"
-    (trie-find (trie-insert-recursive wiki-trie "dad" 7) "dad") => (contains {:values [6 7]}))
+    (trie-find (trie-insert-recursive wiki-trie "dad" 7) "dad") => (contains [[6 7]] :gaps-ok))
 
   (fact "`trie-insert-recursive` inserting twice should conj values"
     (let [foobar-trie (trie-insert-recursive (map->Node {}) "foobar" 3)
           foobar2-trie (trie-insert-recursive foobar-trie "foobar" 4)]
-      (trie-find foobar2-trie "foobar") => (contains {:values [3 4]})))
+      (trie-find foobar2-trie "foobar") => (contains [\r [3 4]] :gaps-ok)))
 
   (fact "`trie-insert-recursive` inserting a shorter word after a longer should not break"
     (let [robot-trie (trie-insert-recursive (map->Node {}) "roberto" 3)
           robot-roberto-trie (trie-insert-recursive robot-trie "robot" 4)]
-      (trie-find robot-roberto-trie "roberto") => (contains {:values [3]})))
-  
-  )
+      (trie-find robot-roberto-trie "roberto") => (contains [\o [3]] :gaps-ok))))
 
 

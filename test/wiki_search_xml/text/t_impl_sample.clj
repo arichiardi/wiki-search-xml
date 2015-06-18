@@ -1,7 +1,8 @@
 (ns wiki-search-xml.text.t-impl-sample
+  (:refer-clojure :exclude [next])
   (:require [wiki-search-xml.text.impl :refer :all]))
 
-;; Print we (str ...) to see a better representation
+;; Print with (str ...) to see a better representation
 
 (def baby-trie (map->Node {:sym \b :child (map->Node {:sym \a :child (map->Node {:sym \b :child (map->Node {:sym \y :values [3]})})})}))
 (def baby-bad-trie (map->Node {:sym \b :child (map->Node {:sym \a :child (map->Node {:sym \b :child (map->Node {:sym \y :values [3]}) :next (map->Node {:sym \d :values [4]})})})}))

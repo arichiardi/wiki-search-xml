@@ -5,18 +5,24 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.7.0-RC1"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                 [com.stuartsierra/component "0.2.3"]
+                 [slingshot "0.12.2"]
+                 [environ "1.0.0"]
+
+                 ;; Data
                  [org.clojure/data.xml "0.0.8"]
                  [org.clojure/data.zip "0.1.1"]
-                 [com.stuartsierra/component "0.2.3"]
-                 [environ "1.0.0"]
+                 [clj-tuple "0.2.1"]
+                 [danlentz/clj-uuid "0.1.5"]
                  [cheshire "5.5.0"]
-                 [slingshot "0.12.2"]
+                 ;; [com.ashafa/clutch "0.4.0"]
                  
+                 ;; Network
                  [ring/ring-core "1.4.0-RC1"]
                  [http-kit "2.1.18"]
                  [compojure "1.3.4"]
                  [commons-daemon/commons-daemon "1.0.15"]
-                 ;; [com.ashafa/clutch "0.4.0"]
+                 
                  
                  ;; Logging
                  [org.clojure/tools.logging "0.3.1"]

@@ -43,7 +43,7 @@
       (trie-get trie "a") => nil
       (trie-get trie "bar") => (just [3])))
 
-  (fact "`text->trie` with empty string returns nil"
+  (fact "`text->trie` with empty string returns empty trie"
     (text->trie "" 3) => (trie-empty))
 
   )

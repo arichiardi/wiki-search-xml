@@ -9,9 +9,7 @@
   [s]
   (re-seq #"\p{L}+|[a-zA-Z0-9]+" s))
 
-(defn trie-empty
-  []
-  (impl/map->Node {}))
+(defn trie-empty [] impl/empty-node)
 
 (defn trie-insert
   "Insert of the trie. The version without initial node will create a
@@ -29,7 +27,7 @@
   trie implementation. This implementation does not bother to handle the
   insertion of strings less than 3 characters in size."
   [node str]
-  (:values (impl/trie-find node str)))
+  (impl/values (impl/trie-find node str)))
 
 (defn text->trie
   "Builds the trie given the text. This implementation will filter
@@ -39,10 +37,10 @@
    (text->trie (trie-empty) text value))
   ([another-trie text value] 
    (if-let [ws (seq (distinct (filter #(> (count %1) 2) (words text))))]
-     (if-not (= (count ws) 1)
+     (if-not (= (count ws) 1) ;; see reduce doc, I need an explicit case for count = 1
        (reduce #(trie-insert %1 %2 value) another-trie ws) 
        (trie-insert (first ws) value))
-     (trie-empty))))
+     impl/empty-node)))
 
 ;; (defn merge-trie
 ;;   "Merge for tries. Useful for clojure.core.reducers.

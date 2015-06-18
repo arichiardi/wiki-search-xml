@@ -62,7 +62,7 @@
         results (let [[res ch] (async/alts!! [(search/search-for searcher (string/lower-case key)) 
                                                    timeout-ch] :priority true)]
                        (if-not (= ch timeout-ch)
-                         {:results (:result res)} ;; TODO better error handling
+                         {:results (or (:result res) [])} ;; TODO better error handling
                          {:results []}))]
     (log/debugf "search key was %s -> generated json contains %s results" key (count (:results results))) 
     {:body (assoc results :q key)}))

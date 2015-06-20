@@ -1,12 +1,14 @@
 {:config
- {:version "0.2.0-SNAPSHOT"
-  :bus {:bus-conf {:buffer-size 100}}
-  :parser {:buffer-conf {:buffer-size 100 :buffer-type :sliding}}
-  :searcher {:locations [{:type :resource-file
+ {:version "0.3.0-SNAPSHOT"
+  :bus {:bus-conf {:buffer-size 100 :buffer-type :sliding}
+        :pub-type-conf {:buffer-size 100 :buffer-type :sliding}}
+  :parser {:parse-sub-conf {:buffer-size 100 :buffer-type :sliding}}
+  :searcher {:data-sub-conf {:buffer-size 100 :buffer-type :dropping}
+             :locations [{:type :resource-file
                           :resource-path "enwiki-20150515-abstract24.xml"}
                          ;; {:type :network-file
                          ;;  :end-point "https://dumps.wikimedia.org/enwiki/latest"
                          ;;  :path "enwiki-latest-abstract24.xml"
-                          ]}
+                         ]}
   :server {:options {:port 7501
                      :worker-name-prefix "wsx-prod-worker-"}}}}

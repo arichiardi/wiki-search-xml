@@ -1,7 +1,7 @@
 (ns wiki-search-xml.bus
   (:require [com.stuartsierra.component :as component]
             [clojure.tools.logging :as log]
-            [clojure.core.async :refer [chan close! pub sub unsub unsub-all] :as async]
+            [clojure.core.async :refer [chan close! pub sub unsub unsub-all] :rename {chan async-chan}]
             [wiki-search-xml.common :as common]))
 
 (defrecord Bus [ ;; conf
@@ -11,7 +11,7 @@
   component/Lifecycle
   (stop [this]
     (if chan
-      (do (async/close! chan)
+      (do (close! chan)
           (unsub-all pub-type)
           (-> this
               (assoc :chan nil)
@@ -21,11 +21,11 @@
   (start [this]
     (if chan
       this
-      (let [c (common/conf->buffer bus-conf)]
+      (let [c (async-chan (common/conf->buffer bus-conf))]
         (-> this
-            (assoc :pub-type (async/pub c
-                                        :type
-                                        #_(fn [_] (common/conf->buffer pub-type-conf))))
+            (assoc :pub-type (pub c
+                                  :type
+                                  (fn [_] (common/conf->buffer pub-type-conf))))
             (assoc :chan c))))))
 
 (defn new-bus [config]
@@ -35,9 +35,9 @@
   "Subscribes chan to the input bus. Returns a channel which will
   receive messages that satisfy the topic"
   [bus topic ch]
-  (async/sub (:pub-type bus) topic ch))
+  (sub (:pub-type bus) topic ch))
 
 (defn unsubscribe
   "Unsubscribes chan from to the input bus."
   [bus topic ch]
-  (async/unsub (:pub-type bus) topic ch))
+  (unsub (:pub-type bus) topic ch))

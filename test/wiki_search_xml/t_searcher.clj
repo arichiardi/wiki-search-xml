@@ -5,7 +5,7 @@
             [wiki-search-xml.common :as common]
             [wiki-search-xml.bus :as bus]
             [wiki-search-xml.core :as core]
-            [clojure.core.async :refer [chan dropping-buffer go >! >!!]]
+            [clojure.core.async :refer [chan dropping-buffer go <!! >! >!!]]
             [environ.core :refer [env]]
             [midje.sweet :refer :all]
             [midje.util :refer [expose-testables]]))
@@ -36,13 +36,31 @@
         (get-in stopped [:wsx-searcher :sub-data]) => nil
         (get-in stopped [:wsx-searcher :bus]) => nil))
 
+    (fact "merge-result behaves correctly"
+      (reduce merge-results {} [{:r [:foo]}
+                                {:r [:bar] :e [:niet]}
+                                {:r [:baz]}]) => (just {:r [:foo :bar :baz], :e [:niet]})
+      (reduce merge-results {} [{:r []}
+                                {:e [:niet]}
+                                {:r [:baz]}]) => (just {:r [:baz], :e [:niet]})
+      (reduce merge-results {} [{:e [:foo]}
+                                {:e [:bar]}]) => (just {:e [:foo :bar]})
+      (reduce merge-results {} [{:r [:foo]}
+                                {:r [:bar]}]) => (just {:r [:foo :bar]}))
+
     (common/with-component-start system
-      (let [searcher (get-in __started__ [:wsx-searcher])]
+      (let [searcher (get-in __started__ [:wsx-searcher])
+            _ (<!! (search-for searcher "roberto"))] ;;warming up
 
-        (fact "search-location-async with correct key, I should receive :result full"
+        (fact "search-for with correct key, I should receive :result full"
           :slow
-          (common/<t!! (search-for searcher "roberto") 40000) => (contains {:result anything}))
+          (let [search-results (search-for searcher "roberto")] 
+            (<!! search-results) => (contains {:search-results vector?})
+            (<!! search-results) =not=> (contains {:search-results [vector?]})))
 
-        (fact "search-location-async with INcorrect key, I should receive empty :result"
+        (fact "search-for with INcorrect key, I should receive empty :result"
           :slow
-          (common/<t!! (search-for searcher "oberto") 500) => (contains {:result empty?}))))))
+          (core/<t!! (search-for searcher "oberto") 250) => (contains {:search-results empty?})) 
+
+        (future-fact "search-for innumerable times should not break")))
+    ))

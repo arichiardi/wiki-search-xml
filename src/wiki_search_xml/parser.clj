@@ -11,7 +11,7 @@
 (declare consume!)
 
 (defrecord Parser [;; config
-                   buffer-conf
+                   parse-sub-conf
                    ;; dependecies
                    bus
                    ;; state
@@ -29,11 +29,11 @@
   (start [this]
     (if sub-parse
       this
-      (let [c (common/conf->buffer buffer-conf)
+      (let [c (async/chan (common/conf->buffer parse-sub-conf))
             sp (subscribe bus :parse c)
             component (-> this (assoc :sub-parse sp)
                                (assoc :parsed-cache (atom nil)))]
-        (core/loop! (partial consume! component) sp)
+        (core/<!-do-loop! sp (partial consume! component))
         component))))
   
 (defn new-parser [config]

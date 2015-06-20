@@ -25,7 +25,7 @@
       (common/with-component-start system
         (let [bus-chan (get-in __started__ [:wsx-bus :chan])]
           (go (>! bus-chan "string"))
-          (common/<t!! bus-chan 100)) => "string"))
+          (core/<t!! bus-chan 250)) => "string"))
 
     (fact "when `subscribe`, it should return a filtered message"
       (common/with-component-start system
@@ -33,7 +33,7 @@
               bus-chan (:chan bus)
               subscription (subscribe bus :test (new-chan 1))]
           (go (>! bus-chan (core/->Msg :test)))
-          (common/<t!! subscription 500)) => (core/->Msg :test)))
+          (core/<t!! subscription 500)) => (core/->Msg :test)))
 
     (fact "when `subscribe` and send other :type msg should timeout"
       (common/with-component-start system
@@ -41,5 +41,5 @@
               bus-chan (:chan bus)
               subscription (subscribe bus :test (new-chan 1))]
           (go (>! bus-chan {:your :msg}))
-          (common/<t!! subscription 500)) => core/timeout-msg))))
+          (core/<t!! subscription 500)) => core/timeout-msg))))
 

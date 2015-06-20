@@ -8,7 +8,7 @@
 
 (defn lazy?
   [xs]
-  (condp instance? xs 
+  (condp instance? xs
     clojure.lang.LazySeq true
     clojure.lang.Cons (lazy? (rest xs))
     java.lang.Object false))
@@ -17,17 +17,6 @@
   "Pretty prints object to a string."
   [object]
   (with-out-str (pprint/pprint object)))
-
-(defn <t!!
-  "Takes (blocking) from the input chan waiting for timeout-ms.
-  Returns nil when it times out."
-  [chan timeout-ms]
-  (let [timeout-ch (async/timeout timeout-ms)
-        [v c] (async/alts!! [chan timeout-ch] :priority true)]
-    (if (= c timeout-ch)
-      (do (log/debug "<t!! - timed out on" chan)
-          core/timeout-msg)
-      v)))
 
 (defrecord DummyComponent [name deps]
   component/Lifecycle
@@ -57,7 +46,7 @@
   and :buffer-size."
   [conf]
   (let [{:keys [buffer-size buffer-type]} conf]
-    (async/chan (case buffer-type
-                  :dropping (async/dropping-buffer (or buffer-size 1)) 
-                  :sliding (async/sliding-buffer (or buffer-size 1))
-                  (async/buffer (or buffer-size 1))))))
+    (case buffer-type
+      :dropping (async/dropping-buffer (or buffer-size 1))
+      :sliding (async/sliding-buffer (or buffer-size 1))
+      (async/buffer (or buffer-size 1)))))

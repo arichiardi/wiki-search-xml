@@ -1,7 +1,9 @@
 {:config
- {:bus {:bus-conf {:buffer-size 3}}
-  :parser {:buffer-conf {:buffer-size 3 :buffer-type :sliding}}
-  :searcher {:locations [{:type :resource-file
+ {:bus {:bus-conf {:buffer-size 1 :buffer-type :sliding}
+        :pub-type-conf {:buffer-size 1 :buffer-type :sliding}}
+  :parser {:parse-sub-conf {:buffer-size 1 :buffer-type :sliding}}
+  :searcher {:data-sub-conf {:buffer-size 1 :buffer-type :dropping}
+             :locations [{:type :resource-file
                           :resource-path "enwiki-20150515-abstract24.xml"}]}
   :server {:options {:port 7501
                      :worker-name-prefix "wsx-dev-worker-"}}

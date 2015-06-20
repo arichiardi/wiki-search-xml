@@ -18,18 +18,63 @@
   [another-msg {:keys [class data error] :or {class :unknown data nil error nil}}]
   (merge another-msg (->DataMsg :data class data error)))
 
-(defn loop!
-  "Starts an async execution go-loop on the sub(scripted)-channels,
-  giving priority to their order.
-
-  Returns a channel with the final result of the loop which can safely
-  be ignored.
-
-  It executes side-effect (1-arity fn with the msg in input) at every
-  loop, stopping only when it receives a nil msg (channel closed)."
-  [side-effect sub-channel]
+(defn <!-do-loop!
+  "When receiving on channel, executes side-effect (1-arity fn with the
+  msg in input), stopping only when it msg is nil (channel
+  closed). Returns a channel with the final result of the loop which can
+  safely be ignored."
+  [channel side-effect]
   (async/go-loop []
-    (when-let [msg (async/<! sub-channel)]
-      (do (log/debug "Message received!")
-          (side-effect msg)
-          (recur)))))
+    (let [msg (async/<! channel)]
+      (when-not (nil? msg) 
+        (do (log/debug "message received!")
+            (side-effect msg)
+            (recur))))))
+
+(defn >!-dispatch-<!-apply!
+  "Dispatches the input message on dispatch-chan and waits (parking) for
+  results on result-chan (presumably a sub) only if the message has been
+  actually sent (async/>! returns true).
+
+  Then, when non-nil data is received on result-chan, applies f to it only
+  when (pred msg) yields true, looping if not.
+
+  Returns a channel containing the result of (f msg) or nil.
+  
+  Note that by this semantic nil means either the input message could not be
+  dispatched in the first place or the result-chan is/has been closed."
+  [dispatch-chan result-chan pred f dispatch-msg]
+  (async/go
+    ;; TODO, replace with offer! with the new release
+    (when (async/>! dispatch-chan dispatch-msg)
+      (do (log/debug "message dispatched, waiting for results on" result-chan)
+          (loop []
+            (let [chan-value (async/<! result-chan)]
+              (when-not (nil? chan-value) 
+                (if (pred chan-value) 
+                  (f chan-value)
+                  (recur)))))))))
+
+(defn <t!!
+  "Takes (blocking) from the input chan waiting for timeout-ms.
+  Returns nil when it times out."
+  [chan timeout-ms]
+  (let [timeout-ch (async/timeout timeout-ms)
+        [v c] (async/alts!! [chan timeout-ch] :priority true)]
+    (if (= c timeout-ch)
+      (do (log/warn "<t!! - timed out on" chan)
+          timeout-msg)
+      v)))
+
+(defn <t-shut!
+  "Takes (parking) from channel but closes it if the take times out,
+  returning nil."
+  [chan timeout-ms]
+  (async/go 
+    (let [timeout-ch (async/timeout timeout-ms)
+          [v c] (async/alts! [chan timeout-ch] :priority true)]
+      (if (= c timeout-ch)
+        (do (log/warn "<t-shut! - timed out and will close" chan)
+            (async/close! chan)
+            nil)
+        v))))

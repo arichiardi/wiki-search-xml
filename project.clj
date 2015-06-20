@@ -1,9 +1,9 @@
-(defproject wiki_search_xml "0.2.0-SNAPSHOT"
+(defproject wiki_search_xml "0.3.0-SNAPSHOT"
   :description "A text search app within wikipedia xml abstract files"
   :url "https://github.com/arichiardi/wiki-search-xml"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.7.0-RC1"]
+  :dependencies [[org.clojure/clojure "1.7.0-RC2"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [org.clojure/tools.trace "0.7.8"]
                  [com.stuartsierra/component "0.2.3"]

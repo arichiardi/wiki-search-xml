@@ -18,16 +18,17 @@
    (fact "`lazy?` should return true for lazy Cons cells"
     (lazy? (cons \f "oo")) => falsey)
   
-  (fact "`<t!!` return the right value or times out"
-    (let [c1 (chan)]
-      (do (go (>! c1 "test")) (<t!! c1 1000)) => "test"
-      (do (go (do (<! (timeout 500)) (>! c1  "test"))) (<t!! c1 1000)) => "test" 
-      (do (go (do (<! (timeout 2000)) (>! c1  "test"))) (<t!! c1 1000)) => core/timeout-msg
-      (<t!! c1 10) => core/timeout-msg))
-
   (fact "`with-component-start` should behave correctly"
     (let [dummy (new-dummy-component "test")]
       (with-component-start dummy
         (:started __started__) => truthy)))
   )
 
+#_(fact "`<shut!` return the right value or times out closing the channel"
+    (let [c1 (chan)]
+      (do (go (>! c1 "test")) (<t!! (<shut! c1 1000)) 250) => "test"
+      ;; (do (go (do (<! (timeout 500)) (>! c1  "test"))) (<t!! c1 1000)) => "test" 
+      ;; (do (go (do (<! (timeout 2000)) (>! c1  "test"))) (<t!! c1 1000)) => core/timeout-msg
+      ;; (<t!! c1 10) => core/timeout-msg)
+
+    ))

@@ -35,15 +35,16 @@
 
 (defmethod fetch :resource-file
   [what]
-  (log/debug "fetch of" what)
-  (let [{:keys [resource-path options]} what] 
-    (async/thread (try+
-                   (map->FetchResult {:stream
-                                      (-> resource-path io/resource io/input-stream)})
-                   (catch Object _
-                     (let [thr (:throwable &throw-context)] 
-                       (log/error thr "Fetching error") 
-                       (map->FetchResult {:error (.getMessage thr)})))))))
+  (async/thread
+    (log/debug "fetch of" what)
+    (let [{:keys [resource-path options]} what] 
+      (try+
+       (map->FetchResult {:stream
+                          (-> resource-path io/resource io/input-stream)})
+       (catch Object _
+         (let [thr (:throwable &throw-context)] 
+           (log/error thr "Fetching error") 
+           (map->FetchResult {:error (.getMessage thr)})))))))
 
 (defmethod fetch :default
   [_ _ _]

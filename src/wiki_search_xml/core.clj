@@ -1,5 +1,6 @@
 (ns wiki-search-xml.core
-  (:require [clojure.core.async :as async]
+  (:require [clojure.tools.trace :refer [deftrace trace] :rename {trace t}]
+            [clojure.core.async :as async]
             [clojure.tools.logging :as log]))
 
 (defrecord Msg [type])
@@ -26,9 +27,8 @@
   [channel side-effect]
   (async/go-loop []
     (let [msg (async/<! channel)]
-      (when-not (nil? msg) 
-        (do (log/debug "message received!")
-            (side-effect msg)
+      (when-not (nil? msg)
+        (do (side-effect msg)
             (recur))))))
 
 (defn >!-dispatch-<!-apply!
@@ -40,20 +40,22 @@
   when (pred msg) yields true, looping if not.
 
   Returns a channel containing the result of (f msg) or nil.
-  
+
   Note that by this semantic nil means either the input message could not be
   dispatched in the first place or the result-chan is/has been closed."
   [dispatch-chan result-chan pred f dispatch-msg]
   (async/go
     ;; TODO, replace with offer! with the new release
-    (when (async/>! dispatch-chan dispatch-msg)
-      (do (log/debug "message dispatched, waiting for results on" result-chan)
-          (loop []
-            (let [chan-value (async/<! result-chan)]
-              (when-not (nil? chan-value) 
-                (if (pred chan-value) 
-                  (f chan-value)
-                  (recur)))))))))
+    (let [put? (async/>! dispatch-chan dispatch-msg)]
+      (if put?
+        (do (log/debug ">!-dispatch-<!-apply! - message dispatched, now waiting for result channel")
+            (loop []
+              (let [result-value (async/<! result-chan)]
+                (when-not (nil? result-value)
+                  (if (pred result-value)
+                    (f result-value)
+                    (recur))))))
+        (log/warn ">!-dispatch-<!-apply! message could not be dispatched")))))
 
 (defn <t!!
   "Takes (blocking) from the input chan waiting for timeout-ms.
@@ -70,7 +72,7 @@
   "Takes (parking) from channel but closes it if the take times out,
   returning nil."
   [chan timeout-ms]
-  (async/go 
+  (async/go
     (let [timeout-ch (async/timeout timeout-ms)
           [v c] (async/alts! [chan timeout-ch] :priority true)]
       (if (= c timeout-ch)

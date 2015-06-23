@@ -60,10 +60,10 @@
         key (get-in req [:query-params "q"])
         timeout-ch (async/timeout 20000)
         results (let [[res ch] (async/alts!! [(search/search-for searcher (string/lower-case key)) 
-                                                   timeout-ch] :priority true)]
-                       (if-not (= ch timeout-ch)
-                         {:results (or (:search-results res) [])} ;; TODO better error handling
-                         {:results []}))]
+                                              timeout-ch] :priority true)]
+                  (if-not (= ch timeout-ch)
+                    {:results (or (:search-results res) [])} 
+                    {:results []}))] ;; TODO better error handling
     (log/debugf "search key was %s -> generated json contains %s results" key (count (:results results))) 
     {:body (assoc results :q key)}))
 

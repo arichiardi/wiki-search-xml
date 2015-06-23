@@ -1,7 +1,8 @@
 {:config
- {:version "0.3.0-SNAPSHOT"
+ {:version "0.4.0-SNAPSHOT"
   :bus {:bus-conf {:buffer-size 100 :buffer-type :sliding}
-        :pub-type-conf {:buffer-size 100 :buffer-type :sliding}}
+        :pub-type-parse-conf {:buffer-size 100 :buffer-type :dropping}
+        :pub-type-data-conf {:buffer-size 100 :buffer-type :dropping}}
   :parser {:parse-sub-conf {:buffer-size 100 :buffer-type :sliding}}
   :searcher {:data-sub-conf {:buffer-size 100 :buffer-type :dropping}
              :locations [{:type :resource-file

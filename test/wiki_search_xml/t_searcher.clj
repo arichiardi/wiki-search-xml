@@ -5,7 +5,7 @@
             [wiki-search-xml.common :as common]
             [wiki-search-xml.bus :as bus]
             [wiki-search-xml.core :as core]
-            [clojure.core.async :refer [chan dropping-buffer go <!! >! >!!]]
+            [clojure.core.async :refer [chan thread go <!! >! >!!]]
             [environ.core :refer [env]]
             [midje.sweet :refer :all]
             [midje.util :refer [expose-testables]]))
@@ -37,30 +37,40 @@
         (get-in stopped [:wsx-searcher :bus]) => nil))
 
     (fact "merge-result behaves correctly"
-      (reduce merge-results {} [{:r [:foo]}
-                                {:r [:bar] :e [:niet]}
-                                {:r [:baz]}]) => (just {:r [:foo :bar :baz], :e [:niet]})
-      (reduce merge-results {} [{:r []}
-                                {:e [:niet]}
-                                {:r [:baz]}]) => (just {:r [:baz], :e [:niet]})
-      (reduce merge-results {} [{:e [:foo]}
-                                {:e [:bar]}]) => (just {:e [:foo :bar]})
-      (reduce merge-results {} [{:r [:foo]}
-                                {:r [:bar]}]) => (just {:r [:foo :bar]}))
+      (reduce merge-results {:r () :e ()} [{:r '[:foo]}
+                                           {:r '[:bar] :e [:niet]}
+                                           {:r '[:baz]}]) => (just {:r '(:foo :bar :baz), :e [:niet]})
+      (reduce merge-results {:r () :e ()} [{:r ()}
+                                           {:e '(:niet)}
+                                           {:r '(:baz)}]) => (just {:r '(:baz), :e '(:niet)})
+      (reduce merge-results {:r () :e ()} [{:e '(:foo)}
+                                           {:e '(:bar)}]) => (just {:e '(:foo :bar) :r ()})
+      (reduce merge-results {:r () :e ()} [{:r '(:foo)}
+                                           {:r '(:bar)}]) => (just {:e () :r '(:foo :bar)}))))
 
+(facts "about `search-for`"
+  :slow
+  (let [config-map (sys/make-config)
+        system (sys/new-system config-map)]
     (common/with-component-start system
       (let [searcher (get-in __started__ [:wsx-searcher])
-            _ (<!! (search-for searcher "roberto"))] ;;warming up
+            search-results (search-for searcher "blatnaya")] ;; warming up
 
-        (fact "search-for with correct key, I should receive :result full"
-          :slow
-          (let [search-results (search-for searcher "roberto")] 
-            (<!! search-results) => (contains {:search-results vector?})
-            (<!! search-results) =not=> (contains {:search-results [vector?]})))
+        (fact "after warming up I should receive results"
+          (core/<t!! search-results 25000) => (contains {:search-results #(> (count %1) 0) :search-errors empty?}))
 
-        (fact "search-for with INcorrect key, I should receive empty :result"
-          :slow
-          (core/<t!! (search-for searcher "oberto") 250) => (contains {:search-results empty?})) 
+        #_(fact "with correct key, I should receive results"
+            (let [search-ch (search-for searcher "campos")
+                  search-results (core/<t!! search-ch 250)]
+              search-results => (contains {:search-results #(> (count %1) 0) :search-errors empty?})
+              search-results =not=> (contains {:search-results [seq?]})))
 
-        (future-fact "search-for innumerable times should not break")))
-    ))
+        #_(fact "with INcorrect key, I should receive empty results"
+            (core/<t!! (search-for searcher "oberto") 250) => (contains {:search-results empty?}))
+
+        (fact "innumerable times should not break and behave correctly"
+          (core/<t!! (thread (<!! (search-for searcher "campos"))) 250) => (contains {:search-results #(> (count %1) 0) :search-errors empty?})
+          (core/<t!! (thread (<!! (search-for searcher "blatnaya"))) 250) => (contains {:search-results #(> (count %1) 0) :search-errors empty?})
+          (core/<t!! (thread (<!! (search-for searcher "appear"))) 250) => (contains {:search-results #(> (count %1) 0) :search-errors empty?})
+          (core/<t!! (thread (<!! (search-for searcher "Vancouver"))) 250) => (contains {:search-results empty? :search-errors empty?})
+          (core/<t!! (thread (<!! (search-for searcher "blue"))) 250) => (contains {:search-results #(> (count %1) 0) :search-errors empty?}))))))

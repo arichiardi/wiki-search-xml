@@ -1,11 +1,11 @@
 (ns wiki-search-xml.bus
   (:require [com.stuartsierra.component :as component]
             [clojure.tools.logging :as log]
-            [clojure.core.async :refer [chan close! pub sub unsub unsub-all] :rename {chan async-chan}]
+            [clojure.core.async :refer [chan buffer close! pub sub unsub unsub-all] :rename {chan async-chan}]
             [wiki-search-xml.common :as common]))
 
 (defrecord Bus [ ;; conf
-                bus-conf pub-type-conf
+                bus-conf pub-type-parse-conf pub-type-data-conf
                 ;; instance
                 chan pub-type]
   component/Lifecycle
@@ -23,9 +23,11 @@
       this
       (let [c (async-chan (common/conf->buffer bus-conf))]
         (-> this
-            (assoc :pub-type (pub c
-                                  :type
-                                  (fn [_] (common/conf->buffer pub-type-conf))))
+            (assoc :pub-type (pub c :type
+                                  #(condp = %1
+                                     :parse (common/conf->buffer pub-type-parse-conf)
+                                     :data (common/conf->buffer pub-type-data-conf)
+                                     (buffer 1))))
             (assoc :chan c))))))
 
 (defn new-bus [config]

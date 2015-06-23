@@ -66,6 +66,9 @@ I decided to experiment TDD using ```Midje``` instead of ```clojure.test``` for 
 - [Aleph](https://github.com/ztellman/aleph)
 - [Compojure-API](https://github.com/metosin/compojure-api)
 
+## Other resources
+- [Langohr on heroku](https://devcenter.heroku.com/articles/queuing-in-clojure-with-langohr-and-rabbitmq)
+- [Heroku & Docker (beta)](https://blog.heroku.com/archives/2015/5/5/introducing_heroku_docker_release_build_deploy_heroku_apps_with_docker)
 <br>
 
 

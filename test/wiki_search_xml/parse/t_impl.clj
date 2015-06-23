@@ -87,7 +87,7 @@
     #_(spit "dump.trie" file-trie)
 
     (let [docs (->> xml-string xml/parse-str :content (filter #(= :doc (:tag %))))]
-      (doseq [doc (conj (take 200 docs) (first docs) (last docs))]
+      (doseq [doc (conj (take 100 docs) (first docs) (last docs))]
         (let [zipped-doc (zip/xml-zip doc)
               title (xml-text zipped-doc :title)
               abstract (xml-text zipped-doc :abstract)

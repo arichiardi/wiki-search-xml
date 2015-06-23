@@ -54,49 +54,50 @@
   [msg]
   (let [{:keys [class for-key data error location] :as data} msg]
     (when-not data (log/warn "returned data on bus was nil, something might be wrong"))
-    (log/debugf "received data of class %s for location %s (error: %s)" class location error)
-
+    (log/debugf "received data of class %s for location %s and key %s (error: %s)" class location for-key (or error "-"))
+    
     (if data
       {:search-results (or (text/trie-get (parse/trie data) for-key) [])}
-      {:search-errors error})))
+      {:search-errors (or error [])})))
 
 (defn- parse-and-search-location!
   [dispatch-ch result-ch timeout key location]
   ;; Cannot use alt! with subscribed channels???
   ;;http://dev.clojure.org/jira/browse/ASYNC-75?page=com.atlassian.jira.plugin.system.issuetabpanels:changehistory-tabpanel
   ;; (async/timeout timeout-ms) {:error (str "Search in location " location " timed out")}
-  (async/go (let [timeout-ch (async/timeout timeout)
-                  [v c] (async/alts!
-                         [(core/>!-dispatch-<!-apply! dispatch-ch result-ch
-                                                      #(= :parsed-xml (:class %1))
-                                                      parsed-msg->search-results
-                                                      (core/map->Msg {:type :parse
-                                                                      :location location
-                                                                      :for-key key})) 
-                          ] :priority true)]
-              (when (= c timeout-ch)
-                (log/warn "timed out parsing location" location))
-              v)))
+  (async/go
+    (async/alt!
+      (core/>!-dispatch-<!-apply! dispatch-ch result-ch
+                                  #(and (= :parsed-xml (:class %1))
+                                        (= key (:for-key %1)))
+                                  parsed-msg->search-results
+                                  (core/map->Msg {:type :parse
+                                                  :location location
+                                                  :for-key key})) ([v c] v)
+      (async/timeout timeout) (do (log/warn "timed out parsing location" location)
+                                  {:search-errors [(str "Search for key \"" key "\" timed out in location " location)]})
+      :priority true)))
 
 (defn search-for
   "Performs the search, needs a Searcher and a key to look for.
   This method is synchronous, but it parks if cannot go on. Returns a
   vector of {:result ... :error} for the searched key."
-  [this key]
-  (let [{:keys [bus sub-data locations parse-timeout]} this
+  [searcher key]
+  (log/debug "processing request for key" key)
+  (let [{:keys [bus sub-data locations parse-timeout]} searcher
         search-location! (partial parse-and-search-location!
-                                  (:chan bus) sub-data (or parse-timeout 15000) ;; channels
+                                  (:chan bus) sub-data (or parse-timeout 60000) ;; channels
                                   key)]
     ;; Dispatch, search parsed results and collect
     (async/reduce merge-results
-                  {}
+                  {:search-results () :search-errors ()}
                   (async/merge (map search-location! locations)))))
 
-(defn- consume!
-  "Consumes the input message."
-  [this msg]
-  (case (:type msg)
-    :query (search-for this msg)
-    (log/warn "message is not for me")))
+;; (defn- consume!
+;;   "Consumes the input message."
+;;   [searcher msg]
+;;   (case (:type msg)
+;;     :query (search-for searcher msg)
+;;     (log/warn "message is not for me")))
 
 

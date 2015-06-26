@@ -18,3 +18,4 @@ logs/
 *.err
 *.out
 *.swp
+enwiki-latest*

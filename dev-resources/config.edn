@@ -1,7 +1,9 @@
 {:config
- {:bus {:bus-conf {:buffer-size 1 :buffer-type :sliding}
-        :pub-type-conf {:buffer-size 1 :buffer-type :sliding}}
-  :parser {:parse-sub-conf {:buffer-size 1 :buffer-type :sliding}}
+ {:bus {:bus-conf {:buffer-size 1 :buffer-type :dropping}
+        :pub-type-parse-conf {:buffer-size 1 :buffer-type :dropping}
+        :pub-type-data-conf {:buffer-size 1 :buffer-type :dropping}}
+  :parser {:parse-sub-conf {:buffer-size 1 :buffer-type :dropping}
+           :parse-timeout 20000}
   :searcher {:data-sub-conf {:buffer-size 1 :buffer-type :dropping}
              :locations [{:type :resource-file
                           :resource-path "enwiki-20150515-abstract24.xml"}]}

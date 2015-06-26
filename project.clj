@@ -1,4 +1,4 @@
-(defproject wiki_search_xml "0.3.0-SNAPSHOT"
+(defproject wiki_search_xml "0.4.0-SNAPSHOT"
   :description "A text search app within wikipedia xml abstract files"
   :url "https://github.com/arichiardi/wiki-search-xml"
   :license {:name "Eclipse Public License"
@@ -33,6 +33,7 @@
   :jvm-opts ^:replace ["-Dclojure.assert-if-lazy-seq=true"]
   :plugins [[lein-environ "1.0.0"]
             [lein-pprint "1.1.2"]]
+  :min-lein-version "2.0.0"
   :aliases {"bg-repl" ["trampoline" "repl" ":headless" "> repl.out 2> repl.err < /dev/null &"]}
   :profiles {:uberjar {:aot :all
                        :main wiki_search_xml.daemon}

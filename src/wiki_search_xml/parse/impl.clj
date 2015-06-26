@@ -1,11 +1,16 @@
 (ns wiki-search-xml.parse.impl
   (:require [clojure.tools.trace :refer [deftrace trace] :rename {trace t}]
             [clojure.tools.logging :as log]
+            [clojure.core.async :as async]
             [clojure.data.xml :as xml]
             [clojure.zip :as zip]
             [clojure.string :as string]
             [clojure.data.zip.xml :as zxml]
             [wiki-search-xml.text :as txt]))
+
+;;;;;;;;;;;;;;;;;;;;;;;
+;;; Trie generation ;;;
+;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn- ^:testable xml-text
   [element keyword-or-tag]
@@ -91,3 +96,82 @@
   "Given a trie pair, returns the list of all its values"
   second)
 
+;;;;;;;;;;;;;;;;;;;;
+;;; Parse result ;;;
+;;;;;;;;;;;;;;;;;;;;
+
+(defrecord ParseData [state data error read-channel write-channel mult])
+
+(def ^:private empty-data (->ParseData :new nil nil nil nil nil))
+
+(defn empty-data
+  "An empty ParseData with state :new"
+  []
+  empty-data)
+
+(defn parsing?
+  [parse-data]
+  (= :parsing (:state parse-data)))
+
+(defn waiting?
+  [parse-data]
+  (= :waiting (:state parse-data)))
+
+(defn parsed?
+  [parse-data]
+  (= :parsed (:state parse-data)))
+
+(def read-channel
+  "Given a parse data record, returns its result channel."
+  :read-channel)
+
+(def write-channel
+  "Given a parse data record, returns its result channel."
+  :write-channel)
+
+(defn result
+  "Given a parse data record, returns just its data and error (in a
+  map)."
+  [{:keys [data error] :or {data nil error nil}}]
+  {:data data
+   :error error})
+
+(defn error?
+  [parse-data]
+  (:error (result parse-data)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Parse state machine ;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defn- ->parsing
+  "Given all the needed channels, returns a record whose state
+  is :parsing."
+  [read-ch write-ch mult]
+  (->ParseData :parsing nil nil read-ch write-ch mult))
+
+(defn- ->waiting
+  "Returns :waiting record for when we don't parse but wait for results."
+  [read-ch mult]
+  (->ParseData :waiting nil nil read-ch nil mult))
+
+(defn data->parsed
+  "Given :data or :error, returns a record whose state is :parsed."
+  [{:keys [data error] :or {data nil error nil}}]
+  (->ParseData :parsed data error nil nil nil))
+
+(defn update-parse-state
+  "Produces a new ParseData based on the current :state following the
+  :new->:parsing->:waiting->:parsed flux. This avoids parsing a resource
+  twice when concurrent requests are coming. In order to achieve that,
+  this function should be used with swap! or alter."
+  [old-pd]
+  (cond
+    (and (parsed? old-pd) (not (error? old-pd))) old-pd ;; if there was an error I will parse again
+    (or (waiting? old-pd) (parsing? old-pd)) (let [m (:mult old-pd)]
+                                               (->waiting (async/tap m (async/chan 1)) m))
+    ;; else setting up the "parsing" state and channels
+    ;; I expect just one result of the parsing.
+    :else (let [c (async/chan 1)
+                m (async/mult c)]
+            (->parsing (async/tap m (async/chan 1)) c m))))

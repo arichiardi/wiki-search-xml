@@ -35,7 +35,7 @@
         :slow
         (let [test-location (:test-resource-location config-map)]
           (core/<t!! (fetch-and-parse! identity test-location) 30000) => (contains {:data some?})))
-
+    
     (fact "parse-location! should not work twice but give results for all requesters"
         :slow
         (common/with-component-start system
@@ -72,3 +72,4 @@
               msg {:type :parse :location (:test-resource-location config-map)}]
           (core/<t!! (msg->parsed! parser msg)
                      35000) => (contains {:type :data :class :parsed-xml :data some?}))))))
+

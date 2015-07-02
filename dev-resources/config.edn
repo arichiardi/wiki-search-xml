@@ -2,16 +2,23 @@
  {:bus {:bus-conf {:buffer-size 1 :buffer-type :dropping}
         :pub-type-parse-conf {:buffer-size 1 :buffer-type :dropping}
         :pub-type-data-conf {:buffer-size 1 :buffer-type :dropping}}
-  :parser {:parse-sub-conf {:buffer-size 1 :buffer-type :dropping}
-           :parse-timeout 20000}
+  :parser {:parse-sub-conf {:buffer-size 1 :buffer-type :dropping}}
   :searcher {:data-sub-conf {:buffer-size 1 :buffer-type :dropping}
+             :parse-timeout 120000
              :locations [{:type :resource-file
-                          :resource-path "enwiki-20150515-abstract24.xml"}]}
+                          :resource-path "enwiki-20150515-abstract24.xml"}
+                         #_{:type :resource-file
+                            :resource-path "enwiki-latest-abstract2.xml"}]}
+  :handler {:request-timeout 120000}
   :server {:options {:port 7501
                      :worker-name-prefix "wsx-dev-worker-"}}
   :test-file "enwiki-20150515-abstract24.xml"
+  :test-file-medium "enwiki-latest-abstract2.xml"
+  :test-file-huge "enwiki-latest-abstract.xml"
   :test-network-location {:type :network-file
                           :end-point "https://dumps.wikimedia.org/enwiki/latest"
                           :path "enwiki-latest-md5sums.txt"}
   :test-resource-location {:type :resource-file
-                           :resource-path "enwiki-20150515-abstract24.xml"}}}
+                           :resource-path "enwiki-20150515-abstract24.xml"}
+  :test-resource-mmap-location {:type :resource-mmap-file
+                                :resource-path "enwiki-20150515-abstract24.xml"}}}

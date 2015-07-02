@@ -16,7 +16,7 @@
 (declare make-routes search-for)
 
 (defrecord Handler [ ;; config
-                    options
+                    request-timeout
                     ;; dependecies
                     searcher bus
                     ;; instance
@@ -45,20 +45,19 @@
 
 (defn make-routes
   [this]
-  (let [{:keys [searcher]} this] 
-    (routes
-     (GET "/search" [] (partial search-for this))
-     ;; (GET "/async" [] async-handler) ;; asynchronous(long polling)
-     (not-found "<p>Page not found.</p>"))))
+  (routes
+   (GET "/search" [] (partial search-for this))
+   ;; (GET "/async" [] async-handler) ;; asynchronous(long polling)
+   (not-found "<p>Page not found.</p>")))
 
 (defn search-for [handler req]
   (log/info "received http request with query params" (:query-params req))
   ;; for now the request is handled in a sync way and on the same
   ;; thread (httpkit has 4 thread per request by default, but everything
   ;; is ready for websocket/long polling and return results while they are ready
-  (let [{:keys [searcher]} handler
+  (let [{:keys [searcher request-timeout]} handler
         key (get-in req [:query-params "q"])
-        timeout-ch (async/timeout 20000)
+        timeout-ch (async/timeout (or request-timeout 30000))
         results (let [[res ch] (async/alts!! [(search/search-for searcher (string/lower-case key)) 
                                               timeout-ch] :priority true)]
                   (if-not (= ch timeout-ch)

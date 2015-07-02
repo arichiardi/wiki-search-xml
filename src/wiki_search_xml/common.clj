@@ -40,6 +40,11 @@
           (log/error thr# "with-component-start error in body")))
       (finally (component/stop ~'__started__)))))
 
+(defn no-server-system
+  "Strips a system from its server side"
+  [system]
+  (dissoc (dissoc system :wsx-server) :wsx-handler))
+
 (defn conf->buffer
   "Returns the correct kind of buffer instance based
   on :buffer-type (can be either :dropping or :sliding)

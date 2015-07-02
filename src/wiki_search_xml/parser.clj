@@ -3,8 +3,9 @@
             [com.stuartsierra.component :as component]
             [clojure.core.async :as async]
             [clojure.tools.logging :as log]
+            [slingshot.slingshot :refer [try+]]
             [wiki-search-xml.bus :refer [subscribe]]
-            [wiki-search-xml.fetch :refer [fetch]]
+            [wiki-search-xml.fetch :refer [fetch! fetch-close!]]
             [wiki-search-xml.core :as core]
             [wiki-search-xml.common :as common]
             [wiki-search-xml.parse.impl :as p]))
@@ -58,11 +59,21 @@
   errors."
   [value-hook location]
   (async/thread
-    (when-let [fetch-result (async/<!! (fetch location))]
+    (when-let [fetch-result (async/<!! (fetch! location))]
       (let [{:keys [stream error]} fetch-result]
         (log/debugf "fetch-result ready (payload not displayed but error was: %s)" error)
+
         (if stream
-          {:data (p/wiki-source->trie-pair value-hook stream)}
+          (try+
+           {:data (p/wiki-source->trie-pair value-hook stream)}
+           (catch Object _
+             (let [thr (:throwable &throw-context)]
+               (log/error thr "Parse error")
+               {:error (.getMessage thr)}))
+           (finally
+             (try
+               (fetch-close! fetch-result)
+               (catch Exception _))))
           {:error error})))))
 
 (defn- ensure-location-in-cache
@@ -83,7 +94,7 @@
     (let [{:keys [parse-data-cache]} parser
           pd (get @parse-data-cache location)]
       (if (and (p/parsed? pd) (not (p/error? pd)))
-        (do (log/debug "already parsed, returning cached value") 
+        (do (log/debug "already parsed, returning cached value")
             (p/result pd))
         (do (swap! parse-data-cache ensure-location-in-cache location)
             ;; point of sync
@@ -100,7 +111,6 @@
               (log/debugf "location parsed (error was: %s)" (or (:error result) "-"))
               (swap! parse-data-cache assoc location (p/data->parsed result))
               result))))))
-
 
 (defn- ^:testable
   msg->parsed!

@@ -15,6 +15,7 @@
                  [org.clojure/data.zip "0.1.1"]
                  [clj-tuple "0.2.1"]
                  [danlentz/clj-uuid "0.1.5"]
+                 [nio "1.0.3"]
                  ;; [com.ashafa/clutch "0.4.0"]
 
                  ;; Network

@@ -104,9 +104,9 @@
                            (p/result altered-pd)
                            (do
                              (when (p/parsing? altered-pd)
-                               (do (log/debug "parsing and writing results")
-                                   (async/pipe (fetch-and-parse! identity location)
-                                               (p/write-channel altered-pd))))
+                               (log/debug "parsing and writing results")
+                               (async/pipe (fetch-and-parse! identity location)
+                                           (p/write-channel altered-pd)))
                              (async/<! (p/read-channel altered-pd))))]
               (log/debugf "location parsed (error was: %s)" (or (:error result) "-"))
               (swap! parse-data-cache assoc location (p/data->parsed result))

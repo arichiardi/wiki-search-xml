@@ -28,8 +28,8 @@
   (async/go-loop []
     (let [msg (async/<! channel)]
       (when-not (nil? msg)
-        (do (side-effect msg)
-            (recur))))))
+        (side-effect msg)
+        (recur)))))
 
 (defn >!-dispatch-<!-apply!
   "Dispatches the input message on dispatch-chan and waits (parking) for

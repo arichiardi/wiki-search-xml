@@ -16,7 +16,7 @@
   "Lazily returns the elements that match the (variadic)
   keywords-or-tags."
   [element & keywords-or-tags]
-  (let [tag-set (into #{} (map keyword keywords-or-tags))]
+  (let [tag-set (set (map keyword keywords-or-tags))]
     (->> element :content (filter #(tag-set (:tag %1))))))
 
 (defn- ^:testable
@@ -104,7 +104,7 @@
   fields. It accepts a trie value. If no prior manipulation is needed,
   just pass identity. Typically this is used to add db fields."
   [trie-value-hook source]
-  (wiki-xml->trie-pair trie-value-hook (-> source xml/parse)))
+  (wiki-xml->trie-pair trie-value-hook (xml/parse source)))
 
 (def trie
   "Given a trie pair, returns the trie"

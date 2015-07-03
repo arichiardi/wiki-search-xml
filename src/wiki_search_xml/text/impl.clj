@@ -105,4 +105,3 @@
         node)
       (when-let [n (next node)]
         (trie-find n s)))))
-

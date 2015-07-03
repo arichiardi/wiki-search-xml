@@ -3,20 +3,28 @@
             [clojure.java.io :as io]
             [clojure.data.xml :as xml]
             [clojure.zip :as zip]
+            [clojure.core.async :as async]
             [clojure.data.zip.xml :as zxml]
             [clojure.string :as string]
             [wiki-search-xml.common :as common]
             [wiki-search-xml.system :as sys]
             [wiki-search-xml.text :as txt]
+            [wiki-search-xml.fetch :as fetch]
             [wiki-search-xml.parse.impl :refer :all]
             [midje.sweet :refer :all]
-            [midje.util :refer [expose-testables]])
+            [midje.util :refer [expose-testables]]
+            [criterium.core :refer :all])
   (:import java.io.StringReader))
 
 (expose-testables wiki-search-xml.parse.impl)
 
 (def test-xml "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
                <foo><bar><baz>The baz value</baz></bar></foo>")
+
+(def parsed-nzb {:tag :nzb,
+                 :attrs {:xmlns "http://www.newzbin.com/DTD/2003/nzb"},
+                 :content [{:tag :foo, :attrs nil, :content ["The foo text"]}
+                           {:tag :bar, :attrs nil, :content ["The bar text"]}]})
 
 (defn- words-size>2
   [s]
@@ -29,21 +37,13 @@
     (strip-wikipedia "Wikipedia:foo bar baz") => #"[ ]*foo bar baz[ ]*"
     (strip-wikipedia "foo bar") => #"[ ]*foo bar[ ]*")
 
-  (let [input-xml (StringReader. test-xml)
-        root (-> input-xml xml/parse zip/xml-zip)
-        bar (zxml/xml1-> root :bar)]
-
-    (fact "xml-text should return the text of an element"
-      (xml-text bar :baz) => "The baz value"))
-
   (let [test-file (get-in (sys/read-config-file) [:config :test-file])]
     (with-open [r (-> test-file io/resource io/file io/reader)]
       (let [root (xml/parse r)
             doc (second (doall (->> root :content (filter #(= :doc (:tag %))))))
-            zipped-doc (zip/xml-zip doc)
-            title (xml-text zipped-doc :title)
-            abstract (xml-text zipped-doc :abstract)
-            url (xml-text zipped-doc :url)]
+            title (text-of-tag doc :title)
+            abstract (text-of-tag doc :abstract)
+            url (text-of-tag doc :url)]
 
         (fact "`text->trie` indexes correctly the title"
           (txt/trie-get (txt/text->trie title 42)
@@ -61,10 +61,9 @@
   (let [test-file (get-in (sys/read-config-file) [:config :test-file])]
     (with-open [r (-> test-file io/resource io/file io/reader)]
       (let [doc (second (doall (->> (xml/parse r) :content (filter #(= :doc (:tag %))))))
-            zipped-doc (zip/xml-zip doc)
-            title (xml-text zipped-doc :title)
-            abstract (xml-text zipped-doc :abstract)
-            url (xml-text zipped-doc :url)]
+            title (text-of-tag doc :title)
+            abstract (text-of-tag doc :abstract)
+            url (text-of-tag doc :url)]
 
         ;; AR - The metadata facility is very powerful and neat!
         (doseq [word (words-size>2 (string/lower-case (strip-wikipedia title)))]
@@ -88,10 +87,9 @@
 
     (let [docs (->> xml-string xml/parse-str :content (filter #(= :doc (:tag %))))]
       (doseq [doc (conj (take 100 docs) (first docs) (last docs))]
-        (let [zipped-doc (zip/xml-zip doc)
-              title (xml-text zipped-doc :title)
-              abstract (xml-text zipped-doc :abstract)
-              url (xml-text zipped-doc :url)]
+        (let [title (text-of-tag doc :title)
+              abstract (text-of-tag doc :abstract)
+              url (text-of-tag doc :url)]
 
           (doseq [word (words-size>2 (string/lower-case (strip-wikipedia title)))]
             (fact
@@ -103,34 +101,43 @@
               {:midje/description (str "it correctly indexes `" word "` from abstract")}
               (txt/trie-get file-trie word) => (complement nil?))))))))
 
+(facts "about XML accessors"
 
+  (fact "text-of-tag should return the text of an element"
+    (text-of-tag parsed-nzb :bar) => "The bar text"
+    (text-of-tag parsed-nzb :baz) => empty?)
 
+  (fact "filter-element-by-tag should filter correctly by tag or keyword"
+    (filter-element-by-tag parsed-nzb :bar) => #(= (:tag (first %1)) :bar)
+    (filter-element-by-tag parsed-nzb "foo") => #(= (:tag (first %1)) :foo)
+    (filter-element-by-tag parsed-nzb :baz) => empty?
+    (filter-element-by-tag parsed-nzb :bar :foo) => #(every? #{:foo :bar} (map :tag %1))
+    (filter-element-by-tag parsed-nzb "baz" :foo) => #(some #{:foo} (map :tag %1))
+    (filter-element-by-tag parsed-nzb "baz" :foo) =not=> #(some #{:baz} (map :tag %1)))
 
+  (fact "should return empty string if no tag matches"
+    (join-text-of-tag "" parsed-nzb :baz) => "")
 
+  (fact "should merge one tag's text"
+    (join-text-of-tag "" parsed-nzb :bar) => "The bar text")
 
+  (fact "should merge many tag's text, order does not count, follows xml"
+    (join-text-of-tag "" parsed-nzb :foo :bar) => "The foo textThe bar text"
+    (join-text-of-tag "" parsed-nzb :bar :foo) => "The foo textThe bar text"))
 
+(fact "benchmarking `wiki-source->trie-pair`"
+  :bench
+  (binding [*sample-count* 10] 
+    (let [config-map (sys/make-config)
+          location (:test-resource-location config-map)]
+      (with-progress-reporting
+        (quick-bench (when-let [fr (async/<!! (fetch/fetch! location))]
+                       (wiki-source->trie-pair identity (:stream fr))
+                       (fetch/fetch-close! fr)))))))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+;; After removing xml zippers and some redundant call to tuple/vector in text.impl
+;; Execution time mean : 7.804550 sec
+;;     Execution time std-deviation : 600.689596 ms
+;;    Execution time lower quantile : 7.292294 sec ( 2.5%)
+;;    Execution time upper quantile : 8.712986 sec (97.5%)
+;;                    Overhead used : 1.927362 ns

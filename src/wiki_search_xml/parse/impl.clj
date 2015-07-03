@@ -2,26 +2,43 @@
   (:require [clojure.tools.trace :refer [deftrace trace] :rename {trace t}]
             [clojure.tools.logging :as log]
             [clojure.core.async :as async]
+            [clojure.core.reducers :as r]
             [clojure.data.xml :as xml]
-            [clojure.zip :as zip]
             [clojure.string :as string]
-            [clojure.data.zip.xml :as zxml]
             [wiki-search-xml.text :as txt]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Trie generation ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;
 
-(defn- ^:testable xml-text
+(defn- ^:testable
+  filter-element-by-tag
+  "Lazily returns the elements that match the (variadic)
+  keywords-or-tags."
+  [element & keywords-or-tags]
+  (let [tag-set (into #{} (map keyword keywords-or-tags))]
+    (->> element :content (filter #(tag-set (:tag %1))))))
+
+(defn- ^:testable
+  join-text-of-tag
+  "Returns the text of the children of element with tags matching
+  the (variadic) keywords-or-tags. The separator can be used to
+  differentiate them. The order of the texts does not follow the input
+  tags but the xml."
+  [separator element & keywords-or-tags]
+  (string/join separator (map (comp first :content) (apply filter-element-by-tag element keywords-or-tags))))
+
+(defn- ^:testable
+  text-of-tag
   [element keyword-or-tag]
-  (zxml/text (zxml/xml1-> element (keyword keyword-or-tag))))
+  (first (:content (first (filter-element-by-tag element keyword-or-tag)))))
 
 (defn- ^:testable
   strip-wikipedia
   "Strips the initial Wikipedia: (case insensitive) from s. Returns the rest
   of the text separated by spaces (in order to avoid losing words during
   the join."
-  [s]
+  [^String s]
   (string/replace-first s #"(?i)^wikipedia:" ""))
 
 (defn- ^:testable
@@ -39,10 +56,9 @@
   It accepts a record. If no prior manipulation is needed, just pass
   identity. Typically this is used to add db fields."
   ([trie-value-hook another-trie doc-element]
-   (let [doc (zip/xml-zip doc-element)
-         title (xml-text doc :title)
-         abstract (xml-text doc :abstract)
-         url (xml-text doc :url)
+   (let [title (text-of-tag doc-element :title)
+         abstract (text-of-tag doc-element :abstract)
+         url (text-of-tag doc-element :url)
          trie-value (trie-value-hook {:title title :abstract abstract :url url})]
      [(txt/text->trie another-trie
                       ;; a separator needed in case the title ends by a word (we don't want to lose it)
@@ -50,7 +66,9 @@
                       trie-value)
       trie-value]))
   ([trie-value-hook doc]
-   (doc->trie-pair trie-value-hook (txt/trie-empty) doc)))
+   (doc->trie-pair trie-value-hook (txt/trie-empty) doc))
+  ([trie-value-hook]
+   (txt/trie-empty)))
 
 (defn wiki-xml->trie-pair
   "Returns a pair containing:
@@ -64,7 +82,7 @@
   fields. It accepts a trie value. If no prior manipulation is needed,
   just pass identity. Typically this is used to add db fields."
   [trie-value-hook xml-root]
-  (let [docs (doall (->> xml-root :content (filter #(= :doc (:tag %)))))]
+  (let [docs (->> xml-root :content (filter #(= :doc (:tag %))))]
     (if-not (= 1 (count docs))
       (do (log/info "wiki-xml->trie-pair - reducing on the <doc> elements, this can take some time")
           (doall (reduce (fn [[acc-trie acc-values] doc]

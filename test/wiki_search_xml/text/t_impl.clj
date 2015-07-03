@@ -1,5 +1,5 @@
 (ns wiki-search-xml.text.t-impl
-  (:refer-clojure :exclude [next])
+  (:refer-clojure :exclude [next empty?])
   (:require [midje.sweet :refer :all]
             [midje.util :refer [expose-testables]]
             [wiki-search-xml.text.impl :refer :all]

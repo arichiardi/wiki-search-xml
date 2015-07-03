@@ -9,6 +9,7 @@
                  [com.stuartsierra/component "0.2.3"]
                  [slingshot "0.12.2"]
                  [environ "1.0.0"]
+                 [criterium "0.4.3"]
 
                  ;; Data
                  [org.clojure/data.xml "0.0.8"]

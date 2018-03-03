@@ -1,5 +1,4 @@
-(change-defaults :print-level :print-namespaces)
-
-(when-not (running-in-repl?)
-  (change-defaults :fact-filter #(and (not (:slow %))
-                                      (not (:bench %)))))
+(change-defaults :print-level :print-namespaces
+                 :fact-filter #(and (not (:slow %1))
+                                    (not (:bench %1))
+                                    (not (:profile %1))))

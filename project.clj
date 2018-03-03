@@ -3,13 +3,12 @@
   :url "https://github.com/arichiardi/wiki-search-xml"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.7.0-RC2"]
+  :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [org.clojure/tools.trace "0.7.8"]
                  [com.stuartsierra/component "0.2.3"]
                  [slingshot "0.12.2"]
                  [environ "1.0.0"]
-                 [criterium "0.4.3"]
 
                  ;; Data
                  [org.clojure/data.xml "0.0.8"]
@@ -42,11 +41,15 @@
              :dev {:debug true
                    :dependencies [[org.clojure/tools.namespace "0.2.10"]
                                   [org.clojure/tools.trace "0.7.8"]
-                                  [midje "2.0.0-SNAPSHOT"]
+                                  [midje "1.7.0"]
                                   [midje-notifier "0.2.0"]
-                                  [ring/ring-devel "1.4.0-RC1"]]
+                                  [ring/ring-devel "1.4.0-RC1"]
+                                  [criterium "0.4.3"]
+                                  [com.taoensso/timbre "4.0.2"]]
+                   :plugins [[lein-midje "3.1.4-SNAPSHOT"]]
                    :source-paths ["dev"]
                    :resource-paths ^:replace ["dev-resources"]
-                   :env {:wsx-logger-name "wiki-search-xml-dev-logger"}}
+                   :env {:wsx-logger-name "wiki-search-xml-dev-logger"
+                         :squiggly {:checkers [:eastwood :kibit]}}}
              :test {:env {:wsx-logger-name "wiki-search-xml-test-logger"}
                     :resource-paths ^:replace ["dev/resources"]}})

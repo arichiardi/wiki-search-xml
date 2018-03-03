@@ -5,7 +5,8 @@
             [clojure.core.reducers :as r]
             [clojure.data.xml :as xml]
             [clojure.string :as string]
-            [wiki-search-xml.text :as txt]))
+            [wiki-search-xml.text :as txt]
+            [taoensso.timbre.profiling :refer [defnp p profile]]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Trie generation ;;;
@@ -70,7 +71,7 @@
   ([trie-value-hook]
    (txt/trie-empty)))
 
-(defn wiki-xml->trie-pair
+(defnp wiki-xml->trie-pair
   "Returns a pair containing:
   1) The prefix trie of the contents of the <doc><abstract> ...
   <title></doc> xml tags.
@@ -83,10 +84,10 @@
   just pass identity. Typically this is used to add db fields."
   [trie-value-hook xml-root]
   (let [docs (->> xml-root :content (filter #(= :doc (:tag %))))]
-    (if-not (= 1 (count docs))
+    (if-not (= 1 (p :count (count docs)))
       (do (log/info "wiki-xml->trie-pair - reducing on the <doc> elements, this can take some time")
           (doall (reduce (fn [[acc-trie acc-values] doc]
-                           (let [[new-trie new-value] (doc->trie-pair trie-value-hook acc-trie doc)]
+                           (let [[new-trie new-value] (p :doc->trie-pair (doc->trie-pair trie-value-hook acc-trie doc))]
                              [new-trie (conj acc-values new-value)]))
                          [(txt/trie-empty) []]
                          docs)))

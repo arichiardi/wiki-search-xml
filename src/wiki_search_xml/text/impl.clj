@@ -3,7 +3,8 @@
   prefix tree."
   (:refer-clojure :exclude [empty?] :rename {next cnext, empty? cempty?})
   (:require [clojure.tools.trace :refer [deftrace trace] :rename {trace t}]
-            [clj-tuple :as tuple]))
+            [clj-tuple :as tuple]
+            [taoensso.timbre.profiling :refer [defnp p profile]]))
 
 (set! *warn-on-reflection* true)
 
@@ -47,7 +48,7 @@
 
 (defn trie-insert-children
   "Assuming I just want to create a node from a word, creates the
-  nodes."
+  corresponding tree."
   ([^String s value]
    (when-let [rev (reverse s)]
      (trie-insert-children (rest rev) value
@@ -58,13 +59,12 @@
      acc-node)))
 
 (defn trie-insert-recursive
-  "This helper uses direct recursion because the depth will never be
-  larger then the word size * number of letter in the alphabet. Does not
-  bother to handle the insertion of strings less than 3 character in
-  size.
+  "This helper uses direct recursion because the depth will never be larger
+  then the word size * number of letter in the alphabet. Does not bother to
+  handle the insertion of strings less than 3 character in size.
 
-  Following wiki's singly linked implementation, the trie stores nodes
-  as follows for {baby, bad, bank, box, dad, dance}:
+  Following wiki's singly linked implementation, the trie stores nodes as
+  follows for {baby, bad, bank, box, dad, dance}:
 
   b--next----> d
   |            |
@@ -76,28 +76,32 @@
                   |
                   e
 
-  This avoids wasting space for the arrays of letters and allows to be
-  more flexible with dictionaries (the equality is on the :sym field of
-  the Node record, which can be anything). The entries are not sorted."
+  This avoids wasting space for the arrays of letters and allows to be more
+  flexible with dictionaries (the equality is on the :sym field of the Node
+  record, which can be anything). The entries are not sorted, it supports
+  Unicode (cast to int) strings. Value cannot be nil (it is used to signal
+  string ending."
   [node ^String s v]
-  (if-let [symbol (first s)]
-    (if (= symbol (sym node))
-      (if-let [sym-tail (cnext s)]
-        (add-child node (if-let [c (child node)]
-                          (trie-insert-recursive c sym-tail v)
-                          (trie-insert-children sym-tail v)))
-        (conj-value node v))
-      (add-next node (if-let [n (next node)]
-                       (trie-insert-recursive n s v)
-                       (trie-insert-children s v))))
+  (if-let [head ^Character (first s)]
+    (if-let [ch ^Character (sym node)]
+      (if (zero? (.compareTo head ch))
+        (if-let [tail (cnext s)]
+          (add-child node (if-let [c (child node)]
+                            (trie-insert-recursive c tail v)
+                            (trie-insert-children tail v)))
+          (conj-value node v))
+        (add-next node (if-let [n (next node)]
+                         (trie-insert-recursive n s v)
+                         (trie-insert-children s v))))
+      (trie-insert-children s v))
     (trie-insert-children s v)))
 
 (defn trie-find
   "Finds the input s in the node. Returns the Node record of the last
-  symbol (the one that containes the values) or nil."
+  symbol (the one that contains the values) or nil."
   [node ^String s]
-  (if-let [symbol (first s)]
-    (if (= symbol (sym node))
+  (if-let [head ^Character (first s)]
+    (if (= head ^Character (sym node))
       (if-let [sym-tail (cnext s)]
         (if-let [c (child node)]
           (trie-find c sym-tail)

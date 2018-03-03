@@ -40,7 +40,7 @@
   ([another-trie ^String text value]
    (if-let [ws (seq (distinct (filter #(> (count %1) 2) (words text))))]
      (if-not (= (count ws) 1) ;; see reduce doc, I need an explicit case for count = 1
-       (reduce #(trie-insert %1 %2 value) another-trie ws) 
+       (reduce #(trie-insert %1 %2 value) another-trie ws)
        (trie-insert another-trie (first ws) value))
      another-trie)))
 

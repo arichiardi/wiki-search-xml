@@ -13,7 +13,8 @@
             [wiki-search-xml.parse.impl :refer :all]
             [midje.sweet :refer :all]
             [midje.util :refer [expose-testables]]
-            [criterium.core :refer :all])
+            [criterium.core :refer :all]
+            [taoensso.timbre.profiling :refer [profile]])
   (:import java.io.StringReader))
 
 (expose-testables wiki-search-xml.parse.impl)
@@ -135,9 +136,39 @@
                        (wiki-source->trie-pair identity (:stream fr))
                        (fetch/fetch-close! fr)))))))
 
+(fact "profiling `wiki-source->trie-pair`"
+  :profile
+  (println "profiling `wiki-source->trie-pair`")
+  (binding [*sample-count* 10]
+    (let [config-map (sys/make-config)
+          location (:test-resource-location config-map)]
+      (profile :info :wiki-source->trie-pair (when-let [fr (async/<!! (fetch/fetch! location))]
+                                               (wiki-source->trie-pair identity (:stream fr))
+                                               (fetch/fetch-close! fr))))))
+
 ;; After removing xml zippers and some redundant call to tuple/vector in text.impl
 ;; Execution time mean : 7.804550 sec
 ;;     Execution time std-deviation : 600.689596 ms
 ;;    Execution time lower quantile : 7.292294 sec ( 2.5%)
 ;;    Execution time upper quantile : 8.712986 sec (97.5%)
 ;;                    Overhead used : 1.927362 ns
+
+;; With int type hints
+;; Execution time mean : 6.538396 sec
+;;    Execution time std-deviation : 200.009613 ms
+;;   Execution time lower quantile : 6.347756 sec ( 2.5%)
+;;   Execution time upper quantile : 6.720683 sec (97.5%)
+;;                   Overhead used : 1.780290 ns
+
+;; Profiling individual functions
+;; 15-Jul-08 17:34:24 sea INFO [wiki-search-xml.parse.t-impl] - Profiling: :wiki-search-xml.parse.t-impl/wiki-source->trie-pair
+                                              ;; Id      nCalls       Min        Max       MAD      Mean   Time% Time
+;; :wiki-search-xml.text.impl/trie-insert-recursive  14,554,410     163ns    125.0ms    51.0μs    54.0μs    1310 781.2s
+                 ;; :wiki-search-xml.text.impl/next  11,272,384     399ns    125.0ms    55.0μs    61.0μs    1157 689.9s
+                ;; :wiki-search-xml.text.impl/child   2,772,879     408ns    125.0ms    23.0μs    23.0μs     108 64.1s
+ ;; :wiki-search-xml.parse.impl/wiki-xml->trie-pair           1     59.6s      59.6s       0ns     59.6s     100 59.6s
+      ;; :wiki-search-xml.parse.impl/doc->trie-pair      46,401     9.0μs    125.0ms     1.0ms     1.0ms      93 55.7s
+                                ;; :timbre/stats-gc         255    67.0ms    124.0ms     8.0ms    82.0ms      35 20.9s
+               ;; :wiki-search-xml.parse.impl/count           1      3.8s       3.8s       0ns      3.8s       6 3.8s
+                                      ;; Clock Time                                                          100 59.6s
+                                  ;; Accounted Time                                                         2810 1675.3s
